@@ -6,8 +6,10 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
+    [RequireComponent(typeof(PlayerInput))]
     public class PlayerController : MonoBehaviour
     {
+        private PlayerInput _playerInput;
         public bool isPlayer1 = true;
 
         [SerializeField] private GameObject body;
@@ -48,6 +50,8 @@ namespace Player
 
         private void Awake()
         {
+            _playerInput = GetComponent<PlayerInput>();
+            
             if (body != null)
             {
                 _rigidbody = body.GetComponent<Rigidbody2D>();
@@ -60,6 +64,7 @@ namespace Player
 
             if (weapon != null)
             {
+                weapon.transform.SetParent(transform);
                 _weaponSprite = weapon.GetComponent<SpriteRenderer>();
             }
         }
@@ -70,10 +75,14 @@ namespace Player
             {
                 ColorUtility.TryParseHtmlString("#FB8F13", out var p1Color);
                 _weaponSprite.color = p1Color;
+                
+                _playerInput.SwitchCurrentControlScheme(GameManager.Instance.P1Device);
             } else
             {
                 ColorUtility.TryParseHtmlString("#315D9A", out var p2Color);
                 _weaponSprite.color = p2Color;
+                
+                _playerInput.SwitchCurrentControlScheme(GameManager.Instance.P2Device);
             }
         }
     
@@ -96,8 +105,8 @@ namespace Player
 
         private void HandleMove()
         {
-            Vector2 movement;
-
+            Vector3 movement;
+            
             if (_hitByEnemy)
             {
                 movement = _knockbackDirection * (knockbackForce * Time.fixedDeltaTime);
@@ -111,10 +120,10 @@ namespace Player
             }
             else
             {
-                movement = _moveInput * (moveSpeed * Time.fixedDeltaTime);
+                movement = new Vector3(_moveInput.x, _moveInput.y, 0f) * (moveSpeed * Time.fixedDeltaTime);
             }
-        
-            _rigidbody.MovePosition(_rigidbody.position + movement);
+            
+            transform.position += movement;
         }
 
         public void GetHitByEnemy(Vector3 enemyPosition, float cooldown)
@@ -133,25 +142,28 @@ namespace Player
         {
             _isLooking = _lookInput != Vector2.zero;
             
-            if (!_isLooking && IsCrosshairVisible())
+            if (_isLooking)
             {
-                SetCrosshairVisibility(0f);
-                return;
+                if (!IsCrosshairVisible())
+                {
+                    SetCrosshairVisibility(1f);
+                }
+
+                UpdateWeaponRotation();
+                crosshair.transform.position = (Vector2)transform.position + _lookInput * crosshairRange;
             }
-
-            UpdateWeaponRotation();
-
-            if (!IsCrosshairVisible())
+            else
             {
-                SetCrosshairVisibility(1f);
+                if (IsCrosshairVisible())
+                {
+                    SetCrosshairVisibility(0f);
+                }
             }
-            
-            crosshair.transform.position = (Vector2)transform.position + _lookInput * crosshairRange;
         }
 
         private bool IsCrosshairVisible()
         {
-            return _crosshairSprite.color.a >= 0;
+            return _crosshairSprite.color.a > 0;
         }
         
         private void SetCrosshairVisibility(float alpha)
@@ -208,16 +220,16 @@ namespace Player
                 _aoeCooldownTimer = aoeCooldown;
                 var aoeInstance = Instantiate(aoe, transform.position, Quaternion.identity);
                 aoeInstance.GetComponent<AoEBehaviour>().isPlayer1 = isPlayer1;
+                UIManager.Instance.TriggerAoE(isPlayer1, aoeCooldown);
             }
 
-            if (_aoeCooldownTimer > 0f)
-            {
-                _aoeCooldownTimer -= Time.fixedDeltaTime;
+            if (_aoeCooldownTimer <= 0f) return;
 
-                if (_aoeCooldownTimer < 0f)
-                {
-                    _aoeCooldownTimer = 0f;
-                }
+            _aoeCooldownTimer -= Time.fixedDeltaTime;
+
+            if (_aoeCooldownTimer < 0f)
+            {
+                _aoeCooldownTimer = 0f;
             }
         }
         

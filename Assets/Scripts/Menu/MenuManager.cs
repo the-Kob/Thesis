@@ -38,17 +38,24 @@ namespace Menu
         {
             pistolP1.isPlayerConnected = true;
             
-            Gamepad.all[0].SetMotorSpeeds(0.5f, 0.5f);
+            var gamepad = Gamepad.all[0];
+            
+            gamepad.SetMotorSpeeds(0.5f, 0.5f);
             StartCoroutine(StopGamepadVibration(0, 0.5f));
+            
+            GameManager.Instance.SetPlayerDevice(0, gamepad);
         }
-
-        // Check for Player 2 connection (if a second controller is available)
+        
         if (!pistolP2.isPlayerConnected && Gamepad.all.Count > 1 && Gamepad.all[1].startButton.isPressed)
         {
             pistolP2.isPlayerConnected = true;
             
-            Gamepad.all[1].SetMotorSpeeds(0.5f, 0.5f);
+            var gamepad = Gamepad.all[1];
+            
+            gamepad.SetMotorSpeeds(0.5f, 0.5f);
             StartCoroutine(StopGamepadVibration(1, 0.5f));
+            
+            GameManager.Instance.SetPlayerDevice(1, gamepad);
         }
 
         if (pistolP1.isPlayerConnected && pistolP2.isPlayerConnected && !_bothPlayersConnected)
