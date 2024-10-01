@@ -1,8 +1,10 @@
 using System;
 using Abilities;
 using Bullet;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using ColorUtility = UnityEngine.ColorUtility;
 
 namespace Player
 {
@@ -48,6 +50,17 @@ namespace Player
         private bool _aoeInput;
         private float _aoeCooldownTimer;
 
+        [SerializeField] private GameObject effect;
+        [SerializeField] private float effectMenuCooldown;
+        private float _effectMenuCooldownTimer;
+        private bool _isInEffectMenu;
+        [SerializeField] private float chooseEffectCooldown = 10f;
+        private float _chooseEffectCooldownTimer;
+        private bool _isEffectActive;
+        private bool _chooseEffectDownInput;
+        private bool _chooseEffectUpInput;
+        private int _chosenEffect = -1;
+        
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
@@ -86,7 +99,21 @@ namespace Player
             }
         }
     
+        private void Update()
+        {
+            HandleLook();
+            HandleFire();
+            HandleAoE();
+            HandleChooseEffect();
+        }
+
         private void FixedUpdate()
+        {
+            UpdateCooldowns();
+            HandleMove();
+        }
+
+        private void UpdateCooldowns()
         {
             if (actCooldownTimer > 0f)
             {
@@ -96,33 +123,49 @@ namespace Player
             {
                 canAct = true;
             }
+
+            if (_fireCooldownTimer > 0f)
+            {
+                _fireCooldownTimer -= Time.fixedDeltaTime;
+            }
+            else
+            {
+                _canFire = true;
+            }
+
+            if (_aoeCooldownTimer > 0f)
+            {
+                _aoeCooldownTimer -= Time.fixedDeltaTime;
+            }
             
-            HandleMove();
-            HandleLook();
-            HandleFire();
-            HandleAoE();
+            if (_aoeCooldownTimer < 0f)
+            {
+                _aoeCooldownTimer = 0f;
+            }
+
+            if (_chooseEffectCooldownTimer > 0f)
+            {
+                _chooseEffectCooldownTimer -= Time.fixedDeltaTime;
+            }
+            else
+            {
+                _isEffectActive = true;
+            }
+
+            if (_effectMenuCooldownTimer > 0f)
+            {
+                _effectMenuCooldownTimer -= Time.fixedDeltaTime;
+            }
         }
 
         private void HandleMove()
         {
-            Vector3 movement;
-            
-            if (_hitByEnemy)
-            {
-                movement = _knockbackDirection * (knockbackForce * Time.fixedDeltaTime);
-        
-                _knockbackCooldownTimer -= Time.fixedDeltaTime;
-            
-                if (_knockbackCooldownTimer <= 0)
-                {
-                    _hitByEnemy = false;
-                }
-            }
-            else
-            {
-                movement = new Vector3(_moveInput.x, _moveInput.y, 0f) * (moveSpeed * Time.fixedDeltaTime);
-            }
-            
+            Vector3 movement = _hitByEnemy ? _knockbackDirection * (knockbackForce * Time.fixedDeltaTime) : 
+                new Vector3(_moveInput.x, _moveInput.y, 0f) * (moveSpeed * Time.fixedDeltaTime);
+
+            if (_hitByEnemy && (_knockbackCooldownTimer -= Time.fixedDeltaTime) <= 0)
+                _hitByEnemy = false;
+
             transform.position += movement;
         }
 
@@ -146,7 +189,7 @@ namespace Player
             {
                 if (!IsCrosshairVisible())
                 {
-                    SetCrosshairVisibility(1f);
+                    SetCrosshairVisibility(true);
                 }
 
                 UpdateWeaponRotation();
@@ -156,7 +199,7 @@ namespace Player
             {
                 if (IsCrosshairVisible())
                 {
-                    SetCrosshairVisibility(0f);
+                    SetCrosshairVisibility(false);
                 }
             }
         }
@@ -166,10 +209,10 @@ namespace Player
             return _crosshairSprite.color.a > 0;
         }
         
-        private void SetCrosshairVisibility(float alpha)
+        private void SetCrosshairVisibility(bool visible)
         {
             var temporaryColor = _crosshairSprite.color;
-            temporaryColor.a = alpha;
+            temporaryColor.a = visible ? 1f : 0f;
             _crosshairSprite.color = temporaryColor;
         }
 
@@ -182,55 +225,85 @@ namespace Player
 
         private void HandleFire()
         {
-            _isFiring = _fireInput != 0;
-
-            if (_isFiring && _canFire && canAct)
+            if(_fireInput == 0 || !_canFire || !canAct) return;
+            
+            _canFire = false;
+            
+            if (isPlayer1)
             {
-                _canFire = false;
-                
-                if (isPlayer1)
-                {
-                    AudioManager.Instance.PlayP1Shot();
-                }
-                else
-                {
-                    AudioManager.Instance.PlayP2Shot(); 
-                }
-
-                var bulletInstance = Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
-                bulletInstance.GetComponent<BulletBehaviour>().isPlayer1 = isPlayer1;
-                _fireCooldownTimer = fireCooldown;
+                AudioManager.Instance.PlayP1Shot();
+            }
+            else
+            {
+                AudioManager.Instance.PlayP2Shot(); 
             }
 
-            if (_fireCooldownTimer > 0f)
-            {
-                _fireCooldownTimer -= Time.fixedDeltaTime;
-            }
-
-            if (_fireCooldownTimer <= 0f)
-            {
-                _canFire = true;
-            }
+            var bulletInstance = Instantiate(bullet, weapon.transform.position, weapon.transform.rotation);
+            bulletInstance.GetComponent<BulletBehaviour>().isPlayer1 = isPlayer1;
+            
+            _fireCooldownTimer = fireCooldown;
         }
 
         private void HandleAoE()
         {
-            if (_aoeCooldownTimer <= 0f && _aoeInput && canAct)
+            if (_aoeCooldownTimer > 0f || !_aoeInput || !canAct) return;
+            
+            _aoeCooldownTimer = aoeCooldown;
+            var aoeInstance = Instantiate(aoe, transform.position, Quaternion.identity);
+            aoeInstance.GetComponent<AoEBehaviour>().isPlayer1 = isPlayer1;
+            UIManager.Instance.TriggerAoE(isPlayer1, aoeCooldown);
+        }
+
+        private void HandleChooseEffect()
+        {
+            HandleChooseEffectDown();
+            HandleChooseEffectUp();
+        }
+
+        private void HandleChooseEffectDown()
+        {
+            if (!_chooseEffectDownInput || _isEffectActive) return;
+
+            if (_isInEffectMenu)
             {
-                _aoeCooldownTimer = aoeCooldown;
-                var aoeInstance = Instantiate(aoe, transform.position, Quaternion.identity);
-                aoeInstance.GetComponent<AoEBehaviour>().isPlayer1 = isPlayer1;
-                UIManager.Instance.TriggerAoE(isPlayer1, aoeCooldown);
+                HandleEffectMenuNavigation();
             }
-
-            if (_aoeCooldownTimer <= 0f) return;
-
-            _aoeCooldownTimer -= Time.fixedDeltaTime;
-
-            if (_aoeCooldownTimer < 0f)
+            else if(!_isEffectActive && _effectMenuCooldownTimer <= 0f)
             {
-                _aoeCooldownTimer = 0f;
+                _isInEffectMenu = true;
+                // UIManager.OpenEffectMenu(isPlayer1);
             }
+        }
+
+        private void HandleEffectMenuNavigation()
+        {
+            if (_lookInput == Vector2.zero) return;
+
+            var angle = Vector2.Angle(_lookInput, Vector2.right);
+
+            if (_lookInput.x > 0f)
+            {
+                    
+            }
+            else
+            {
+                    
+            }
+        }
+
+        private void HandleChooseEffectUp()
+        {
+            if (!_chooseEffectUpInput || !_isInEffectMenu) return;
+            
+            _isInEffectMenu = false;
+            _effectMenuCooldownTimer = 1f;
+
+            if (_chosenEffect == -1) return;
+            
+            var effectInstance = Instantiate(effect, transform.position, Quaternion.identity);
+            effectInstance.GetComponent<EffectBehaviour>().SetEffect(_chosenEffect);
+            _isEffectActive = true;
+            UIManager.Instance.TriggerChooseEffect(isPlayer1, chooseEffectCooldown);
         }
         
         public void OnMove(InputAction.CallbackContext context)
@@ -251,6 +324,12 @@ namespace Player
         public void OnAoE(InputAction.CallbackContext context)
         {
             _aoeInput = context.performed;
+        }
+
+        public void OnChooseEffect(InputAction.CallbackContext context)
+        {
+            _chooseEffectDownInput = context.started;
+            _chooseEffectUpInput = context.canceled;
         }
     }
 }

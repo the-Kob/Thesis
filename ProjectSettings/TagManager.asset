@@ -6,10 +6,10 @@ TagManager:
   tags:
   - P1
   - P2
-  - P1 Enemy
-  - P2 Enemy
   - P1 Universe
   - P2 Universe
+  - P1 Enemy
+  - P2 Enemy
   layers:
   - Default
   - TransparentFX

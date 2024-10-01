@@ -1,4 +1,5 @@
 using System;
+using Enemy;
 using UnityEngine;
 
 namespace Abilities
@@ -14,8 +15,6 @@ namespace Abilities
         }
         
         [SerializeField] private Effects currentEffect;
-        
-        [HideInInspector] public bool isPlayer1;
         private SpriteRenderer _sprite;
         private float _effectRadius;
         private bool _isEffectSet;
@@ -66,36 +65,36 @@ namespace Abilities
         // Nerf
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (currentEffect != Effects.NerfP1Enemy && currentEffect != Effects.NerfP2Enemy) return;
-            
-            if (collision.CompareTag("P1 Enemy"))
+            switch (currentEffect)
             {
-                //
-            }
-            
-            if (collision.CompareTag("P2 Enemy"))
-            {
-                //
+                case Effects.NerfP1Enemy when collision.CompareTag("P1 Enemy"):
+                    collision.gameObject.GetComponent<EnemyBehaviour>().Nerf();
+                    break;
+                case Effects.NerfP2Enemy when collision.CompareTag("P2 Enemy"):
+                    collision.gameObject.GetComponent<EnemyBehaviour>().Nerf();
+                    break;
+                default:
+                    return;
             }
         }
         
         // Buff
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (currentEffect != Effects.BuffP1Enemy && currentEffect != Effects.BuffP2Enemy) return;
-
-            if (collision.CompareTag("P1 Enemy"))
+            switch (currentEffect)
             {
-                //
-            }
-            
-            if (collision.CompareTag("P2 Enemy"))
-            {
-                //
+                case Effects.BuffP1Enemy when collision.CompareTag("P1 Enemy"):
+                    collision.gameObject.GetComponent<EnemyBehaviour>().Buff();
+                    break;
+                case Effects.BuffP2Enemy when collision.CompareTag("P2 Enemy"):
+                    collision.gameObject.GetComponent<EnemyBehaviour>().Buff();
+                    break;
+                default:
+                    return;
             }
         }
 
-        private void SetEffect(int effect)
+        public void SetEffect(int effect)
         {
             currentEffect = (Effects) effect;
 

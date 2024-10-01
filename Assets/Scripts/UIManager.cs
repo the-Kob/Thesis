@@ -1,31 +1,40 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
     
     [SerializeField] private TextMeshProUGUI score;
-    private float scoreInitialFontSize;
+    private float _scoreInitialFontSize;
     [SerializeField] private RectTransform p1Universe;
     private bool _p1UniverseExists;
     [SerializeField] private RectTransform p2Universe;
     private bool _p2UniverseExists;
+    
+    [SerializeField] private Sprite effectIcon;
+    [SerializeField] private Image p1EffectIcon;
+    [SerializeField] private Image p2EffectIcon;
     
     [SerializeField] private RectTransform p1AoeCooldownMask;
     private float _p1AoeCooldown;
     [SerializeField] private GameObject p1EffectsMenu;
     private GameObject[] _p1Effects;
     [HideInInspector] public bool isP1MenuOpen;
-    [SerializeField] private RectTransform p1EffectCooldownMask;
+    [SerializeField] private RectTransform p1ChooseEffectCooldownMask;
+    private float _p1ChooseEffectCooldown;
+    private bool _isP1EffectActive;
     
     [SerializeField] private RectTransform p2AoeCooldownMask;
     private float _p2AoeCooldown;
     [SerializeField] private GameObject p2EffectsMenu;
     private GameObject[] _p2Effects;
     [HideInInspector] public bool isP2MenuOpen;
-    [SerializeField] private RectTransform p2EffectCooldownMask;
+    [SerializeField] private RectTransform p2ChooseEffectCooldownMask;
+    private float _p2ChooseEffectCooldown;
+    private bool _isP2EffectActive;
 
     private void Awake()
     {
@@ -38,7 +47,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
         
-        if (score != null) scoreInitialFontSize = score.fontSize;
+        if (score != null) _scoreInitialFontSize = score.fontSize;
         
         if (p1Universe != null) _p1UniverseExists = true;
         if (p2Universe != null) _p2UniverseExists = true;
@@ -68,7 +77,7 @@ public class UIManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        score.fontSize = scoreInitialFontSize;
+        score.fontSize = _scoreInitialFontSize;
         
         if (_p1UniverseExists) p1Universe.localScale = Vector2.one;
         if (_p2UniverseExists) p2Universe.localScale = Vector2.one;
@@ -80,6 +89,30 @@ public class UIManager : MonoBehaviour
         
         if (p2AoeCooldownMask.localScale.y > 0f) {
             p2AoeCooldownMask.localScale -= new Vector3(0f, Time.fixedDeltaTime/_p2AoeCooldown, 0f);
+        }
+        
+        // If the Choose Effect is on cooldown, animate the cooldown mask to decrease until the Choose Effect is available
+        if (p1ChooseEffectCooldownMask.localScale.y > 0f) {
+            p1ChooseEffectCooldownMask.localScale -= new Vector3(0f, Time.fixedDeltaTime/_p1ChooseEffectCooldown, 0f);
+        }
+        else if (_isP1EffectActive)
+        {
+            _isP1EffectActive = false;  
+            ColorUtility.TryParseHtmlString("#FB8F13", out var p1Color);
+            p1EffectIcon.color = p1Color;
+            p1EffectIcon.sprite = effectIcon;
+        }
+        
+        if (p2ChooseEffectCooldownMask.localScale.y > 0f) {
+            p2ChooseEffectCooldownMask.localScale -= new Vector3(0f, Time.fixedDeltaTime/_p2ChooseEffectCooldown, 0f);
+        } 
+        else if (_isP2EffectActive)
+        {
+            _isP2EffectActive = false;
+            ColorUtility.TryParseHtmlString("#315D9A", out var p2Color);
+            p2EffectIcon.color = p2Color;
+            p2EffectIcon.sprite = effectIcon;
+
         }
     }
 
@@ -94,6 +127,22 @@ public class UIManager : MonoBehaviour
         {
             _p2AoeCooldown = cooldown;
             p2AoeCooldownMask.localScale = Vector3.one;
+        }
+    }
+
+    public void TriggerChooseEffect(bool isPlayer1, float cooldown)
+    {
+        if (isPlayer1)
+        {
+            _p1ChooseEffectCooldown = cooldown;
+            p1ChooseEffectCooldownMask.localScale = Vector3.one;
+            _isP1EffectActive = true;
+        }
+        else
+        {
+            _p2ChooseEffectCooldown = cooldown;
+            p2ChooseEffectCooldownMask.localScale = Vector3.one;
+            _isP2EffectActive = true;
         }
     }
 

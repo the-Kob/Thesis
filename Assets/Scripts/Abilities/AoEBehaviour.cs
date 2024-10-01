@@ -1,4 +1,5 @@
 using System;
+using Enemy;
 using UnityEngine;
 
 namespace Abilities
@@ -6,6 +7,7 @@ namespace Abilities
     public class AoEBehaviour : MonoBehaviour
     {
         [SerializeField] private float damage = 3f;
+        [SerializeField] private float impactForce = 10f;
         [SerializeField] private float aoeMaxScale = 0.3f;
         [HideInInspector] public bool isPlayer1;
         private string _enemyTag;
@@ -41,10 +43,10 @@ namespace Abilities
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.gameObject.CompareTag(_enemyTag))
-            {
-                //
-            } 
+            if (!collision.gameObject.CompareTag(_enemyTag)) return;
+            
+            var impact = collision.gameObject.transform.position - transform.position;
+            collision.gameObject.GetComponent<EnemyBehaviour>().GetHit(impact, impactForce, damage);
         }
     }
 }

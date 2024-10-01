@@ -1,5 +1,6 @@
-using System;
+ using System;
 using System.Net.Mail;
+using Enemy;
 using UnityEngine;
 
 namespace Bullet
@@ -13,7 +14,7 @@ namespace Bullet
     [SerializeField] private float lifespan = 5f;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float damage = 5f;
-    [SerializeField] private float impactForce = 20f;
+    [SerializeField] private float impactForce = 5f;
 
     [HideInInspector] public bool isPlayer1;
     
@@ -82,11 +83,11 @@ namespace Bullet
     {
         if (isPlayer1 && collision.gameObject.CompareTag("P1 Enemy"))
         {
-            // collision.gameObject.GetComponent<EnemyBehavior>().receiveDamage(damage, transform.right, impactForce);
+            collision.gameObject.GetComponent<EnemyBehaviour>().GetHit(transform.right, impactForce, damage);
             Destroy(gameObject);
         } else if (!isPlayer1 && collision.gameObject.CompareTag("P2 Enemy"))
         {
-            // collision.gameObject.GetComponent<EnemyBehavior>().receiveDamage(damage, transform.right, impactForce);
+            collision.gameObject.GetComponent<EnemyBehaviour>().GetHit(transform.right, impactForce, damage);
             Destroy(gameObject);
         }
     }
