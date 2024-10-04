@@ -271,7 +271,7 @@ namespace Player
             else if(!_isEffectActive && _effectMenuCooldownTimer <= 0f)
             {
                 _isInEffectMenu = true;
-                // UIManager.OpenEffectMenu(isPlayer1);
+                UIManager.Instance.OpenEffectMenu(isPlayer1);
             }
         }
 
@@ -283,12 +283,52 @@ namespace Player
 
             if (_lookInput.x > 0f)
             {
-                    
+                if (angle is > 45f and < 135f && _chosenEffect != 2)
+                {
+                    _chosenEffect = 2;
+                    UIManager.Instance.ClearEffectChoice(isPlayer1);
+                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
+                }
+
+                if (angle < 45f && _chosenEffect != 0)
+                {
+                    _chosenEffect = 0;
+                    UIManager.Instance.ClearEffectChoice(isPlayer1);
+                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
+                }
+
+                if (angle > 135f && _chosenEffect != 1)
+                {
+                    _chosenEffect = 1;
+                    UIManager.Instance.ClearEffectChoice(isPlayer1);
+                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
+                }
             }
             else
             {
-                    
+                if (angle is > 45f and < 135f && _chosenEffect != 3)
+                {
+                    _chosenEffect = 2;
+                    UIManager.Instance.ClearEffectChoice(isPlayer1);
+                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
+                }
+
+                if (angle < 45f && _chosenEffect != 0)
+                {
+                    _chosenEffect = 0;
+                    UIManager.Instance.ClearEffectChoice(isPlayer1);
+                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
+                }
+
+                if (angle > 135f && _chosenEffect != 1)
+                {
+                    _chosenEffect = 1;
+                    UIManager.Instance.ClearEffectChoice(isPlayer1);
+                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
+                }
             }
+
+            UIManager.Instance.ScaleEffectButtons(isPlayer1, _chosenEffect);
         }
 
         private void HandleChooseEffectUp()
@@ -297,13 +337,17 @@ namespace Player
             
             _isInEffectMenu = false;
             _effectMenuCooldownTimer = 1f;
-
+            
+            UIManager.Instance.CloseEffectMenu(isPlayer1, _chosenEffect);
+            
             if (_chosenEffect == -1) return;
             
             var effectInstance = Instantiate(effect, transform.position, Quaternion.identity);
             effectInstance.GetComponent<EffectBehaviour>().SetEffect(_chosenEffect);
             _isEffectActive = true;
             UIManager.Instance.TriggerChooseEffect(isPlayer1, chooseEffectCooldown);
+            
+            _chosenEffect = -1;
         }
         
         public void OnMove(InputAction.CallbackContext context)

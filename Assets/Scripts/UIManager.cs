@@ -21,7 +21,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RectTransform p1AoeCooldownMask;
     private float _p1AoeCooldown;
     [SerializeField] private GameObject p1EffectsMenu;
-    private GameObject[] _p1Effects;
+    private Image[] _p1Effects;
     [HideInInspector] public bool isP1MenuOpen;
     [SerializeField] private RectTransform p1ChooseEffectCooldownMask;
     private float _p1ChooseEffectCooldown;
@@ -30,7 +30,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RectTransform p2AoeCooldownMask;
     private float _p2AoeCooldown;
     [SerializeField] private GameObject p2EffectsMenu;
-    private GameObject[] _p2Effects;
+    private Image[] _p2Effects;
     [HideInInspector] public bool isP2MenuOpen;
     [SerializeField] private RectTransform p2ChooseEffectCooldownMask;
     private float _p2ChooseEffectCooldown;
@@ -55,22 +55,22 @@ public class UIManager : MonoBehaviour
         if (p1EffectsMenu != null)
         {
             var numberOfChildren = p1EffectsMenu.transform.childCount;
-            _p1Effects = new GameObject[numberOfChildren];
+            _p1Effects = new Image[numberOfChildren];
 
             for (var i = 0; i < numberOfChildren; i++)
             {
-                _p1Effects[i] = p1EffectsMenu.transform.GetChild(i).gameObject;
+                _p1Effects[i] = p1EffectsMenu.transform.GetChild(i).gameObject.GetComponent<Image>();
             }
         }
         
         if (p2EffectsMenu != null)
         {
             var numberOfChildren = p2EffectsMenu.transform.childCount;
-            _p2Effects = new GameObject[numberOfChildren];
+            _p2Effects = new Image[numberOfChildren];
 
             for (var i = 0; i < numberOfChildren; i++)
             {
-                _p2Effects[i] = p2EffectsMenu.transform.GetChild(i).gameObject;
+                _p2Effects[i] = p2EffectsMenu.transform.GetChild(i).gameObject.GetComponent<Image>();
             }
         }
     }
@@ -146,26 +146,113 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ToggleMenu(bool isPlayer1, bool toggle)
+    public void OpenEffectMenu(bool isPlayer1)
     {
-        if (toggle)
-        {
-            AudioManager.Instance.DecreasePitch();
-        }
-        else
-        {
-            AudioManager.Instance.IncreasePitch();
-        }
-        
         if (isPlayer1)
         {
-            p1EffectsMenu.SetActive(toggle);
-            isP1MenuOpen = toggle;
+            p1EffectsMenu.SetActive(true);
+            isP1MenuOpen = true;
         }
         else
         {
-            p2EffectsMenu.SetActive(toggle);
-            isP2MenuOpen = toggle;
+            p2EffectsMenu.SetActive(true);
+            isP2MenuOpen = true;
+        }
+    }
+
+    public void CloseEffectMenu(bool isPlayer1, int chosenEffect)
+    {
+        if (isPlayer1)
+        {
+            if (chosenEffect != -1)
+            {
+                p1EffectIcon.sprite = _p1Effects[chosenEffect].sprite;
+                p1EffectIcon.color = Color.white;
+            }
+            
+            ClearEffectChoice(true);
+            p1EffectsMenu.SetActive(false);
+            isP1MenuOpen = false;
+        }
+        else
+        {
+            if (chosenEffect != -1)
+            {
+                p2EffectIcon.sprite = _p2Effects[chosenEffect].sprite;
+                p2EffectIcon.color = Color.white;
+            }
+
+            ClearEffectChoice(false);
+            p2EffectsMenu.SetActive(false);
+            isP2MenuOpen = false;
+        }
+    }
+
+    public void ClearEffectChoice(bool isPlayer1)
+    {
+        if (isPlayer1)
+        {
+            foreach (var effect in _p1Effects)
+            {
+                effect.color = new Color (0f,0f,0f,1f);
+            }
+        }
+        else
+        {
+            foreach (var effect in _p2Effects)
+            {
+                effect.color = new Color (0f,0f,0f,1f);
+            }
+        }
+    }
+
+    public void ChooseEffect(bool isPlayer1, int chosenEffect)
+    {
+        if (isPlayer1)
+        {
+            _p1Effects[chosenEffect].color = new Color (0.1f,0.1f,0.1f,1f);
+        }
+        else
+        {
+            _p2Effects[chosenEffect].color = new Color (0.1f,0.1f,0.1f,1f);
+        }
+    }
+
+    public void ScaleEffectButtons(bool isPlayer1, int chosenEffect)
+    {
+        if (isPlayer1)
+        {
+            for (var i = 0; i < _p1Effects.Length; i++)
+            {
+                if (_p1Effects[i].gameObject.GetComponent<RectTransform>().localScale.x > 1f && chosenEffect != i)
+                {
+                    _p1Effects[i].gameObject.GetComponent<RectTransform>().localScale -= new Vector3(0.01f, 0.01f, 0f);
+                }
+            }
+            
+            if (chosenEffect == 1) return;
+            
+            if (_p1Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale.x < 1.1f)
+            {
+                _p1Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
+            }
+        }
+        else
+        {
+            for (var i = 0; i < _p2Effects.Length; i++)
+            {
+                if (_p2Effects[i].gameObject.GetComponent<RectTransform>().localScale.x > 1f && chosenEffect != i)
+                {
+                    _p2Effects[i].gameObject.GetComponent<RectTransform>().localScale -= new Vector3(0.01f, 0.01f, 0f);
+                }
+            }
+            
+            if (chosenEffect == 1) return;
+            
+            if (_p2Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale.x < 1.1f)
+            {
+                _p2Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
+            }
         }
     }
 }

@@ -138,5 +138,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 3
+  impactForce: 10
   aoeMaxScale: 0.3
   isPlayer1: 0
