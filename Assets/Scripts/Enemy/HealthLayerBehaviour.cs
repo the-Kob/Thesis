@@ -85,6 +85,8 @@ namespace Enemy
                 yield return new WaitForFixedUpdate();
             }
             
+            UIManager.Instance.ChangeScore(_score, _isPlayer1);
+            
             Destroy(gameObject);
             
             yield return null;

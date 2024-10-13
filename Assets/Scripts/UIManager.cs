@@ -1,14 +1,34 @@
 using System;
+using System.Collections;
+using Menu;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using ColorUtility = UnityEngine.ColorUtility;
+using Random = UnityEngine.Random;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
     
     [SerializeField] private TextMeshProUGUI score;
+    [SerializeField] private TextMeshProUGUI disableScore;
+    private bool _canGainScore;
     private float _scoreInitialFontSize;
+    private const float ScoreGainFontSize = 86f;
+    private float _scoreValue;
+    [SerializeField] private GameObject lostScorePrefab;
+
+    [SerializeField] private TextMeshProUGUI combo;
+    private float _comboInitialFontSize;
+    private const float ComboMultiplierFontSize = 24f;
+    private Color _comboInitialColor;
+    private int _comboMultiplier;
+    [SerializeField] private float comboWindow;
+    private float _activeComboCooldownTimer;
+    private bool _isComboActive;
+    
     [SerializeField] private RectTransform p1Universe;
     private bool _p1UniverseExists;
     [SerializeField] private RectTransform p2Universe;
@@ -49,6 +69,12 @@ public class UIManager : MonoBehaviour
         }
         
         if (score != null) _scoreInitialFontSize = score.fontSize;
+
+        if (combo != null)
+        {
+            _comboInitialFontSize = combo.fontSize;
+            _comboInitialColor = combo.color;
+        }
         
         if (p1Universe != null) _p1UniverseExists = true;
         if (p2Universe != null) _p2UniverseExists = true;
@@ -106,6 +132,22 @@ public class UIManager : MonoBehaviour
         
         if (_p1UniverseExists) p1Universe.localScale = Vector2.one;
         if (_p2UniverseExists) p2Universe.localScale = Vector2.one;
+        
+        // Combo Logic
+        if (_activeComboCooldownTimer > 0f)
+        {
+            _activeComboCooldownTimer -= Time.fixedDeltaTime;
+            combo.color -= new Color(0f, 0f, 0f, Time.fixedDeltaTime / comboWindow);
+        }
+
+        if (_activeComboCooldownTimer < 0f && _isComboActive)
+        {
+            _comboMultiplier = 0;
+            combo.text = "";
+            _isComboActive = false;
+            
+            // TODO stars
+        }
          
         // If the AoE is on cooldown, animate the cooldown mask to decrease until the AoE is available
         if (p1AoeCooldownMask.localScale.y > 0f) {
@@ -170,6 +212,8 @@ public class UIManager : MonoBehaviour
             _isP2EffectActive = true;
         }
     }
+
+    #region Choose Effect Logic
 
     public void OpenEffectMenu(bool isPlayer1)
     {
@@ -279,5 +323,84 @@ public class UIManager : MonoBehaviour
                 _p2EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
             }
         }
+    }
+
+    #endregion
+
+    public void ChangeScore(float newScore, bool isPlayer1)
+    {
+        if (!_canGainScore) return;
+
+        score.fontSize = ScoreGainFontSize;
+        _scoreValue += (_comboMultiplier > 0) ? newScore * _comboMultiplier : newScore;
+        score.text = Mathf.CeilToInt(_scoreValue).ToString();
+
+        if (isPlayer1)
+        {
+            p1Universe.localScale = new Vector2(1.1f, 1.1f);
+        }
+        else
+        {
+            p2Universe.localScale = new Vector2(1.1f, 1.1f);
+        }
+    }
+    
+    public void SetScoreGainAvailability(bool canGainScore, bool? isPlayer1 = null)
+    {
+        _canGainScore = canGainScore;
+
+        disableScore.text = _canGainScore ? "" : "X";
+
+        if (isPlayer1 == null) return;
+        
+        // TODO storage
+    }
+
+    public void ChangeCombo(bool positive)
+    {
+        if (positive)
+        {
+            if (_canGainScore)
+            {
+                _isComboActive = true;
+                _activeComboCooldownTimer = comboWindow;
+                _comboMultiplier += 1;
+            }
+        }
+        else
+        {
+            _isComboActive = false;
+            _scoreValue -= _comboMultiplier > 0 ? 10f * _comboMultiplier : 10f;
+            StartCoroutine(LoseScore(_comboMultiplier > 1 ? 2 + 2 * _comboMultiplier : 2));
+            _activeComboCooldownTimer = 0f;
+            _comboMultiplier = 0;
+            combo.color = new Color(0f, 0f, 0f, 0f);
+            _scoreValue = Mathf.Max(0f, _scoreValue);
+            score.text = Mathf.CeilToInt(_scoreValue).ToString();
+        }
+
+        if (_comboMultiplier > 1f)
+        {
+            combo.text = _comboMultiplier + "x Combo";
+            combo.fontSize = ComboMultiplierFontSize + _comboMultiplier / 2f;
+            combo.color = _comboInitialColor;
+            combo.rectTransform.rotation = Quaternion.Euler(0f, 0f, Random.Range(-5f, 5f));
+        }
+
+        combo.fontSize = _comboInitialFontSize + _comboMultiplier * 0.75f;
+        
+        // TODO stars
+    }
+
+    private IEnumerator LoseScore(int objects)
+    {
+        for (var i = 0; i < objects; i++)
+        {
+            var scorePosition = score.rectTransform.TransformPoint(score.rectTransform.pivot);
+            var lostScore = Instantiate(lostScorePrefab, scorePosition, Quaternion.identity);
+            lostScore.GetComponent<LoseScore>().scorePosition = scorePosition;
+        }
+        
+        yield return null;
     }
 }

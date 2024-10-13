@@ -154,6 +154,8 @@ namespace Enemy
 
             if (_health < 0)
             {
+                UIManager.Instance.ChangeCombo(true);
+                
                 for (var i = 0; i < healthLayers.Length; i++)
                 {
                     if (i <= _currentHealthLayer)
