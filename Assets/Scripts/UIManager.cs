@@ -22,7 +22,6 @@ public class UIManager : MonoBehaviour
     private float _p1AoeCooldown;
     [SerializeField] private GameObject p1EffectsMenu;
     private Image[] _p1Effects;
-    [HideInInspector] public bool isP1MenuOpen;
     [SerializeField] private RectTransform p1ChooseEffectCooldownMask;
     private float _p1ChooseEffectCooldown;
     private bool _isP1EffectActive;
@@ -59,7 +58,16 @@ public class UIManager : MonoBehaviour
 
             for (var i = 0; i < numberOfChildren; i++)
             {
-                _p1Effects[i] = p1EffectsMenu.transform.GetChild(i).gameObject.GetComponent<Image>();
+                var iconTransform = p1EffectsMenu.transform.GetChild(i).Find("Icon");
+
+                if (iconTransform != null)
+                {
+                    _p1Effects[i] = iconTransform.GetComponent<Image>();
+                }
+                else
+                {
+                    Debug.LogWarning("Icon not found in child: " + p1EffectsMenu.transform.GetChild(i).name);
+                }
             }
         }
         
@@ -151,12 +159,10 @@ public class UIManager : MonoBehaviour
         if (isPlayer1)
         {
             p1EffectsMenu.SetActive(true);
-            isP1MenuOpen = true;
         }
         else
         {
             p2EffectsMenu.SetActive(true);
-            isP2MenuOpen = true;
         }
     }
 
@@ -172,7 +178,6 @@ public class UIManager : MonoBehaviour
             
             ClearEffectChoice(true);
             p1EffectsMenu.SetActive(false);
-            isP1MenuOpen = false;
         }
         else
         {
@@ -184,7 +189,6 @@ public class UIManager : MonoBehaviour
 
             ClearEffectChoice(false);
             p2EffectsMenu.SetActive(false);
-            isP2MenuOpen = false;
         }
     }
 
@@ -230,7 +234,7 @@ public class UIManager : MonoBehaviour
                 }
             }
             
-            if (chosenEffect == 1) return;
+            if (chosenEffect == -1) return;
             
             if (_p1Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale.x < 1.1f)
             {
@@ -247,7 +251,7 @@ public class UIManager : MonoBehaviour
                 }
             }
             
-            if (chosenEffect == 1) return;
+            if (chosenEffect == -1) return;
             
             if (_p2Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale.x < 1.1f)
             {

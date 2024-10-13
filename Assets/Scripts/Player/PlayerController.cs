@@ -147,10 +147,13 @@ namespace Player
             {
                 _chooseEffectCooldownTimer -= Time.fixedDeltaTime;
             }
-            else
+            
+            if(_chooseEffectCooldownTimer < 0f) 
             {
-                _isEffectActive = true;
+                _isEffectActive = false;
+                _chooseEffectCooldownTimer = 0;
             }
+            
 
             if (_effectMenuCooldownTimer > 0f)
             {
@@ -185,7 +188,7 @@ namespace Player
         {
             _isLooking = _lookInput != Vector2.zero;
             
-            if (_isLooking)
+            if (_isLooking && !_isInEffectMenu)
             {
                 if (!IsCrosshairVisible())
                 {
@@ -257,27 +260,21 @@ namespace Player
         private void HandleChooseEffect()
         {
             HandleChooseEffectDown();
+            HandleEffectMenuNavigation();
             HandleChooseEffectUp();
         }
 
         private void HandleChooseEffectDown()
-        {
-            if (!_chooseEffectDownInput || _isEffectActive) return;
+        {   
+            if (!_chooseEffectDownInput || _isEffectActive || _effectMenuCooldownTimer > 0f) return;
 
-            if (_isInEffectMenu)
-            {
-                HandleEffectMenuNavigation();
-            }
-            else if(!_isEffectActive && _effectMenuCooldownTimer <= 0f)
-            {
-                _isInEffectMenu = true;
-                UIManager.Instance.OpenEffectMenu(isPlayer1);
-            }
+            _isInEffectMenu = true;
+            UIManager.Instance.OpenEffectMenu(isPlayer1);
         }
 
         private void HandleEffectMenuNavigation()
         {
-            if (_lookInput == Vector2.zero) return;
+            if (_lookInput == Vector2.zero || !_isInEffectMenu) return;
 
             var angle = Vector2.Angle(_lookInput, Vector2.right);
 
@@ -308,7 +305,7 @@ namespace Player
             {
                 if (angle is > 45f and < 135f && _chosenEffect != 3)
                 {
-                    _chosenEffect = 2;
+                    _chosenEffect = 3;
                     UIManager.Instance.ClearEffectChoice(isPlayer1);
                     UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
                 }
@@ -345,6 +342,7 @@ namespace Player
             var effectInstance = Instantiate(effect, transform.position, Quaternion.identity);
             effectInstance.GetComponent<EffectBehaviour>().SetEffect(_chosenEffect);
             _isEffectActive = true;
+            _chooseEffectCooldownTimer = chooseEffectCooldown;
             UIManager.Instance.TriggerChooseEffect(isPlayer1, chooseEffectCooldown);
             
             _chosenEffect = -1;

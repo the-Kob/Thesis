@@ -296,6 +296,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f98eaf34-f61f-4631-bdab-8ecd4398abc1",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Choose Effect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9c525d28-d386-4f70-8edd-7ef087cc8c15",
                     "path": "<XInputController>/leftShoulder",
                     "interactions": "",
