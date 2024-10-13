@@ -9,7 +9,7 @@ namespace Enemy
     public class EnemyBehaviour : MonoBehaviour
     {
         private static readonly Vector3 LifeBarScale = new Vector3(2.048f, 0.384f, 1f);
-        private static readonly float AnimationTime = 25f;
+        private const float AnimationTime = 25f;
         
         private SpriteRenderer _sprite;
         
@@ -22,7 +22,7 @@ namespace Enemy
         [SerializeField] private Sprite fullLevel;
         
         [SerializeField] private float impactCooldown = 0.2f;
-        private float _impactStrenght;
+        private float _impactStrength;
         private bool _hitByObject;
         private Vector3 _impactPoint;
         private float _impactCooldownTimer;
@@ -59,10 +59,12 @@ namespace Enemy
             {
                 ColorUtility.TryParseHtmlString("#FB8F13", out var p1Color);
                 _sprite.color = p1Color;
+                animationHolder.color = p1Color;
             } else
             {
                 ColorUtility.TryParseHtmlString("#315D9A", out var p2Color);
                 _sprite.color = p2Color;
+                animationHolder.color = p2Color;
             }
             
             foreach (var healthLayer in healthLayers)
@@ -86,7 +88,7 @@ namespace Enemy
             
             var enemy = collision.gameObject.GetComponent<EnemyBehaviour>();
             var impactPoint = (-transform.position + collision.transform.position).normalized;
-            enemy.GetHit(impactPoint, _impactStrenght / 1.2f, 0f);
+            enemy.GetHit(impactPoint, _impactStrength / 1.2f, 0f);
             
             _lastEnemyHit = collision.gameObject;
         }
@@ -125,7 +127,7 @@ namespace Enemy
         {
             if (_hitByObject)
             {
-                transform.position += Time.fixedDeltaTime * getHitMultiplier * _impactStrenght * _impactPoint;
+                transform.position += Time.fixedDeltaTime * getHitMultiplier * _impactStrength * _impactPoint;
                 _impactCooldownTimer -= Time.fixedDeltaTime;
             }
             
@@ -134,7 +136,7 @@ namespace Enemy
             _hitByObject = false;
         }
 
-        public void GetHit(Vector3 impactPoint, float impactStrenght, float damage)
+        public void GetHit(Vector3 impactPoint, float impactStrength, float damage)
         {
             if (damage > 0f)
             {
@@ -173,7 +175,7 @@ namespace Enemy
                 _hitByObject = true;
                 _impactCooldownTimer = impactCooldown;
                 _impactPoint = impactPoint;
-                _impactStrenght = impactStrenght;
+                _impactStrength = impactStrength;
             }
         }
 
@@ -240,17 +242,17 @@ namespace Enemy
             }
             else
             {
+                _beingNerfed = true;
+                _buffNerfCoroutine = 
+                    StartCoroutine(NerfCoroutine(healthLayers[_currentHealthLayer].transform.position, healthLayers[_currentHealthLayer].GetComponent<SpriteRenderer>().sprite));
+                healthLayers[_currentHealthLayer].GetComponent<SpriteRenderer>().sprite = null;
+                
                 if (_health == _currentHealthLayer)
                 {
                     _health -= 1;
                 }
                 
                 _currentHealthLayer -= 1;
-                
-                _beingNerfed = true;
-                _buffNerfCoroutine = 
-                    StartCoroutine(NerfCoroutine(healthLayers[_currentHealthLayer].transform.position, healthLayers[_currentHealthLayer].GetComponent<SpriteRenderer>().sprite));
-                healthLayers[_currentHealthLayer].GetComponent<SpriteRenderer>().sprite = null;
             }
         }
         
@@ -269,7 +271,7 @@ namespace Enemy
             while (counter > 0f)
             {
                 counter--;
-                animationHolder.transform.position -= new Vector3(0f, 0.05f * AnimationTime, 0f);
+                animationHolder.transform.position -= new Vector3(0f, 0.05f, 0f);
                 tmp.a += 1f / AnimationTime;
                 animationHolder.color = tmp;
                 

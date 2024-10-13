@@ -51,7 +51,7 @@ namespace Player
         private float _aoeCooldownTimer;
 
         [SerializeField] private GameObject effect;
-        [SerializeField] private float effectMenuCooldown;
+        private float effectMenuCooldown;
         private float _effectMenuCooldownTimer;
         private bool _isInEffectMenu;
         [SerializeField] private float chooseEffectCooldown = 10f;
@@ -146,12 +146,11 @@ namespace Player
             if (_chooseEffectCooldownTimer > 0f)
             {
                 _chooseEffectCooldownTimer -= Time.fixedDeltaTime;
-            }
+            } 
             
             if(_chooseEffectCooldownTimer < 0f) 
             {
                 _isEffectActive = false;
-                _chooseEffectCooldownTimer = 0;
             }
             
 
@@ -274,57 +273,26 @@ namespace Player
 
         private void HandleEffectMenuNavigation()
         {
-            if (_lookInput == Vector2.zero || !_isInEffectMenu) return;
+            if(!_isInEffectMenu) return;
 
-            var angle = Vector2.Angle(_lookInput, Vector2.right);
-
-            if (_lookInput.x > 0f)
+            if (_lookInput != Vector2.zero)
             {
-                if (angle is > 45f and < 135f && _chosenEffect != 2)
+                var angle = Mathf.Atan2(_lookInput.y, _lookInput.x) * Mathf.Rad2Deg;
+                if (angle < 0) angle += 360f;
+                
+                _chosenEffect = angle switch
                 {
-                    _chosenEffect = 2;
-                    UIManager.Instance.ClearEffectChoice(isPlayer1);
-                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
-                }
-
-                if (angle < 45f && _chosenEffect != 0)
-                {
-                    _chosenEffect = 0;
-                    UIManager.Instance.ClearEffectChoice(isPlayer1);
-                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
-                }
-
-                if (angle > 135f && _chosenEffect != 1)
-                {
-                    _chosenEffect = 1;
-                    UIManager.Instance.ClearEffectChoice(isPlayer1);
-                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
-                }
+                    >= 45f and < 135f when _chosenEffect != 2 => 2,  // Up
+                    >= 135f and < 225f when _chosenEffect != 1 => 1,  // Left
+                    >= 225f and < 315f when _chosenEffect != 3 => 3,  // Down
+                    >= 0f and < 45f or >= 315f and <= 360f when _chosenEffect != 0 => 0, // Right
+                    _ => _chosenEffect
+                };
+            
+                UIManager.Instance.ClearEffectChoice(isPlayer1);
+                UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
             }
-            else
-            {
-                if (angle is > 45f and < 135f && _chosenEffect != 3)
-                {
-                    _chosenEffect = 3;
-                    UIManager.Instance.ClearEffectChoice(isPlayer1);
-                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
-                }
-
-                if (angle < 45f && _chosenEffect != 0)
-                {
-                    _chosenEffect = 0;
-                    UIManager.Instance.ClearEffectChoice(isPlayer1);
-                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
-                }
-
-                if (angle > 135f && _chosenEffect != 1)
-                {
-                    _chosenEffect = 1;
-                    UIManager.Instance.ClearEffectChoice(isPlayer1);
-                    UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
-                }
-            }
-
+            
             UIManager.Instance.ScaleEffectButtons(isPlayer1, _chosenEffect);
         }
 

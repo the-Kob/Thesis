@@ -21,7 +21,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RectTransform p1AoeCooldownMask;
     private float _p1AoeCooldown;
     [SerializeField] private GameObject p1EffectsMenu;
-    private Image[] _p1Effects;
+    private GameObject[] _p1EffectButtons;
+    private Image[] _p1EffectIcons;
     [SerializeField] private RectTransform p1ChooseEffectCooldownMask;
     private float _p1ChooseEffectCooldown;
     private bool _isP1EffectActive;
@@ -29,7 +30,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private RectTransform p2AoeCooldownMask;
     private float _p2AoeCooldown;
     [SerializeField] private GameObject p2EffectsMenu;
-    private Image[] _p2Effects;
+    private GameObject[] _p2EffectButtons;
+    private Image[] _p2EffectIcons;
     [HideInInspector] public bool isP2MenuOpen;
     [SerializeField] private RectTransform p2ChooseEffectCooldownMask;
     private float _p2ChooseEffectCooldown;
@@ -54,19 +56,22 @@ public class UIManager : MonoBehaviour
         if (p1EffectsMenu != null)
         {
             var numberOfChildren = p1EffectsMenu.transform.childCount;
-            _p1Effects = new Image[numberOfChildren];
+            _p1EffectButtons = new GameObject[numberOfChildren];
+            _p1EffectIcons = new Image[numberOfChildren];
 
             for (var i = 0; i < numberOfChildren; i++)
             {
-                var iconTransform = p1EffectsMenu.transform.GetChild(i).Find("Icon");
+                var effectButton = p1EffectsMenu.transform.GetChild(i).gameObject;
+                var effectButtonIcon = effectButton.transform.Find("Icon");
 
-                if (iconTransform != null)
+                if (effectButton != null)
                 {
-                    _p1Effects[i] = iconTransform.GetComponent<Image>();
+                    _p1EffectButtons[i] = effectButton;
                 }
-                else
+                
+                if (effectButtonIcon != null)
                 {
-                    Debug.LogWarning("Icon not found in child: " + p1EffectsMenu.transform.GetChild(i).name);
+                    _p1EffectIcons[i] = effectButtonIcon.GetComponent<Image>();
                 }
             }
         }
@@ -74,11 +79,23 @@ public class UIManager : MonoBehaviour
         if (p2EffectsMenu != null)
         {
             var numberOfChildren = p2EffectsMenu.transform.childCount;
-            _p2Effects = new Image[numberOfChildren];
+            _p2EffectButtons = new GameObject[numberOfChildren];
+            _p2EffectIcons = new Image[numberOfChildren];
 
             for (var i = 0; i < numberOfChildren; i++)
             {
-                _p2Effects[i] = p2EffectsMenu.transform.GetChild(i).gameObject.GetComponent<Image>();
+                var effectButton = p2EffectsMenu.transform.GetChild(i).gameObject;
+                var effectButtonIcon = effectButton.transform.Find("Icon");
+
+                if (effectButton != null)
+                {
+                    _p2EffectButtons[i] = effectButton;
+                }
+                
+                if (effectButtonIcon != null)
+                {
+                    _p2EffectIcons[i] = effectButtonIcon.GetComponent<Image>();
+                }
             }
         }
     }
@@ -158,10 +175,14 @@ public class UIManager : MonoBehaviour
     {
         if (isPlayer1)
         {
+            if(p1EffectsMenu.activeSelf) return;
+            
             p1EffectsMenu.SetActive(true);
         }
         else
         {
+            if(p2EffectsMenu.activeSelf) return;
+            
             p2EffectsMenu.SetActive(true);
         }
     }
@@ -172,7 +193,7 @@ public class UIManager : MonoBehaviour
         {
             if (chosenEffect != -1)
             {
-                p1EffectIcon.sprite = _p1Effects[chosenEffect].sprite;
+                p1EffectIcon.sprite = _p1EffectIcons[chosenEffect].sprite;
                 p1EffectIcon.color = Color.white;
             }
             
@@ -183,7 +204,7 @@ public class UIManager : MonoBehaviour
         {
             if (chosenEffect != -1)
             {
-                p2EffectIcon.sprite = _p2Effects[chosenEffect].sprite;
+                p2EffectIcon.sprite = _p2EffectIcons[chosenEffect].sprite;
                 p2EffectIcon.color = Color.white;
             }
 
@@ -196,16 +217,16 @@ public class UIManager : MonoBehaviour
     {
         if (isPlayer1)
         {
-            foreach (var effect in _p1Effects)
+            foreach (var effect in _p1EffectButtons)
             {
-                effect.color = new Color (0f,0f,0f,1f);
+                effect.GetComponent<Image>().color = new Color (0f,0f,0f,1f);
             }
         }
         else
         {
-            foreach (var effect in _p2Effects)
+            foreach (var effect in _p2EffectButtons)
             {
-                effect.color = new Color (0f,0f,0f,1f);
+                effect.GetComponent<Image>().color = new Color (0f,0f,0f,1f);
             }
         }
     }
@@ -214,11 +235,11 @@ public class UIManager : MonoBehaviour
     {
         if (isPlayer1)
         {
-            _p1Effects[chosenEffect].color = new Color (0.1f,0.1f,0.1f,1f);
+            _p1EffectButtons[chosenEffect].GetComponent<Image>().color = new Color (0.1f,0.1f,0.1f,1f);
         }
         else
         {
-            _p2Effects[chosenEffect].color = new Color (0.1f,0.1f,0.1f,1f);
+            _p2EffectButtons[chosenEffect].GetComponent<Image>().color = new Color (0.1f,0.1f,0.1f,1f);
         }
     }
 
@@ -226,36 +247,36 @@ public class UIManager : MonoBehaviour
     {
         if (isPlayer1)
         {
-            for (var i = 0; i < _p1Effects.Length; i++)
+            for (var i = 0; i < _p1EffectButtons.Length; i++)
             {
-                if (_p1Effects[i].gameObject.GetComponent<RectTransform>().localScale.x > 1f && chosenEffect != i)
+                if (_p1EffectButtons[i].GetComponent<RectTransform>().localScale.x > 1f && chosenEffect != i)
                 {
-                    _p1Effects[i].gameObject.GetComponent<RectTransform>().localScale -= new Vector3(0.01f, 0.01f, 0f);
+                    _p1EffectButtons[i].GetComponent<RectTransform>().localScale -= new Vector3(0.01f, 0.01f, 0f);
                 }
             }
             
             if (chosenEffect == -1) return;
             
-            if (_p1Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale.x < 1.1f)
+            if (_p1EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale.x < 1.1f)
             {
-                _p1Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
+                _p1EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
             }
         }
         else
         {
-            for (var i = 0; i < _p2Effects.Length; i++)
+            for (var i = 0; i < _p2EffectButtons.Length; i++)
             {
-                if (_p2Effects[i].gameObject.GetComponent<RectTransform>().localScale.x > 1f && chosenEffect != i)
+                if (_p2EffectButtons[i].GetComponent<RectTransform>().localScale.x > 1f && chosenEffect != i)
                 {
-                    _p2Effects[i].gameObject.GetComponent<RectTransform>().localScale -= new Vector3(0.01f, 0.01f, 0f);
+                    _p2EffectButtons[i].GetComponent<RectTransform>().localScale -= new Vector3(0.01f, 0.01f, 0f);
                 }
             }
             
             if (chosenEffect == -1) return;
             
-            if (_p2Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale.x < 1.1f)
+            if (_p2EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale.x < 1.1f)
             {
-                _p2Effects[chosenEffect].gameObject.GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
+                _p2EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
             }
         }
     }

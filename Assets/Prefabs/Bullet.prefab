@@ -143,5 +143,5 @@ MonoBehaviour:
   lifespan: 5
   speed: 3
   damage: 5
-  impactForce: 20
+  impactForce: 10
   isPlayer1: 0

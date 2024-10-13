@@ -8,10 +8,10 @@ namespace Abilities
     {
         private enum Effects
         {
-            BuffP1Enemy,
-            NerfP1Enemy,
             BuffP2Enemy,
-            NerfP2Enemy
+            NerfP2Enemy,
+            BuffP1Enemy,
+            NerfP1Enemy
         }
         
         [SerializeField] private Effects currentEffect;

@@ -307,6 +307,17 @@
                 },
                 {
                     "name": "",
+                    "id": "ea42cda0-00b4-47ca-a7f9-bb4d53f5af53",
+                    "path": "<XInputController>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Choose Effect",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9c525d28-d386-4f70-8edd-7ef087cc8c15",
                     "path": "<XInputController>/leftShoulder",
                     "interactions": "",
