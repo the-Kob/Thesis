@@ -1,0 +1,5655 @@
+fileFormatVersion: 2
+guid: 87a22177373f14e4a8764980549e8535
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2116976054278674529
+    second: BlueStars_0
+  - first:
+      213: 3281862965616441322
+    second: BlueStars_1
+  - first:
+      213: -7893294370468261307
+    second: BlueStars_2
+  - first:
+      213: -5307286683992403639
+    second: BlueStars_3
+  - first:
+      213: -5310090271194112268
+    second: BlueStars_4
+  - first:
+      213: 3184569389124355819
+    second: BlueStars_5
+  - first:
+      213: -6850081145040537718
+    second: BlueStars_6
+  - first:
+      213: -1776727887538634572
+    second: BlueStars_7
+  - first:
+      213: -7399041133525581202
+    second: BlueStars_8
+  - first:
+      213: 8874313774455183436
+    second: BlueStars_9
+  - first:
+      213: -4897056917361653250
+    second: BlueStars_10
+  - first:
+      213: 5447361920827088715
+    second: BlueStars_11
+  - first:
+      213: 5578248562034138302
+    second: BlueStars_12
+  - first:
+      213: -5718973342120635382
+    second: BlueStars_13
+  - first:
+      213: -1656409479869015122
+    second: BlueStars_14
+  - first:
+      213: 6075033478390560954
+    second: BlueStars_15
+  - first:
+      213: 2811713449587733280
+    second: BlueStars_16
+  - first:
+      213: -1745975264358474152
+    second: BlueStars_17
+  - first:
+      213: 4644920551926974873
+    second: BlueStars_18
+  - first:
+      213: 1305060147132199363
+    second: BlueStars_19
+  - first:
+      213: 2106211316315202262
+    second: BlueStars_20
+  - first:
+      213: -4916126546734356206
+    second: BlueStars_21
+  - first:
+      213: 1275807050976517260
+    second: BlueStars_22
+  - first:
+      213: 5047973592018634168
+    second: BlueStars_23
+  - first:
+      213: 4063210335982416778
+    second: BlueStars_24
+  - first:
+      213: -3627373530449421232
+    second: BlueStars_25
+  - first:
+      213: -4501551281104189439
+    second: BlueStars_26
+  - first:
+      213: -2097220128910854261
+    second: BlueStars_27
+  - first:
+      213: 7665211653798060972
+    second: BlueStars_28
+  - first:
+      213: 8978948697493224455
+    second: BlueStars_29
+  - first:
+      213: 7418131469014152782
+    second: BlueStars_30
+  - first:
+      213: -7401387148002515071
+    second: BlueStars_31
+  - first:
+      213: -7258938063582377309
+    second: BlueStars_32
+  - first:
+      213: -8736915604772963392
+    second: BlueStars_33
+  - first:
+      213: -7421214578134428284
+    second: BlueStars_34
+  - first:
+      213: 8549709278854092700
+    second: BlueStars_35
+  - first:
+      213: -1485742339058369597
+    second: BlueStars_36
+  - first:
+      213: -7228004541075556077
+    second: BlueStars_37
+  - first:
+      213: 7090868630886274630
+    second: BlueStars_38
+  - first:
+      213: 8283178341352707880
+    second: BlueStars_39
+  - first:
+      213: -1869713145368528221
+    second: BlueStars_40
+  - first:
+      213: -6999239601833262298
+    second: BlueStars_41
+  - first:
+      213: 863289140016150512
+    second: BlueStars_42
+  - first:
+      213: 7367755150736197675
+    second: BlueStars_43
+  - first:
+      213: -1753145972003491895
+    second: BlueStars_44
+  - first:
+      213: -6334766625180570318
+    second: BlueStars_45
+  - first:
+      213: -3010825907279325060
+    second: BlueStars_46
+  - first:
+      213: -5463416691313880922
+    second: BlueStars_47
+  - first:
+      213: 4615050794338517509
+    second: BlueStars_48
+  - first:
+      213: 559156812269952257
+    second: BlueStars_49
+  - first:
+      213: 4812322591128324537
+    second: BlueStars_50
+  - first:
+      213: 2614947902009621779
+    second: BlueStars_51
+  - first:
+      213: -3332803956569148780
+    second: BlueStars_52
+  - first:
+      213: 6875685047122926541
+    second: BlueStars_53
+  - first:
+      213: 1525293811669500374
+    second: BlueStars_54
+  - first:
+      213: 938963688479757245
+    second: BlueStars_55
+  - first:
+      213: -4895902421048128530
+    second: BlueStars_56
+  - first:
+      213: 6675209319086671869
+    second: BlueStars_57
+  - first:
+      213: -2692376244872976452
+    second: BlueStars_58
+  - first:
+      213: -123306517669099199
+    second: BlueStars_59
+  - first:
+      213: -4897384670350373876
+    second: BlueStars_60
+  - first:
+      213: -3042452908484381058
+    second: BlueStars_61
+  - first:
+      213: 590462136029461690
+    second: BlueStars_62
+  - first:
+      213: 6123139424548233127
+    second: BlueStars_63
+  - first:
+      213: -8693593352660694933
+    second: BlueStars_64
+  - first:
+      213: -4754712918496079275
+    second: BlueStars_65
+  - first:
+      213: 5804181911508302311
+    second: BlueStars_66
+  - first:
+      213: -5462022188426183677
+    second: BlueStars_67
+  - first:
+      213: -7896004952792715059
+    second: BlueStars_68
+  - first:
+      213: -8619826435052745463
+    second: BlueStars_69
+  - first:
+      213: -5879611128186187501
+    second: BlueStars_70
+  - first:
+      213: 6434374768977015986
+    second: BlueStars_71
+  - first:
+      213: 3486864979768949319
+    second: BlueStars_72
+  - first:
+      213: 7738788184893080141
+    second: BlueStars_73
+  - first:
+      213: 6562987462571558371
+    second: BlueStars_74
+  - first:
+      213: -2820019020848354480
+    second: BlueStars_75
+  - first:
+      213: -7251689321872325910
+    second: BlueStars_76
+  - first:
+      213: -2897982541854139149
+    second: BlueStars_77
+  - first:
+      213: 553725401194940316
+    second: BlueStars_78
+  - first:
+      213: 28309331133970789
+    second: BlueStars_79
+  - first:
+      213: -4276304014833793720
+    second: BlueStars_80
+  - first:
+      213: -5156188312925254634
+    second: BlueStars_81
+  - first:
+      213: -2994224638012265605
+    second: BlueStars_82
+  - first:
+      213: 467899884372271824
+    second: BlueStars_83
+  - first:
+      213: 3202710077105897686
+    second: BlueStars_84
+  - first:
+      213: 9131098865631472381
+    second: BlueStars_85
+  - first:
+      213: 5560032619548626905
+    second: BlueStars_86
+  - first:
+      213: 4912589578533660855
+    second: BlueStars_87
+  - first:
+      213: 6672543393358078290
+    second: BlueStars_88
+  - first:
+      213: 519431561693793499
+    second: BlueStars_89
+  - first:
+      213: -748918457206874407
+    second: BlueStars_90
+  - first:
+      213: 7735162058126560625
+    second: BlueStars_91
+  - first:
+      213: -7287079468068128195
+    second: BlueStars_92
+  - first:
+      213: -8288327726685319716
+    second: BlueStars_93
+  - first:
+      213: -7645313672900654571
+    second: BlueStars_94
+  - first:
+      213: 7991979849521535362
+    second: BlueStars_95
+  - first:
+      213: 4512351368738464119
+    second: BlueStars_96
+  - first:
+      213: -6387455868777435922
+    second: BlueStars_97
+  - first:
+      213: -2058879715624992734
+    second: BlueStars_98
+  - first:
+      213: -2733158952697015087
+    second: BlueStars_99
+  - first:
+      213: -9090087343487960213
+    second: BlueStars_100
+  - first:
+      213: -3611265686373667658
+    second: BlueStars_101
+  - first:
+      213: 3588468757208209304
+    second: BlueStars_102
+  - first:
+      213: 6983975421724173610
+    second: BlueStars_103
+  - first:
+      213: 8545348550763775364
+    second: BlueStars_104
+  - first:
+      213: 7524067356837532687
+    second: BlueStars_105
+  - first:
+      213: 5894252860446115317
+    second: BlueStars_106
+  - first:
+      213: 1281153649242058063
+    second: BlueStars_107
+  - first:
+      213: 3965675098820712625
+    second: BlueStars_108
+  - first:
+      213: -6483465467180677723
+    second: BlueStars_109
+  - first:
+      213: -346883387230016230
+    second: BlueStars_110
+  - first:
+      213: 7037268315046871014
+    second: BlueStars_111
+  - first:
+      213: -3040816690979249119
+    second: BlueStars_112
+  - first:
+      213: 5224964323522269009
+    second: BlueStars_113
+  - first:
+      213: 7448869705646566606
+    second: BlueStars_114
+  - first:
+      213: 6605221093313061316
+    second: BlueStars_115
+  - first:
+      213: 3259979129129228896
+    second: BlueStars_116
+  - first:
+      213: 6708397228253495371
+    second: BlueStars_117
+  - first:
+      213: -3991300301433812102
+    second: BlueStars_118
+  - first:
+      213: -6254775177469275870
+    second: BlueStars_119
+  - first:
+      213: 3237552155562865698
+    second: BlueStars_120
+  - first:
+      213: -2903000108491231844
+    second: BlueStars_121
+  - first:
+      213: 9042800583628443673
+    second: BlueStars_122
+  - first:
+      213: -4538476117529261543
+    second: BlueStars_123
+  - first:
+      213: -3165415343528248407
+    second: BlueStars_124
+  - first:
+      213: -6613294140026537106
+    second: BlueStars_125
+  - first:
+      213: 5006601599703842424
+    second: BlueStars_126
+  - first:
+      213: -6626514966347273770
+    second: BlueStars_127
+  - first:
+      213: -6188182699299566984
+    second: BlueStars_128
+  - first:
+      213: -6414557589089511410
+    second: BlueStars_129
+  - first:
+      213: -8766946084973807016
+    second: BlueStars_130
+  - first:
+      213: -907788442848963238
+    second: BlueStars_131
+  - first:
+      213: 5482764055130120863
+    second: BlueStars_132
+  - first:
+      213: -7212004404149572857
+    second: BlueStars_133
+  - first:
+      213: -7613800633320974127
+    second: BlueStars_134
+  - first:
+      213: -4801560065060825115
+    second: BlueStars_135
+  - first:
+      213: -2342604925271568795
+    second: BlueStars_136
+  - first:
+      213: 8461949486085486679
+    second: BlueStars_137
+  - first:
+      213: -3989218640897947850
+    second: BlueStars_138
+  - first:
+      213: -1856413203011061988
+    second: BlueStars_139
+  - first:
+      213: 2717276518601077436
+    second: BlueStars_140
+  - first:
+      213: -8067102220322132259
+    second: BlueStars_141
+  - first:
+      213: 1472620200418558329
+    second: BlueStars_142
+  - first:
+      213: -1024803364027671859
+    second: BlueStars_143
+  - first:
+      213: -3998421068774168558
+    second: BlueStars_144
+  - first:
+      213: 3816515028380226830
+    second: BlueStars_145
+  - first:
+      213: 4436214319805000940
+    second: BlueStars_146
+  - first:
+      213: -4403911872931180951
+    second: BlueStars_147
+  - first:
+      213: -686406614693391992
+    second: BlueStars_148
+  - first:
+      213: 6366166005839951185
+    second: BlueStars_149
+  - first:
+      213: -7352049490267787869
+    second: BlueStars_150
+  - first:
+      213: 692495245204724993
+    second: BlueStars_151
+  - first:
+      213: 4300501743593322687
+    second: BlueStars_152
+  - first:
+      213: -993480613121062013
+    second: BlueStars_153
+  - first:
+      213: -3811913708742686396
+    second: BlueStars_154
+  - first:
+      213: 3316928604927214564
+    second: BlueStars_155
+  - first:
+      213: -1606302027666776067
+    second: BlueStars_156
+  - first:
+      213: -5784397125429529098
+    second: BlueStars_157
+  - first:
+      213: -8334747872796091475
+    second: BlueStars_158
+  - first:
+      213: -4015251722223410281
+    second: BlueStars_159
+  - first:
+      213: 3511316835860994749
+    second: BlueStars_160
+  - first:
+      213: 6012731339643160540
+    second: BlueStars_161
+  - first:
+      213: -2674493491646794153
+    second: BlueStars_162
+  - first:
+      213: -6260629586958735097
+    second: BlueStars_163
+  - first:
+      213: 941572486368058989
+    second: BlueStars_164
+  - first:
+      213: 538250061754967971
+    second: BlueStars_165
+  - first:
+      213: 3557075589047629199
+    second: BlueStars_166
+  - first:
+      213: -4103640570893020408
+    second: BlueStars_167
+  - first:
+      213: 2404263134836183542
+    second: BlueStars_168
+  - first:
+      213: 6898932507873174863
+    second: BlueStars_169
+  - first:
+      213: -2361325108411357791
+    second: BlueStars_170
+  - first:
+      213: 632766181931088694
+    second: BlueStars_171
+  - first:
+      213: -2729886103578788246
+    second: BlueStars_172
+  - first:
+      213: 8391712420436675234
+    second: BlueStars_173
+  - first:
+      213: 3846284162869838752
+    second: BlueStars_174
+  - first:
+      213: 6970633835346867525
+    second: BlueStars_175
+  - first:
+      213: -4732402111162851716
+    second: BlueStars_176
+  - first:
+      213: -131148202336495947
+    second: BlueStars_177
+  - first:
+      213: -6098635403415965265
+    second: BlueStars_178
+  - first:
+      213: -8128769648888603885
+    second: BlueStars_179
+  - first:
+      213: -4022678886316309729
+    second: BlueStars_180
+  - first:
+      213: 7900622591150142414
+    second: BlueStars_181
+  - first:
+      213: -4793829909171161646
+    second: BlueStars_182
+  - first:
+      213: 9020525463558773253
+    second: BlueStars_183
+  - first:
+      213: -6840363578682971334
+    second: BlueStars_184
+  - first:
+      213: 6374768780720676532
+    second: BlueStars_185
+  - first:
+      213: 1667343978342822298
+    second: BlueStars_186
+  - first:
+      213: 7077656957497600428
+    second: BlueStars_187
+  - first:
+      213: 9219207369494938741
+    second: BlueStars_188
+  - first:
+      213: 2674344563103679969
+    second: BlueStars_189
+  - first:
+      213: -729626648785933969
+    second: BlueStars_190
+  - first:
+      213: 9219056095574744105
+    second: BlueStars_191
+  - first:
+      213: 5725695567045504132
+    second: BlueStars_192
+  - first:
+      213: -7628832044138028283
+    second: BlueStars_193
+  - first:
+      213: -3242797843244561863
+    second: BlueStars_194
+  - first:
+      213: -4801187421072418805
+    second: BlueStars_195
+  - first:
+      213: -4049940844433301843
+    second: BlueStars_196
+  - first:
+      213: 1378139567115781297
+    second: BlueStars_197
+  - first:
+      213: -4251774643202296265
+    second: BlueStars_198
+  - first:
+      213: 5981791334663928557
+    second: BlueStars_199
+  - first:
+      213: -922671151584802837
+    second: BlueStars_200
+  - first:
+      213: 5297488084896491681
+    second: BlueStars_201
+  - first:
+      213: -7548629749441773735
+    second: BlueStars_202
+  - first:
+      213: 3475473927820843571
+    second: BlueStars_203
+  - first:
+      213: 6288613277873867236
+    second: BlueStars_204
+  - first:
+      213: 5792775022777135171
+    second: BlueStars_205
+  - first:
+      213: 7432194240023967993
+    second: BlueStars_206
+  - first:
+      213: 7269707992805885288
+    second: BlueStars_207
+  - first:
+      213: -3674549551262592521
+    second: BlueStars_208
+  - first:
+      213: -4989830487876832463
+    second: BlueStars_209
+  - first:
+      213: -1403715661375121857
+    second: BlueStars_210
+  - first:
+      213: 8159892231246411938
+    second: BlueStars_211
+  - first:
+      213: -4747697868162115793
+    second: BlueStars_212
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlueStars_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289
+        width: 56
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 168d9415182016d10800000000000000
+      internalID: 2116976054278674529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 312
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7f31baaf48b8d20800000000000000
+      internalID: 3281862965616441322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_2
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 316
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54216ac2792657290800000000000000
+      internalID: -7893294370468261307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_3
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 327
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 941d87f41eab856b0800000000000000
+      internalID: -5307286683992403639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_4
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 296
+        width: 41
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fe973c4805ce46b0800000000000000
+      internalID: -5310090271194112268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_5
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 54
+        width: 239
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be60751acfcd13c20800000000000000
+      internalID: 3184569389124355819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_6
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 317
+        width: 42
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a87f14bed7f9fe0a0800000000000000
+      internalID: -6850081145040537718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_7
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 292
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b0cab8566bc757e0800000000000000
+      internalID: -1776727887538634572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_8
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 317
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6244b57a43515990800000000000000
+      internalID: -7399041133525581202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_9
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 317
+        width: 38
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c48d1c71c55e72b70800000000000000
+      internalID: 8874313774455183436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_10
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 294
+        width: 112
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef90acbeda82a0cb0800000000000000
+      internalID: -4897056917361653250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_11
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 277
+        width: 69
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f53ed3ecae89b40800000000000000
+      internalID: 5447361920827088715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_12
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 297
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebcd0e8238be96d40800000000000000
+      internalID: 5578248562034138302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 299
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0498f6bb0022a0b0800000000000000
+      internalID: -5718973342120635382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_14
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 302
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eab51d5aa504309e0800000000000000
+      internalID: -1656409479869015122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_15
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 311
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab8331ef2cade4450800000000000000
+      internalID: 6075033478390560954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_16
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 299
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0237ddc3c76350720800000000000000
+      internalID: 2811713449587733280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_17
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 308
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85e5b456fbc05c7e0800000000000000
+      internalID: -1745975264358474152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_18
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 292
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 999c483d1a2167040800000000000000
+      internalID: 4644920551926974873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_19
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 301
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c175501a418c1210800000000000000
+      internalID: 1305060147132199363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_20
+      rect:
+        serializedVersion: 2
+        x: 427
+        y: 303
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d220e27804ca3d10800000000000000
+      internalID: 2106211316315202262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_21
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 297
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 219e707d3f866cbb0800000000000000
+      internalID: -4916126546734356206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_22
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 293
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8cd46bd0c394b110800000000000000
+      internalID: 1275807050976517260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_23
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 292
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5c2d39c310e0640800000000000000
+      internalID: 5047973592018634168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_24
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 302
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a837de3d54c636830800000000000000
+      internalID: 4063210335982416778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_25
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 296
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05c58e12efaf8adc0800000000000000
+      internalID: -3627373530449421232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_26
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 299
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1088497c5f64781c0800000000000000
+      internalID: -4501551281104189439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_27
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 295
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b873870876d25e2e0800000000000000
+      internalID: -2097220128910854261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_28
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 295
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca361d8136d406a60800000000000000
+      internalID: 7665211653798060972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_29
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 231
+        width: 69
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70c3a829442ab9c70800000000000000
+      internalID: 8978948697493224455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 299
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e463cb3a44f72f660800000000000000
+      internalID: 7418131469014152782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_31
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 286
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1872b266a9df84990800000000000000
+      internalID: -7401387148002515071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_32
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 294
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa4c996a42134b90800000000000000
+      internalID: -7258938063582377309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_33
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 275
+        width: 21
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cbb0f03c8d30c680800000000000000
+      internalID: -8736915604772963392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_34
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 290
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 485d85419ac820990800000000000000
+      internalID: -7421214578134428284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_35
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 276
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9795f27a4ba6a670800000000000000
+      internalID: 8549709278854092700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_36
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 289
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cbfaa4e635916be0800000000000000
+      internalID: -1485742339058369597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_37
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 272
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319f74e5a28f0bb90800000000000000
+      internalID: -7228004541075556077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_38
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 283
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646dfe46373d76260800000000000000
+      internalID: 7090868630886274630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_39
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 288
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8279987b0d2c3f270800000000000000
+      internalID: 8283178341352707880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_40
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 286
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa3e6aecc17d06e0800000000000000
+      internalID: -1869713145368528221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_41
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 268
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623c1ea6aa4bdde90800000000000000
+      internalID: -6999239601833262298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_42
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 293
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f77d1126e40bfb00800000000000000
+      internalID: 863289140016150512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_43
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 286
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b288fa706468f3660800000000000000
+      internalID: 7367755150736197675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 242
+        width: 21
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cf235be6039ba7e0800000000000000
+      internalID: -1753145972003491895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_45
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 274
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23dac1341536618a0800000000000000
+      internalID: -6334766625180570318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_46
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 283
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7892141ac56736d0800000000000000
+      internalID: -3010825907279325060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_47
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 272
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a0db46377b0e24b0800000000000000
+      internalID: -5463416691313880922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_48
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 276
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5028ee0fe34fb0040800000000000000
+      internalID: 4615050794338517509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_49
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 269
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d1711882682c700800000000000000
+      internalID: 559156812269952257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_50
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 235
+        width: 27
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b98acc56edc8c240800000000000000
+      internalID: 4812322591128324537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_51
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 249
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31dbf6523492a4420800000000000000
+      internalID: 2614947902009621779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_52
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 275
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 492fdae95708fb1d0800000000000000
+      internalID: -3332803956569148780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_53
+      rect:
+        serializedVersion: 2
+        x: 491
+        y: 272
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcb1a351f175b6f50800000000000000
+      internalID: 6875685047122926541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_54
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 208
+        width: 89
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d189aee3aeea2510800000000000000
+      internalID: 1525293811669500374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_55
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 272
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db393d4ff7ed70d00800000000000000
+      internalID: 938963688479757245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_56
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 212
+        width: 55
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeb837a00b24e0cb0800000000000000
+      internalID: -4895902421048128530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_57
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 269
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df7c989428b13ac50800000000000000
+      internalID: 6675209319086671869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_58
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 256
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb765a2f112c2aad0800000000000000
+      internalID: -2692376244872976452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_59
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 221
+        width: 55
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 149c7df106de94ef0800000000000000
+      internalID: -123306517669099199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_60
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 114
+        width: 254
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c825bf69ef80cb0800000000000000
+      internalID: -4897384670350373876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_61
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 265
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e763fe7033907c5d0800000000000000
+      internalID: -3042452908484381058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_62
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 269
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abcba5f2f2eb13800800000000000000
+      internalID: 590462136029461690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_63
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 247
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af13666dd2c9f450800000000000000
+      internalID: 6123139424548233127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_64
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 253
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6846f808e62a5780800000000000000
+      internalID: -8693593352660694933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_65
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 235
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 552941ccacdd30eb0800000000000000
+      internalID: -4754712918496079275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_66
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 240
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e9333752b89c8050800000000000000
+      internalID: 5804181911508302311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_67
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 226
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c3e8732cff234b0800000000000000
+      internalID: -5462022188426183677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_68
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 228
+        width: 18
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc0b01c8451cb6290800000000000000
+      internalID: -7896004952792715059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_69
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 219
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90dc821f689306880800000000000000
+      internalID: -8619826435052745463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_70
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 224
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311570794dc676ea0800000000000000
+      internalID: -5879611128186187501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_71
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 225
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b47c98f2cd7b4950800000000000000
+      internalID: 6434374768977015986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_72
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 226
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ab0e29935d36030800000000000000
+      internalID: 3486864979768949319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_73
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 212
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d42ca803ad2b56b60800000000000000
+      internalID: 7738788184893080141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_74
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 184
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e58be3335a641b50800000000000000
+      internalID: 6562987462571558371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_75
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 219
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05b2d7244a74dd8d0800000000000000
+      internalID: -2820019020848354480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_76
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 213
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae28e4c9bf2dc5b90800000000000000
+      internalID: -7251689321872325910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_77
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 217
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fc108b7b3c48c7d0800000000000000
+      internalID: -2897982541854139149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_78
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 215
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97c551915a3fa700800000000000000
+      internalID: 553725401194940316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_79
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 142
+        width: 24
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 569b11acf23946000800000000000000
+      internalID: 28309331133970789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_80
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 189
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8454144c72487a4c0800000000000000
+      internalID: -4276304014833793720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_81
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 179
+        width: 20
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61cc11d4c0a8178b0800000000000000
+      internalID: -5156188312925254634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_82
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 208
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7b6e894e806276d0800000000000000
+      internalID: -2994224638012265605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_83
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 184
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d2a47e37705e7600800000000000000
+      internalID: 467899884372271824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_84
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 172
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d00670b8df427c20800000000000000
+      internalID: 3202710077105897686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_85
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 178
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfaafe62a0e28be70800000000000000
+      internalID: 9131098865631472381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_86
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 177
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dfc7cb8534392d40800000000000000
+      internalID: 5560032619548626905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_87
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 181
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b8e8c391360d2440800000000000000
+      internalID: 4912589578533660855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_88
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 160
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 251ec751dd2a99c50800000000000000
+      internalID: 6672543393358078290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_89
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 151
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc82e7d044653700800000000000000
+      internalID: 519431561693793499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_90
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 167
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9de537091ae4b95f0800000000000000
+      internalID: -748918457206874407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_91
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 166
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17d86b2c8e0d85b60800000000000000
+      internalID: 7735162058126560625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_92
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 134
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3ab1c715d71fda90800000000000000
+      internalID: -7287079468068128195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_93
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 154
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd86e498d1f9fc80800000000000000
+      internalID: -8288327726685319716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_94
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 168
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51ac15a98b366e590800000000000000
+      internalID: -7645313672900654571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_95
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 157
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2899fce645739ee60800000000000000
+      internalID: 7991979849521535362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_96
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 97
+        width: 61
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771676399a71f9e30800000000000000
+      internalID: 4512351368738464119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_97
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 158
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eec6903cab23b57a0800000000000000
+      internalID: -6387455868777435922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_98
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 152
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2204aea9ec36d63e0800000000000000
+      internalID: -2058879715624992734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_99
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 107
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d4d0d5d96ed11ad0800000000000000
+      internalID: -2733158952697015087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_100
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 135
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6b3022f8b589d180800000000000000
+      internalID: -9090087343487960213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_101
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 145
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bce326ddf432edc0800000000000000
+      internalID: -3611265686373667658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_102
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 93
+        width: 58
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8979bf8725dccc130800000000000000
+      internalID: 3588468757208209304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_103
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 117
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a25ade3b4a01ce060800000000000000
+      internalID: 6983975421724173610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_104
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 124
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4858c225b3d279670800000000000000
+      internalID: 8545348550763775364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_105
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 102
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f04d966956bda6860800000000000000
+      internalID: 7524067356837532687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_106
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 66
+        width: 69
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f5883b5fb79cc150800000000000000
+      internalID: 5894252860446115317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_107
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 71
+        width: 51
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4da4c5c47297c110800000000000000
+      internalID: 1281153649242058063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_108
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 0
+        width: 109
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b812d7cd78e80730800000000000000
+      internalID: 3965675098820712625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_109
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 101
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a50f2b228a1606a0800000000000000
+      internalID: -6483465467180677723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_110
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 86
+        width: 29
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1dabada56f9f2bf0800000000000000
+      internalID: -346883387230016230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_111
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 92
+        width: 26
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6effa7b5f3669a160800000000000000
+      internalID: 7037268315046871014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_112
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 102
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1246a1b9459dcc5d0800000000000000
+      internalID: -3040816690979249119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_113
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 108
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f42a38e5dc28840800000000000000
+      internalID: 5224964323522269009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_114
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 103
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc6b3f0883bf5760800000000000000
+      internalID: 7448869705646566606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_115
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 112
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c1a7d1a6957aab50800000000000000
+      internalID: 6605221093313061316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_116
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 101
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06a5feeeeb5cd3d20800000000000000
+      internalID: 3259979129129228896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_117
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 86
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b40c34a8cb3091d50800000000000000
+      internalID: 6708397228253495371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_118
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 92
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7bc02dc58d0c98c0800000000000000
+      internalID: -3991300301433812102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_119
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 95
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22153058d139239a0800000000000000
+      internalID: -6254775177469275870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_120
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 98
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224ff1e38881eec20800000000000000
+      internalID: 3237552155562865698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_121
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 88
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9da57638c876b7d0800000000000000
+      internalID: -2903000108491231844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_122
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 78
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9105ed1583b7e7d70800000000000000
+      internalID: 9042800583628443673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_123
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 97
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a031954081401c0800000000000000
+      internalID: -4538476117529261543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_124
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 87
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ab7d62248f2214d0800000000000000
+      internalID: -3165415343528248407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_125
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 65
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6bbb84b40cd834a0800000000000000
+      internalID: -6613294140026537106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_126
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 84
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87eff3af0a50b7540800000000000000
+      internalID: 5006601599703842424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_127
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 90
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d9af043fb3e904a0800000000000000
+      internalID: -6626514966347273770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_128
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 79
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87a08031f982f1aa0800000000000000
+      internalID: -6188182699299566984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_129
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 24
+        width: 73
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e089807cbd9eaf6a0800000000000000
+      internalID: -6414557589089511410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_130
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 30
+        width: 52
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a72282cfc855680800000000000000
+      internalID: -8766946084973807016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_131
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 86
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5558cc8833e663f0800000000000000
+      internalID: -907788442848963238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_132
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 67
+        width: 31
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f92af45fbd0b61c40800000000000000
+      internalID: 5482764055130120863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_133
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 77
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70bac1c8430d9eb90800000000000000
+      internalID: -7212004404149572857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_134
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 60
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d85244e9a8565690800000000000000
+      internalID: -7613800633320974127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_135
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 75
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e719528f8e6d5db0800000000000000
+      internalID: -4801560065060825115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_136
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 65
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56e8b1c6b356d7fd0800000000000000
+      internalID: -2342604925271568795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_137
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 67
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758bc696932ee6570800000000000000
+      internalID: 8461949486085486679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_138
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 66
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63749e928c273a8c0800000000000000
+      internalID: -3989218640897947850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_139
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 70
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c173e2e0702bc36e0800000000000000
+      internalID: -1856413203011061988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_140
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 75
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb23abfc894b5b520800000000000000
+      internalID: 2717276518601077436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_141
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 67
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dde2fee9545eb0090800000000000000
+      internalID: -8067102220322132259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_142
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 53
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 971430f154ccf6410800000000000000
+      internalID: 1472620200418558329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_143
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 30
+        width: 38
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dca518225ca27c1f0800000000000000
+      internalID: -1024803364027671859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_144
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 10
+        width: 46
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2182745f831c288c0800000000000000
+      internalID: -3998421068774168558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_145
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 14
+        width: 70
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e051b82923cf6f430800000000000000
+      internalID: 3816515028380226830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_146
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 59
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cec6a777b69909d30800000000000000
+      internalID: 4436214319805000940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_147
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 68
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ecfc70c7922e2c0800000000000000
+      internalID: -4403911872931180951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_148
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 76
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 881d8b712d46976f0800000000000000
+      internalID: -686406614693391992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_149
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 53
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 155f14fb04a295850800000000000000
+      internalID: 6366166005839951185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_150
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 48
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad2f7101f548f990800000000000000
+      internalID: -7352049490267787869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_151
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 49
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10d131ba1cc3c9900800000000000000
+      internalID: 692495245204724993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_152
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 52
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb8f3defc837eab30800000000000000
+      internalID: 4300501743593322687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_153
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 56
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b8ea365a27632f0800000000000000
+      internalID: -993480613121062013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_154
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 47
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44943f3adac591bc0800000000000000
+      internalID: -3811913708742686396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_155
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 43
+        width: 17
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e3c40a0ef8180e20800000000000000
+      internalID: 3316928604927214564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_156
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 58
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff9eeef0d445b9e0800000000000000
+      internalID: -1606302027666776067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_157
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 49
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f57bf22671b9bfa0800000000000000
+      internalID: -5784397125429529098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_158
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 44
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dabdb8518f6055c80800000000000000
+      internalID: -8334747872796091475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_159
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 47
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 793291515d5f648c0800000000000000
+      internalID: -4015251722223410281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_160
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 48
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbad757fe04bab030800000000000000
+      internalID: 3511316835860994749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_161
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 24
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd70a4deb43817350800000000000000
+      internalID: 6012731339643160540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_162
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 44
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7567c44e65a42ead0800000000000000
+      internalID: -2674493491646794153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_163
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 36
+        width: 28
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70926079f86cd19a0800000000000000
+      internalID: -6260629586958735097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_164
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 34
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6edf3c0033211d00800000000000000
+      internalID: 941572486368058989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_165
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 20
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a7ac33549f387700800000000000000
+      internalID: 538250061754967971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_166
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 13
+        width: 20
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f85b56ce6654d5130800000000000000
+      internalID: 3557075589047629199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_167
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 31
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8035a0e84a0fc07c0800000000000000
+      internalID: -4103640570893020408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_168
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 37
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f15a723598ad5120800000000000000
+      internalID: 2404263134836183542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_169
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 28
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f45ec25509eedbf50800000000000000
+      internalID: 6898932507873174863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_170
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 34
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a52ee12353ea3fd0800000000000000
+      internalID: -2361325108411357791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_171
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 37
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63bf1eb6d7908c800800000000000000
+      internalID: 632766181931088694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_172
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 36
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6e39e66d0f7d1ad0800000000000000
+      internalID: -2729886103578788246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_173
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 18
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aa8c553cf9557470800000000000000
+      internalID: 8391712420436675234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_174
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 21
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a34111511fb06530800000000000000
+      internalID: 3846284162869838752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_175
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 9
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5453b2f8a8aacb060800000000000000
+      internalID: 6970633835346867525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_176
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 12
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7e54dd6a51235eb0800000000000000
+      internalID: -4732402111162851716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_177
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 16
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b65dc2a7611e2ef0800000000000000
+      internalID: -131148202336495947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_178
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 9
+        width: 10
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa135cc996b4d5ba0800000000000000
+      internalID: -6098635403415965265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_179
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 0
+        width: 41
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b9409821fc03f80800000000000000
+      internalID: -8128769648888603885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_180
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 18
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1307afadd29c28c0800000000000000
+      internalID: -4022678886316309729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_181
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 12
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec33ee92366a4ad60800000000000000
+      internalID: 7900622591150142414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_182
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 18
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d5b53ea815e87db0800000000000000
+      internalID: -4793829909171161646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_183
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 0
+        width: 30
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a59c6cd185f2d70800000000000000
+      internalID: 9020525463558773253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_184
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 40
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3be41621952211a0800000000000000
+      internalID: -6840363578682971334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_185
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 27
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be1b1c5e6ab77850800000000000000
+      internalID: 6374768780720676532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_186
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 21
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a91b28ba388932710800000000000000
+      internalID: 1667343978342822298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_187
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 18
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca967b9f083e83260800000000000000
+      internalID: 7077656957497600428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_188
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 12
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 574c861d14431ff70800000000000000
+      internalID: 9219207369494938741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_189
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 10
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5cacaf53e2d1520800000000000000
+      internalID: 2674344563103679969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_190
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 0
+        width: 13
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f69a47cbd68dfd5f0800000000000000
+      internalID: -729626648785933969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_191
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 7
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92cd12d9caaa0ff70800000000000000
+      internalID: 9219056095574744105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_192
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48ca6cd38c1c57f40800000000000000
+      internalID: 5725695567045504132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_193
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 15
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5032906dca1f02690800000000000000
+      internalID: -7628832044138028283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_194
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a410bea844ff2d0800000000000000
+      internalID: -3242797843244561863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_195
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 0
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0897e27a71ce5db0800000000000000
+      internalID: -4801187421072418805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_196
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae153e6248bbc7c0800000000000000
+      internalID: -4049940844433301843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_197
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 0
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b4c8d472a2202310800000000000000
+      internalID: 1378139567115781297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_198
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 0
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 736f9e62d79aef4c0800000000000000
+      internalID: -4251774643202296265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_199
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 7
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dea3727a687930350800000000000000
+      internalID: 5981791334663928557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_200
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be78945e9730233f0800000000000000
+      internalID: -922671151584802837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_201
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 7
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a8ae1e8855748940800000000000000
+      internalID: 5297488084896491681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_202
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 6
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95fb39bbc31ed3790800000000000000
+      internalID: -7548629749441773735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_203
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 3
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a94ed9f1d5b3030800000000000000
+      internalID: 3475473927820843571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_204
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 0
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e90a7d2574a54750800000000000000
+      internalID: 6288613277873867236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_205
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 0
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340f2681132146050800000000000000
+      internalID: 5792775022777135171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_206
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 0
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8355aa845742760800000000000000
+      internalID: 7432194240023967993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_207
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 3
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 865430427e033e460800000000000000
+      internalID: 7269707992805885288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_208
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 0
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f11c67d6a0610dc0800000000000000
+      internalID: -3674549551262592521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_209
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 0
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 133ffa8cb9f80cab0800000000000000
+      internalID: -4989830487876832463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_210
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 8
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f36551e0b00058ce0800000000000000
+      internalID: -1403715661375121857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_211
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 3
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a879e850c2cd3170800000000000000
+      internalID: 8159892231246411938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlueStars_212
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f27515b71f9cc1eb0800000000000000
+      internalID: -4747697868162115793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BlueStars_0: 2116976054278674529
+      BlueStars_1: 3281862965616441322
+      BlueStars_10: -4897056917361653250
+      BlueStars_100: -9090087343487960213
+      BlueStars_101: -3611265686373667658
+      BlueStars_102: 3588468757208209304
+      BlueStars_103: 6983975421724173610
+      BlueStars_104: 8545348550763775364
+      BlueStars_105: 7524067356837532687
+      BlueStars_106: 5894252860446115317
+      BlueStars_107: 1281153649242058063
+      BlueStars_108: 3965675098820712625
+      BlueStars_109: -6483465467180677723
+      BlueStars_11: 5447361920827088715
+      BlueStars_110: -346883387230016230
+      BlueStars_111: 7037268315046871014
+      BlueStars_112: -3040816690979249119
+      BlueStars_113: 5224964323522269009
+      BlueStars_114: 7448869705646566606
+      BlueStars_115: 6605221093313061316
+      BlueStars_116: 3259979129129228896
+      BlueStars_117: 6708397228253495371
+      BlueStars_118: -3991300301433812102
+      BlueStars_119: -6254775177469275870
+      BlueStars_12: 5578248562034138302
+      BlueStars_120: 3237552155562865698
+      BlueStars_121: -2903000108491231844
+      BlueStars_122: 9042800583628443673
+      BlueStars_123: -4538476117529261543
+      BlueStars_124: -3165415343528248407
+      BlueStars_125: -6613294140026537106
+      BlueStars_126: 5006601599703842424
+      BlueStars_127: -6626514966347273770
+      BlueStars_128: -6188182699299566984
+      BlueStars_129: -6414557589089511410
+      BlueStars_13: -5718973342120635382
+      BlueStars_130: -8766946084973807016
+      BlueStars_131: -907788442848963238
+      BlueStars_132: 5482764055130120863
+      BlueStars_133: -7212004404149572857
+      BlueStars_134: -7613800633320974127
+      BlueStars_135: -4801560065060825115
+      BlueStars_136: -2342604925271568795
+      BlueStars_137: 8461949486085486679
+      BlueStars_138: -3989218640897947850
+      BlueStars_139: -1856413203011061988
+      BlueStars_14: -1656409479869015122
+      BlueStars_140: 2717276518601077436
+      BlueStars_141: -8067102220322132259
+      BlueStars_142: 1472620200418558329
+      BlueStars_143: -1024803364027671859
+      BlueStars_144: -3998421068774168558
+      BlueStars_145: 3816515028380226830
+      BlueStars_146: 4436214319805000940
+      BlueStars_147: -4403911872931180951
+      BlueStars_148: -686406614693391992
+      BlueStars_149: 6366166005839951185
+      BlueStars_15: 6075033478390560954
+      BlueStars_150: -7352049490267787869
+      BlueStars_151: 692495245204724993
+      BlueStars_152: 4300501743593322687
+      BlueStars_153: -993480613121062013
+      BlueStars_154: -3811913708742686396
+      BlueStars_155: 3316928604927214564
+      BlueStars_156: -1606302027666776067
+      BlueStars_157: -5784397125429529098
+      BlueStars_158: -8334747872796091475
+      BlueStars_159: -4015251722223410281
+      BlueStars_16: 2811713449587733280
+      BlueStars_160: 3511316835860994749
+      BlueStars_161: 6012731339643160540
+      BlueStars_162: -2674493491646794153
+      BlueStars_163: -6260629586958735097
+      BlueStars_164: 941572486368058989
+      BlueStars_165: 538250061754967971
+      BlueStars_166: 3557075589047629199
+      BlueStars_167: -4103640570893020408
+      BlueStars_168: 2404263134836183542
+      BlueStars_169: 6898932507873174863
+      BlueStars_17: -1745975264358474152
+      BlueStars_170: -2361325108411357791
+      BlueStars_171: 632766181931088694
+      BlueStars_172: -2729886103578788246
+      BlueStars_173: 8391712420436675234
+      BlueStars_174: 3846284162869838752
+      BlueStars_175: 6970633835346867525
+      BlueStars_176: -4732402111162851716
+      BlueStars_177: -131148202336495947
+      BlueStars_178: -6098635403415965265
+      BlueStars_179: -8128769648888603885
+      BlueStars_18: 4644920551926974873
+      BlueStars_180: -4022678886316309729
+      BlueStars_181: 7900622591150142414
+      BlueStars_182: -4793829909171161646
+      BlueStars_183: 9020525463558773253
+      BlueStars_184: -6840363578682971334
+      BlueStars_185: 6374768780720676532
+      BlueStars_186: 1667343978342822298
+      BlueStars_187: 7077656957497600428
+      BlueStars_188: 9219207369494938741
+      BlueStars_189: 2674344563103679969
+      BlueStars_19: 1305060147132199363
+      BlueStars_190: -729626648785933969
+      BlueStars_191: 9219056095574744105
+      BlueStars_192: 5725695567045504132
+      BlueStars_193: -7628832044138028283
+      BlueStars_194: -3242797843244561863
+      BlueStars_195: -4801187421072418805
+      BlueStars_196: -4049940844433301843
+      BlueStars_197: 1378139567115781297
+      BlueStars_198: -4251774643202296265
+      BlueStars_199: 5981791334663928557
+      BlueStars_2: -7893294370468261307
+      BlueStars_20: 2106211316315202262
+      BlueStars_200: -922671151584802837
+      BlueStars_201: 5297488084896491681
+      BlueStars_202: -7548629749441773735
+      BlueStars_203: 3475473927820843571
+      BlueStars_204: 6288613277873867236
+      BlueStars_205: 5792775022777135171
+      BlueStars_206: 7432194240023967993
+      BlueStars_207: 7269707992805885288
+      BlueStars_208: -3674549551262592521
+      BlueStars_209: -4989830487876832463
+      BlueStars_21: -4916126546734356206
+      BlueStars_210: -1403715661375121857
+      BlueStars_211: 8159892231246411938
+      BlueStars_212: -4747697868162115793
+      BlueStars_22: 1275807050976517260
+      BlueStars_23: 5047973592018634168
+      BlueStars_24: 4063210335982416778
+      BlueStars_25: -3627373530449421232
+      BlueStars_26: -4501551281104189439
+      BlueStars_27: -2097220128910854261
+      BlueStars_28: 7665211653798060972
+      BlueStars_29: 8978948697493224455
+      BlueStars_3: -5307286683992403639
+      BlueStars_30: 7418131469014152782
+      BlueStars_31: -7401387148002515071
+      BlueStars_32: -7258938063582377309
+      BlueStars_33: -8736915604772963392
+      BlueStars_34: -7421214578134428284
+      BlueStars_35: 8549709278854092700
+      BlueStars_36: -1485742339058369597
+      BlueStars_37: -7228004541075556077
+      BlueStars_38: 7090868630886274630
+      BlueStars_39: 8283178341352707880
+      BlueStars_4: -5310090271194112268
+      BlueStars_40: -1869713145368528221
+      BlueStars_41: -6999239601833262298
+      BlueStars_42: 863289140016150512
+      BlueStars_43: 7367755150736197675
+      BlueStars_44: -1753145972003491895
+      BlueStars_45: -6334766625180570318
+      BlueStars_46: -3010825907279325060
+      BlueStars_47: -5463416691313880922
+      BlueStars_48: 4615050794338517509
+      BlueStars_49: 559156812269952257
+      BlueStars_5: 3184569389124355819
+      BlueStars_50: 4812322591128324537
+      BlueStars_51: 2614947902009621779
+      BlueStars_52: -3332803956569148780
+      BlueStars_53: 6875685047122926541
+      BlueStars_54: 1525293811669500374
+      BlueStars_55: 938963688479757245
+      BlueStars_56: -4895902421048128530
+      BlueStars_57: 6675209319086671869
+      BlueStars_58: -2692376244872976452
+      BlueStars_59: -123306517669099199
+      BlueStars_6: -6850081145040537718
+      BlueStars_60: -4897384670350373876
+      BlueStars_61: -3042452908484381058
+      BlueStars_62: 590462136029461690
+      BlueStars_63: 6123139424548233127
+      BlueStars_64: -8693593352660694933
+      BlueStars_65: -4754712918496079275
+      BlueStars_66: 5804181911508302311
+      BlueStars_67: -5462022188426183677
+      BlueStars_68: -7896004952792715059
+      BlueStars_69: -8619826435052745463
+      BlueStars_7: -1776727887538634572
+      BlueStars_70: -5879611128186187501
+      BlueStars_71: 6434374768977015986
+      BlueStars_72: 3486864979768949319
+      BlueStars_73: 7738788184893080141
+      BlueStars_74: 6562987462571558371
+      BlueStars_75: -2820019020848354480
+      BlueStars_76: -7251689321872325910
+      BlueStars_77: -2897982541854139149
+      BlueStars_78: 553725401194940316
+      BlueStars_79: 28309331133970789
+      BlueStars_8: -7399041133525581202
+      BlueStars_80: -4276304014833793720
+      BlueStars_81: -5156188312925254634
+      BlueStars_82: -2994224638012265605
+      BlueStars_83: 467899884372271824
+      BlueStars_84: 3202710077105897686
+      BlueStars_85: 9131098865631472381
+      BlueStars_86: 5560032619548626905
+      BlueStars_87: 4912589578533660855
+      BlueStars_88: 6672543393358078290
+      BlueStars_89: 519431561693793499
+      BlueStars_9: 8874313774455183436
+      BlueStars_90: -748918457206874407
+      BlueStars_91: 7735162058126560625
+      BlueStars_92: -7287079468068128195
+      BlueStars_93: -8288327726685319716
+      BlueStars_94: -7645313672900654571
+      BlueStars_95: 7991979849521535362
+      BlueStars_96: 4512351368738464119
+      BlueStars_97: -6387455868777435922
+      BlueStars_98: -2058879715624992734
+      BlueStars_99: -2733158952697015087
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

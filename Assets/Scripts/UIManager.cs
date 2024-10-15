@@ -33,6 +33,10 @@ public class UIManager : MonoBehaviour
     private bool _p1UniverseExists;
     [SerializeField] private RectTransform p2Universe;
     private bool _p2UniverseExists;
+    [SerializeField] private GameObject p1StarsParent;
+    private GameObject[] _p1Stars;
+    [SerializeField] private GameObject p2StarsParent;
+    private GameObject[] _p2Stars;
     
     [SerializeField] private Sprite effectIcon;
     [SerializeField] private Image p1EffectIcon;
@@ -124,6 +128,28 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
+
+        if (p1StarsParent != null)
+        {
+            var numberOfChildren = p1StarsParent.transform.childCount;
+            _p1Stars = new GameObject[numberOfChildren];
+
+            for (var i = 0; i < numberOfChildren; i++)
+            {
+                _p1Stars[i] = p1StarsParent.transform.GetChild(i).gameObject;
+            }
+        }
+        
+        if (p2StarsParent != null)
+        {
+            var numberOfChildren = p2StarsParent.transform.childCount;
+            _p2Stars = new GameObject[numberOfChildren];
+
+            for (var i = 0; i < numberOfChildren; i++)
+            {
+                _p2Stars[i] = p2StarsParent.transform.GetChild(i).gameObject;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -146,7 +172,11 @@ public class UIManager : MonoBehaviour
             combo.text = "";
             _isComboActive = false;
             
-            // TODO stars
+            for (var i = 2; i < _p1Stars.Length; i++)
+            {
+                _p1Stars[i]?.SetActive(false);
+                _p2Stars[i]?.SetActive(false);
+            }
         }
          
         // If the AoE is on cooldown, animate the cooldown mask to decrease until the AoE is available
@@ -327,6 +357,8 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    #region Score and Combo Logic
+
     public void ChangeScore(float newScore, bool isPlayer1)
     {
         if (!_canGainScore) return;
@@ -377,6 +409,12 @@ public class UIManager : MonoBehaviour
             combo.color = new Color(0f, 0f, 0f, 0f);
             _scoreValue = Mathf.Max(0f, _scoreValue);
             score.text = Mathf.CeilToInt(_scoreValue).ToString();
+            
+            for (var i = 0; i < _p1Stars.Length; i++)
+            {
+                _p1Stars[i]?.SetActive(false);
+                _p2Stars[i]?.SetActive(false);
+            }
         }
 
         if (_comboMultiplier > 1f)
@@ -388,8 +426,16 @@ public class UIManager : MonoBehaviour
         }
 
         combo.fontSize = _comboInitialFontSize + _comboMultiplier * 0.75f;
+
+        if (_comboMultiplier > 45 || _p1Stars.Length <= 0 || _p2Stars.Length <= 0) return;
+
+        var index = _comboMultiplier / 5 * 2;
         
-        // TODO stars
+        _p1Stars[index]?.SetActive(true);
+        _p1Stars[index + 1]?.SetActive(true);
+        
+        _p2Stars[index]?.SetActive(true);
+        _p2Stars[index + 1]?.SetActive(true);
     }
 
     private IEnumerator LoseScore(int objects)
@@ -403,4 +449,6 @@ public class UIManager : MonoBehaviour
         
         yield return null;
     }
+
+    #endregion
 }
