@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance { get; private set; }
     
     [SerializeField] private TextMeshProUGUI score;
+    [SerializeField] private GameObject finalScoreBox;
+    [SerializeField] private TextMeshProUGUI finalScore;
     [SerializeField] private TextMeshProUGUI disableScore;
     private bool _canGainScore;
     private float _scoreInitialFontSize;
@@ -56,10 +58,24 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject p2EffectsMenu;
     private GameObject[] _p2EffectButtons;
     private Image[] _p2EffectIcons;
-    [HideInInspector] public bool isP2MenuOpen;
     [SerializeField] private RectTransform p2ChooseEffectCooldownMask;
     private float _p2ChooseEffectCooldown;
     private bool _isP2EffectActive;
+    
+    [SerializeField] private TextMeshProUGUI timeText;
+    
+    [SerializeField] private RectTransform timeMask;
+    private float _timeMaskMaxWidth;
+    
+    [SerializeField] private float timeRemaining = 180f;
+    private int _elapsedTime;
+    
+    [SerializeField] private Color initialTimerColor;
+    [SerializeField] private Color endTimerColor;
+    private Vector3 _colorDelta;
+    [SerializeField] private GameObject timeMaskColor;
+    
+    private float _timeScale = 1f;
 
     private void Awake()
     {
@@ -150,6 +166,21 @@ public class UIManager : MonoBehaviour
                 _p2Stars[i] = p2StarsParent.transform.GetChild(i).gameObject;
             }
         }
+        
+        if (timeMask != null)
+        {
+            _timeMaskMaxWidth = timeMask.sizeDelta.x;
+        }
+
+        if (timeMaskColor != null)
+        {
+            timeMaskColor.GetComponent<Image>().color = initialTimerColor;
+        }
+        
+        _colorDelta = new Vector3(
+            (initialTimerColor.r - endTimerColor.r)/timeRemaining,
+            (initialTimerColor.g - endTimerColor.g)/timeRemaining,
+            (initialTimerColor.b - endTimerColor.b)/timeRemaining);
     }
 
     private void FixedUpdate()
@@ -158,6 +189,49 @@ public class UIManager : MonoBehaviour
         
         if (_p1UniverseExists) p1Universe.localScale = Vector2.one;
         if (_p2UniverseExists) p2Universe.localScale = Vector2.one;
+
+        if (GameManager.Instance.CurrentState != GameManager.GameState.Tutorial)
+        {
+            // Time management
+            if (timeRemaining > 0f)
+            {
+                timeRemaining -= Time.fixedDeltaTime;
+                _elapsedTime = (int)(180f - timeRemaining);
+                
+                var minutes = Mathf.FloorToInt(timeRemaining / 60f);
+                var seconds = Mathf.FloorToInt(timeRemaining % 60);
+                timeText.text = $"{minutes:D2}:{seconds:D2}";
+                
+                timeMask.sizeDelta = new Vector2(_timeMaskMaxWidth * (timeRemaining / 180f), timeMask.sizeDelta.y);
+                
+                var currentColor = timeMaskColor.GetComponent<Image>().color;
+                currentColor.r -= _colorDelta.x;
+                currentColor.g -= _colorDelta.y;
+                currentColor.b -= _colorDelta.z;
+                timeMaskColor.GetComponent<Image>().color = currentColor;
+                
+                if (_elapsedTime % 30 == 0)
+                {
+                    WaveManager.Instance.StartNewWave();
+                }
+                
+                if (_elapsedTime % 60 == 0 && _elapsedTime > 0)
+                {
+                    _timeScale += 0.1f;
+                    Time.timeScale = _timeScale;
+                    Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                }
+            }
+            else
+            {
+                EndTimer();
+            }
+        }
+        else
+        {
+            timeText.gameObject.SetActive(false);
+            timeMask.gameObject.SetActive(false);
+        }
         
         // Combo Logic
         if (_activeComboCooldownTimer > 0f)
@@ -451,4 +525,13 @@ public class UIManager : MonoBehaviour
     }
 
     #endregion
+    
+    private void EndTimer()
+    {
+        finalScoreBox.gameObject.SetActive(true);
+        finalScore.text = "Score: " + score.text;
+        _timeScale = 0f;
+        Time.timeScale = 0f;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    }
 }

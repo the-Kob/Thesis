@@ -96,12 +96,12 @@ namespace Menu
     
     public void OnTutorialButtonPressed()
     {
-        GameManager.Instance.LoadGameScene("Tutorial");
+        GameManager.Instance.LoadScene("Tutorial");
     }
     
     public void OnGameButtonPressed()
     {
-        GameManager.Instance.LoadGameScene("Game");
+        GameManager.Instance.LoadScene("Game");
     }
 
     public void OnBackButtonPressed()

@@ -6,6 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
     
+    public enum GameState
+    {
+        Menu,
+        Tutorial,
+        Game
+    }
+    
+    public GameState CurrentState { get; private set; }
     public InputDevice P1Device { get; private set; }
     public InputDevice P2Device { get; private set; }
     
@@ -20,6 +28,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        ChangeState(GameState.Menu);
     }
     
     public void SetPlayerDevice(int playerIndex, InputDevice device)
@@ -34,25 +44,39 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void LoadGameScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
         
-        if (sceneName != "Menu")
+        if (sceneName == "Menu")
         {
-            AudioManager.Instance.PlayGameMusic();
+            ChangeState(GameState.Menu);
+            AudioManager.Instance.PlayMenuMusic();
         }
         else
         {
-            AudioManager.Instance.PlayMenuMusic();
+            if (sceneName == "Tutorial")
+            {
+                ChangeState(GameState.Tutorial);
+            }
+            else
+            {
+                ChangeState(GameState.Game);
+            }
+            
+            AudioManager.Instance.PlayGameMusic();
         }
         
-        SceneManager.sceneLoaded += OnSceneLoaded; // Register callback for when the scene is fully loaded
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
-
-    // Method gets called once the new scene has finished loading
+    
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded; // Unsubscribe from the event to prevent multiple calls
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    private void ChangeState(GameState newState)
+    {
+        CurrentState = newState;
     }
 }

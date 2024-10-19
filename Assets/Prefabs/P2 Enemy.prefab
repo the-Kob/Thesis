@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 5583326536377582701}
   - component: {fileID: 1042010494706709795}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: P2 Enemy
   m_TagString: P1 Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3686016b6e11e8542ae9facef3c4186f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlayer1: 1
+  isPlayer1: 0
   healthLayers:
   - {fileID: 3366994682643517801}
   - {fileID: 298914661682778626}

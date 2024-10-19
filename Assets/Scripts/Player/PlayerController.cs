@@ -18,7 +18,7 @@ namespace Player
         private Rigidbody2D _rigidbody;
     
         [SerializeField] private float moveSpeed = 5f;
-        private Vector2 _moveInput;
+        public Vector2 MoveInput {get; private set;}
     
         [SerializeField] private float knockbackForce = 5f;
         [SerializeField] private float knockbackCooldown = 0.2f;
@@ -163,7 +163,7 @@ namespace Player
         private void HandleMove()
         {
             Vector3 movement = _hitByEnemy ? _knockbackDirection * (knockbackForce * Time.fixedDeltaTime) : 
-                new Vector3(_moveInput.x, _moveInput.y, 0f) * (moveSpeed * Time.fixedDeltaTime);
+                new Vector3(MoveInput.x, MoveInput.y, 0f) * (moveSpeed * Time.fixedDeltaTime);
 
             if (_hitByEnemy && (_knockbackCooldownTimer -= Time.fixedDeltaTime) <= 0)
                 _hitByEnemy = false;
@@ -318,7 +318,7 @@ namespace Player
         
         public void OnMove(InputAction.CallbackContext context)
         {
-            _moveInput = context.ReadValue<Vector2>();
+            MoveInput = context.ReadValue<Vector2>();
         }
         
         public void OnLook(InputAction.CallbackContext context)
