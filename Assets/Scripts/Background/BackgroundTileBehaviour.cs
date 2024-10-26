@@ -1,41 +1,63 @@
+using System.Linq;
 using UnityEngine;
 
 namespace Background
 {
     public class BackgroundTileBehaviour : MonoBehaviour
     {
-        private  Camera mainCamera;
-        private Rect cameraView;
-
+        private Camera _mainCamera;
+        private RectTransform _rectTransform;
+        private float _margin;
+        private BackgroundTileManager _tileManager;
+        private Vector2Int _tilePos;
+        
+        public void Initialize(BackgroundTileManager manager, Vector2Int position, float margin)
+        {
+            _tileManager = manager;
+            _tilePos = position;
+            _margin = margin;
+        }
+        
         private void Start()
         {
-            if (mainCamera == null)
+            if (_mainCamera == null)
             {
-                mainCamera = Camera.main;
+                _mainCamera = Camera.main;
             }
-        }
-
-        private void Update()
-        {
-            cameraView = GetCameraView();
             
-            if (!IsTileInView())
+            if (_rectTransform == null)
             {
-                Destroy(gameObject);
+                _rectTransform = GetComponent<RectTransform>();
             }
         }
 
-        private Rect GetCameraView()
+        void Update()
         {
-            var height = 2f * mainCamera.orthographicSize;
-            var width = height * mainCamera.aspect;
+            if (IsTileInView()) return;
 
-            return new Rect((Vector2)mainCamera.transform.position - new Vector2(width / 2, height / 2), new Vector2(width, height));
+            _tileManager.RemoveTile(_tilePos);
+            Destroy(gameObject);
         }
 
         private bool IsTileInView()
         {
-            return cameraView.Contains(transform.position);
+            Vector3[] corners = new Vector3[4];
+            _rectTransform.GetWorldCorners(corners);
+            
+            var marginX = _margin * _rectTransform.rect.width;
+            var marginY = _margin * _rectTransform.rect.height;
+
+            var screenLeft = 0 - marginX;
+            var screenRight = Screen.width + marginX;
+            var screenBottom = 0 - marginY;
+            var screenTop = Screen.height + marginY;
+            
+            return corners.Any(corner =>
+            {
+                Vector3 screenPoint = RectTransformUtility.WorldToScreenPoint(_mainCamera, corner);
+                return screenPoint.x > screenLeft && screenPoint.x < screenRight &&
+                       screenPoint.y > screenBottom && screenPoint.y < screenTop;
+            });
         }
     }   
 }

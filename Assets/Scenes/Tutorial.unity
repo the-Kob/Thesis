@@ -8877,9 +8877,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 582558562}
-  backgroundTilePrefab: {fileID: 4393829886382859929, guid: 85861d0fa8bbc3b4b8a914b33ff8850d, type: 3}
-  tileSize: {x: 1920, y: 1080}
-  canvasRectTransform: {fileID: 1937226126}
+  tilePrefab: {fileID: 4393829886382859929, guid: 85861d0fa8bbc3b4b8a914b33ff8850d, type: 3}
+  margin: 0.5
 --- !u!1 &1941593995
 GameObject:
   m_ObjectHideFlags: 0

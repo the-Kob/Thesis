@@ -1,98 +1,101 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Background
 {
     public class BackgroundTileManager : MonoBehaviour
     {
-        public Camera mainCamera;
-        public GameObject backgroundTilePrefab;  // Prefab with the BackgroundTile script
-        public Vector2 tileSize = new Vector2(1920, 1080);  // Size of each tile
-        public RectTransform canvasRectTransform;  // Reference to the parent canvas's RectTransform
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private GameObject tilePrefab;
+        [SerializeField] private float margin = 0.5f;
+        private readonly Vector2 tileDimensions = new (1920, 1080);
+        private readonly Dictionary<Vector2Int, GameObject> activeTiles = new ();
 
-        private Vector2 cameraPreviousPosition;
-        private Dictionary<Vector2, GameObject> activeTiles = new Dictionary<Vector2, GameObject>(); // Track active tiles
-
-        void Start()
+        private void Start()
         {
-            cameraPreviousPosition = mainCamera.transform.position;
-            // Initialize by spawning the 9 initial tiles around the camera
+            if (mainCamera == null)
+                mainCamera = Camera.main;
+
             InitializeTiles();
         }
 
-        void Update()
+        private void Update()
         {
-            Vector2 cameraMoveDelta = (Vector2)mainCamera.transform.position - cameraPreviousPosition;
+            UpdateTiles();
+        }
 
-            if (cameraMoveDelta.magnitude >= tileSize.x / 2 || cameraMoveDelta.magnitude >= tileSize.y / 2)
+        private void InitializeTiles()
+        {
+            var cameraPos = mainCamera.transform.position;
+            var initialTilePos = ScreenToTilePosition(cameraPos);
+
+            for (var x = -1; x <= 1; x++)
             {
-                cameraPreviousPosition = mainCamera.transform.position;
-                UpdateTiles();  // Check for new tiles and add as needed
+                for (var y = -1; y <= 1; y++)
+                {
+                    Vector2Int tilePos = initialTilePos + new Vector2Int(x, y);
+                    SpawnTileAt(tilePos);
+                }
             }
         }
 
-        // Spawns the initial 9 tiles around the camera
-        void InitializeTiles()
+        private void UpdateTiles()
         {
-            Vector2 cameraPosition = mainCamera.transform.position;
-            int camX = Mathf.FloorToInt(cameraPosition.x / tileSize.x);
-            int camY = Mathf.FloorToInt(cameraPosition.y / tileSize.y);
+            var cameraPosition = mainCamera.transform.position;
+            
+            var screenLeft = cameraPosition.x - Screen.width / 2f - margin * tileDimensions.x;
+            var screenRight = cameraPosition.x + Screen.width / 2f + margin * tileDimensions.x;
+            var screenBottom = cameraPosition.y - Screen.height / 2f - margin * tileDimensions.y;
+            var screenTop = cameraPosition.y + Screen.height / 2f + margin * tileDimensions.y;
 
-            // Spawning 9 tiles: the central tile and 8 surrounding tiles
-            for (int x = -1; x <= 1; x++)
+
+            var minTilePos = ScreenToTilePosition(new Vector2(screenLeft, screenBottom));
+            var maxTilePos = ScreenToTilePosition(new Vector2(screenRight, screenTop));
+
+            for (var x = minTilePos.x; x <= maxTilePos.x; x++)
             {
-                for (int y = -1; y <= 1; y++)
+                for (var y = minTilePos.y; y <= maxTilePos.y; y++)
                 {
-                    Vector2 tileCoord = new Vector2(camX + x, camY + y);
-                    if (!activeTiles.ContainsKey(tileCoord))
+                    var tilePos = new Vector2Int(x, y);
+
+                    if (!activeTiles.ContainsKey(tilePos))
                     {
-                        CreateTile(tileCoord);
+                        SpawnTileAt(tilePos);
                     }
                 }
             }
         }
 
-        // Updates tiles based on camera movement and adds new tiles dynamically
-        void UpdateTiles()
+        private void SpawnTileAt(Vector2Int tilePos)
         {
-            Vector2 cameraPosition = mainCamera.transform.position;
-            int camX = Mathf.FloorToInt(cameraPosition.x / tileSize.x);
-            int camY = Mathf.FloorToInt(cameraPosition.y / tileSize.y);
+            var screenPos = TileToScreenPosition(tilePos);
+            var newTile = Instantiate(tilePrefab, transform);
+            var rectTransform = newTile.GetComponent<RectTransform>();
+            rectTransform.anchoredPosition = screenPos;
+            
+            var tileBehaviour = newTile.GetComponent<BackgroundTileBehaviour>();
+            tileBehaviour.Initialize(this, tilePos, margin);
 
-            int halfTilesX = Mathf.CeilToInt(mainCamera.orthographicSize * mainCamera.aspect / tileSize.x) + 1;
-            int halfTilesY = Mathf.CeilToInt(mainCamera.orthographicSize / tileSize.y) + 1;
-
-            for (int x = -halfTilesX; x <= halfTilesX; x++)
-            {
-                for (int y = -halfTilesY; y <= halfTilesY; y++)
-                {
-                    Vector2 tileCoord = new Vector2(camX + x, camY + y);
-
-                    // If this tile doesn't exist yet, create it
-                    if (!activeTiles.ContainsKey(tileCoord))
-                    {
-                        CreateTile(tileCoord);
-                    }
-                }
-            }
+            activeTiles[tilePos] = newTile;
         }
 
-        // Function to create and position a tile at the given coordinate
-        void CreateTile(Vector2 tileCoord)
+        private Vector2Int ScreenToTilePosition(Vector2 screenPos)
         {
-            GameObject newTile = Instantiate(backgroundTilePrefab);
-            RectTransform tileRectTransform = newTile.GetComponent<RectTransform>();
-            tileRectTransform.SetParent(canvasRectTransform, false);
+            int x = Mathf.FloorToInt(screenPos.x / tileDimensions.x);
+            int y = Mathf.FloorToInt(screenPos.y / tileDimensions.y);
+            return new Vector2Int(x, y);
+        }
 
-            tileRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
-            tileRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
-            tileRectTransform.pivot = new Vector2(0.5f, 0.5f);
-            tileRectTransform.sizeDelta = tileSize;
-
-            Vector2 tilePosition = new Vector2(tileCoord.x * tileSize.x, tileCoord.y * tileSize.y);
-            tileRectTransform.anchoredPosition = tilePosition;
-
-            activeTiles.Add(tileCoord, newTile);
+        private Vector2 TileToScreenPosition(Vector2Int tilePos)
+        {
+            return new Vector2(tilePos.x * tileDimensions.x, tilePos.y * tileDimensions.y);
+        }
+        
+        public void RemoveTile(Vector2Int tilePos)
+        {
+            if (!activeTiles.ContainsKey(tilePos)) return;
+            
+            activeTiles.Remove(tilePos);
         }
     }
 }
