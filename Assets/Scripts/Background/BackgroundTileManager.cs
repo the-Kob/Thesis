@@ -41,30 +41,39 @@ namespace Background
 
         private void UpdateTiles()
         {
-            var cameraPosition = mainCamera.transform.position;
-            
-            var screenLeft = cameraPosition.x - Screen.width / 2f - margin * tileDimensions.x;
-            var screenRight = cameraPosition.x + Screen.width / 2f + margin * tileDimensions.x;
-            var screenBottom = cameraPosition.y - Screen.height / 2f - margin * tileDimensions.y;
-            var screenTop = cameraPosition.y + Screen.height / 2f + margin * tileDimensions.y;
+            Vector3 cameraPosition = mainCamera.transform.position;
 
+            // Calculate bounds with margin in world units based on the proportion of tile size
+            float marginInWorldUnitsX = margin * tileDimensions.x;
+            float marginInWorldUnitsY = margin * tileDimensions.y;
 
-            var minTilePos = ScreenToTilePosition(new Vector2(screenLeft, screenBottom));
-            var maxTilePos = ScreenToTilePosition(new Vector2(screenRight, screenTop));
+            // Update left, right, bottom, and top bounds based on current camera position
+            float screenLeft = cameraPosition.x - (Screen.width / 2f) - marginInWorldUnitsX;
+            float screenRight = cameraPosition.x + (Screen.width / 2f) + marginInWorldUnitsX;
+            float screenBottom = cameraPosition.y - (Screen.height / 2f) - marginInWorldUnitsY;
+            float screenTop = cameraPosition.y + (Screen.height / 2f) + marginInWorldUnitsY;
 
-            for (var x = minTilePos.x; x <= maxTilePos.x; x++)
+            // Convert screen bounds to tile positions to determine the grid area to cover
+            Vector2Int minTilePos = ScreenToTilePosition(new Vector2(screenLeft, screenBottom));
+            Vector2Int maxTilePos = ScreenToTilePosition(new Vector2(screenRight, screenTop));
+
+            Debug.Log($"Camera Position: {cameraPosition}, minTilePos: {minTilePos}, maxTilePos: {maxTilePos}");
+
+            // Iterate through the tile range and spawn missing tiles as needed
+            for (int x = minTilePos.x; x <= maxTilePos.x; x++)
             {
-                for (var y = minTilePos.y; y <= maxTilePos.y; y++)
+                for (int y = minTilePos.y; y <= maxTilePos.y; y++)
                 {
-                    var tilePos = new Vector2Int(x, y);
-
+                    Vector2Int tilePos = new Vector2Int(x, y);
                     if (!activeTiles.ContainsKey(tilePos))
                     {
                         SpawnTileAt(tilePos);
+                        Debug.Log($"Spawning tile at: {tilePos}");
                     }
                 }
             }
         }
+
 
         private void SpawnTileAt(Vector2Int tilePos)
         {
