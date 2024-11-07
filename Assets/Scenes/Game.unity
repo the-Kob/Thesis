@@ -7352,7 +7352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 2009830867}
-  finalScoreBox: {fileID: 0}
+  finalScoreBox: {fileID: 745564533}
   finalScore: {fileID: 1304475502}
   disableScore: {fileID: 1413194592}
   lostScorePrefab: {fileID: 4528686380880474602, guid: 8bac7f23b0beffd47959870beb8d73ac, type: 3}
@@ -8761,6 +8761,7 @@ GameObject:
   - component: {fileID: 1937226123}
   - component: {fileID: 1937226127}
   - component: {fileID: 1937226128}
+  - component: {fileID: 1937226129}
   m_Layer: 5
   m_Name: Background Canvas
   m_TagString: Untagged
@@ -8871,14 +8872,30 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1937226122}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5372bd081994c0d419225dd25645f7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 582558562}
   tilePrefab: {fileID: 4393829886382859929, guid: 85861d0fa8bbc3b4b8a914b33ff8850d, type: 3}
-  margin: 0.5
+  tileSize: 1920
+  bufferTiles: 1
+--- !u!114 &1937226129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937226122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6aed28b1742e79e419fa7ebadecb4183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundTilePrefab: {fileID: 4393829886382859929, guid: 85861d0fa8bbc3b4b8a914b33ff8850d, type: 3}
+  canvasRectTransform: {fileID: 1937226126}
+  tilesHorizontally: 100
+  tilesVertically: 100
 --- !u!1 &1941593995
 GameObject:
   m_ObjectHideFlags: 0

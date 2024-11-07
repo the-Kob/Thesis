@@ -69,6 +69,8 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private float timeRemaining = 180f;
     private int _elapsedTime;
+    private int _lastWaveSpawnTime = 0;
+    private int _lastTimeScaleUpdate = 0;
     
     [SerializeField] private Color initialTimerColor;
     [SerializeField] private Color endTimerColor;
@@ -197,29 +199,33 @@ public class UIManager : MonoBehaviour
             {
                 timeRemaining -= Time.fixedDeltaTime;
                 _elapsedTime = (int)(180f - timeRemaining);
-                
+
                 var minutes = Mathf.FloorToInt(timeRemaining / 60f);
                 var seconds = Mathf.FloorToInt(timeRemaining % 60);
                 timeText.text = $"{minutes:D2}:{seconds:D2}";
-                
+
                 timeMask.sizeDelta = new Vector2(_timeMaskMaxWidth * (timeRemaining / 180f), timeMask.sizeDelta.y);
-                
+
                 var currentColor = timeMaskColor.GetComponent<Image>().color;
                 currentColor.r -= _colorDelta.x;
                 currentColor.g -= _colorDelta.y;
                 currentColor.b -= _colorDelta.z;
                 timeMaskColor.GetComponent<Image>().color = currentColor;
-                
-                if (_elapsedTime % 30 == 0)
+
+                // Spawn wave every 30 seconds only if this is a new interval
+                if (_elapsedTime % 30 == 0 && _elapsedTime != _lastWaveSpawnTime)
                 {
                     WaveManager.Instance.StartNewWave();
+                    _lastWaveSpawnTime = _elapsedTime;
                 }
-                
-                if (_elapsedTime % 60 == 0 && _elapsedTime > 0)
+
+                // Increase time scale every 60 seconds, only if this is a new interval
+                if (_elapsedTime % 60 == 0 && _elapsedTime != _lastTimeScaleUpdate && _elapsedTime > 0)
                 {
                     _timeScale += 0.1f;
                     Time.timeScale = _timeScale;
                     Time.fixedDeltaTime = 0.02f * Time.timeScale;
+                    _lastTimeScaleUpdate = _elapsedTime;
                 }
             }
             else
