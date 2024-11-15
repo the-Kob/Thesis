@@ -13,9 +13,12 @@ namespace Player
     {
         private PlayerInput _playerInput;
         public bool isPlayer1 = true;
-
+        
+        public bool HasMoved { get; private set; }
+        public bool HasAimed { get; private set; }
+        public bool HasFired { get; private set; }
+        
         [SerializeField] private GameObject body;
-        private Rigidbody2D _rigidbody;
     
         [SerializeField] private float moveSpeed = 5f;
         public Vector2 MoveInput {get; private set;}
@@ -64,11 +67,6 @@ namespace Player
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
-            
-            if (body != null)
-            {
-                _rigidbody = body.GetComponent<Rigidbody2D>();
-            }
 
             if (crosshair != null)
             {
@@ -319,11 +317,21 @@ namespace Player
         public void OnMove(InputAction.CallbackContext context)
         {
             MoveInput = context.ReadValue<Vector2>();
+            
+            if (TutorialManager.Instance != null && TutorialManager.Instance.currentTutorialStep == 0 && MoveInput.magnitude > 0.1f)
+            {
+                HasMoved = true;
+            }
         }
         
         public void OnLook(InputAction.CallbackContext context)
         {
             _lookInput = context.ReadValue<Vector2>();
+            
+            if (TutorialManager.Instance != null && TutorialManager.Instance.currentTutorialStep == 1 && _lookInput.magnitude > 0.5f)
+            {
+                HasAimed = true;
+            }
         }
         
         public void OnFire(InputAction.CallbackContext context)
@@ -340,6 +348,13 @@ namespace Player
         {
             _chooseEffectDownInput = context.started;
             _chooseEffectUpInput = context.canceled;
+        }
+
+        public void ResetFlags()
+        {
+            HasMoved = false;
+            HasAimed = false;
+            HasFired = false;
         }
     }
 }
