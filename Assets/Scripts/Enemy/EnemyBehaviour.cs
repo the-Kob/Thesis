@@ -46,6 +46,8 @@ namespace Enemy
         private bool _beingNerfed;
         private Coroutine _buffNerfCoroutine;
 
+        [HideInInspector] public bool isTutorial;
+
         private void Awake()
         {
             _player = isPlayer1 ? GameObject.FindGameObjectWithTag("P1") : GameObject.FindGameObjectWithTag("P2");
@@ -155,6 +157,11 @@ namespace Enemy
             if (_health < 0)
             {
                 UIManager.Instance.ChangeCombo(true);
+
+                if (isTutorial)
+                {
+                    TutorialManager.Instance.DecreaseEnemyCount();
+                }
                 
                 for (var i = 0; i < healthLayers.Length; i++)
                 {

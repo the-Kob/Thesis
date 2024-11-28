@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private RectTransform p1AoeCooldownMask;
     private float _p1AoeCooldown;
-    [SerializeField] private GameObject p1EffectsMenu;
+    public GameObject p1EffectsMenu;
     private GameObject[] _p1EffectButtons;
     private Image[] _p1EffectIcons;
     [SerializeField] private RectTransform p1ChooseEffectCooldownMask;
@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private RectTransform p2AoeCooldownMask;
     private float _p2AoeCooldown;
-    [SerializeField] private GameObject p2EffectsMenu;
+    public GameObject p2EffectsMenu;
     private GameObject[] _p2EffectButtons;
     private Image[] _p2EffectIcons;
     [SerializeField] private RectTransform p2ChooseEffectCooldownMask;

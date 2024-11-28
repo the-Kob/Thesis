@@ -45,7 +45,7 @@ namespace Player
         [SerializeField] private float fireCooldown = 0.5f;
         private float _fireInput;
         private bool _isFiring;
-        private bool _canFire;
+        [HideInInspector] public bool canFire;
         private float _fireCooldownTimer;
 
         [SerializeField] private GameObject aoe;
@@ -56,7 +56,7 @@ namespace Player
         [SerializeField] private GameObject effect;
         private float effectMenuCooldown;
         private float _effectMenuCooldownTimer;
-        private bool _isInEffectMenu;
+        [HideInInspector] public bool isInEffectMenu;
         [SerializeField] private float chooseEffectCooldown = 10f;
         private float _chooseEffectCooldownTimer;
         private bool _isEffectActive;
@@ -128,7 +128,7 @@ namespace Player
             }
             else
             {
-                _canFire = true;
+                canFire = true;
             }
 
             if (_aoeCooldownTimer > 0f)
@@ -185,7 +185,7 @@ namespace Player
         {
             _isLooking = _lookInput != Vector2.zero;
             
-            if (_isLooking && !_isInEffectMenu)
+            if (_isLooking && !isInEffectMenu)
             {
                 if (!IsCrosshairVisible())
                 {
@@ -225,9 +225,9 @@ namespace Player
 
         private void HandleFire()
         {
-            if(_fireInput == 0 || !_canFire || !canAct) return;
+            if(_fireInput == 0 || !canFire || !canAct) return;
             
-            _canFire = false;
+            canFire = false;
             
             if (isPlayer1)
             {
@@ -265,13 +265,13 @@ namespace Player
         {   
             if (!_chooseEffectDownInput || _isEffectActive || _effectMenuCooldownTimer > 0f) return;
 
-            _isInEffectMenu = true;
+            isInEffectMenu = true;
             UIManager.Instance.OpenEffectMenu(isPlayer1);
         }
 
         private void HandleEffectMenuNavigation()
         {
-            if(!_isInEffectMenu) return;
+            if(!isInEffectMenu) return;
 
             if (_lookInput != Vector2.zero)
             {
@@ -296,9 +296,9 @@ namespace Player
 
         private void HandleChooseEffectUp()
         {
-            if (!_chooseEffectUpInput || !_isInEffectMenu) return;
+            if (!_chooseEffectUpInput || !isInEffectMenu) return;
             
-            _isInEffectMenu = false;
+            isInEffectMenu = false;
             _effectMenuCooldownTimer = 1f;
             
             UIManager.Instance.CloseEffectMenu(isPlayer1, _chosenEffect);
@@ -310,6 +310,11 @@ namespace Player
             _isEffectActive = true;
             _chooseEffectCooldownTimer = chooseEffectCooldown;
             UIManager.Instance.TriggerChooseEffect(isPlayer1, chooseEffectCooldown);
+
+            if (TutorialManager.Instance != null)
+            {
+                TutorialManager.Instance.GetEffectFromPlayer(isPlayer1, _chosenEffect);
+            }
             
             _chosenEffect = -1;
         }
@@ -337,6 +342,11 @@ namespace Player
         public void OnFire(InputAction.CallbackContext context)
         {
             _fireInput = context.ReadValue<float>();
+            
+            if (TutorialManager.Instance != null && TutorialManager.Instance.currentTutorialStep == 2 && _fireInput > 0.1f)
+            {
+                HasFired = true;
+            }
         }
 
         public void OnAoE(InputAction.CallbackContext context)

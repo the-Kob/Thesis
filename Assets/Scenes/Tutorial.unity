@@ -4355,7 +4355,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p1: {fileID: 2539848644258731865}
   p2: {fileID: 802517685}
+  p1Arrows:
+  - {fileID: 552268378}
+  - {fileID: 360285564}
+  - {fileID: 366594017}
+  - {fileID: 1504826157}
+  p2Arrows:
+  - {fileID: 1362924362}
+  - {fileID: 312627270}
+  - {fileID: 498742209}
+  - {fileID: 1698539295}
+  p1EnemyPrefab: {fileID: 4809503519755870104, guid: feaaa23511bdfaf47b963b85b6751ed0, type: 3}
+  p2EnemyPrefab: {fileID: 4809503519755870104, guid: 4a02fd9833d2d494584b5f8f554c79eb, type: 3}
   message: {fileID: 1726428979}
+  p1UsedBuff: 0
+  p1UsedDebuff: 0
+  p2UsedBuff: 0
+  p2UsedDebuff: 0
   currentTutorialStep: -1
 --- !u!4 &1016822885
 Transform:
