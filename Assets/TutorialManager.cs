@@ -3,6 +3,7 @@ using Enemy;
 using Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -19,15 +20,25 @@ public class TutorialManager : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI message;
 
+    [SerializeField] private GameObject book;
+    [SerializeField] private Image bookImage;
+    [SerializeField] private TextMeshProUGUI bookText;
+    [SerializeField] private Sprite[] bookImages;
+    [SerializeField] private Image[] bookSteps;
+    [SerializeField] private Sprite progressBarFullSprite;
+    private int _bookStep;
+    [SerializeField] private TextMeshProUGUI pageCounter;
+    
+    [HideInInspector] public int currentTutorialStep = -1;
+    private int _lastTutorialStep;
+    
+    private bool _enemiesHaveBeenSpawned;
+    private int _nEnemies;
+    
     [HideInInspector] public bool p1UsedBuff;
     [HideInInspector] public bool p1UsedDebuff;
     [HideInInspector] public bool p2UsedBuff;
     [HideInInspector] public bool p2UsedDebuff;
-    
-    [HideInInspector] public int currentTutorialStep = -1;
-    private int _lastTutorialStep;
-    private bool _enemiesHaveBeenSpawned;
-    private int _nEnemies;
     
     private readonly string[] _tutorialStepSentences = {
         "Use left joystick to move",
@@ -40,6 +51,30 @@ public class TutorialManager : MonoBehaviour
         "You can't kill them, right?",
         "Just as we expected...",
         "Ok, here. Read these instructions."
+    };
+    
+    private readonly string[] _bookStepSentences = {
+        "This book was made on the go, we do not have much time. Hopefully this explanation is enough. Handle with care. -Rufus",
+        "Our team of researchers were doing significant progress on understanding parallel universes. Doing so would bring a big new boom to science as a whole.",
+        "But, like everything in the world, people moved by greed (the rebels) were trying to get their hands onto our research. They tried so much that eventually...",
+        "They succeeded.",
+        "And like the smart people they are (were), decided to activate the prototype. Our team was the only shielded from such disaster. And, somehow, you.",
+        "And just like that, what was once one universe...",
+        "Became two.",
+        "We are here.",
+        "This is creating what we call the 'Splitters', holographic creatures who are visible in both universes",
+        "But we can only destroy the Splitters of our universe, which will not be enough",
+        "Luckily we found we can have influence on the other universe in the form of pulse forces, making those Splitters easier or harder to kill.",
+        "We were able to establish a connection with the other universe's researchers, who claim one of these 4 people might be your other universe self.",
+        "We only got you. Your job is to first understand which companion from the other universe is, indeed, yourself, and slay some Splitters together.",
+        "From what we observe, making splitters harder to kill will make them tougher, get less impact from shots, and slightly increase their movement speed.",
+        "Why would we make them harder to kill? To Sync, of course.",
+        "The more score you and your companion do, the bigger the odds of syncing both universes.",
+        "You, or your companion, can also make them easier to kill, and try to sync by combo-ing, as we like to call it",
+        "Killing multiple Splitters in a small period of time will create a combo, meaning each consequent kill will give more sync energy.",
+        "But be careful, getting hit while the combo is high is really damaging to the connection between both universes and you wont be able to gather energy for a while",
+        "This is just a hunch, but we do think your connection with your companion can be even more important than the sync energy we gather. Don't forget he is in another whole universe, light-years from us. If you can sync between yourselves, the universes might be able to sync as well",
+        "Wish you the best of lucks. Choose wisely."
     };
     
     private void Awake()
@@ -60,6 +95,7 @@ public class TutorialManager : MonoBehaviour
         Random.InitState(42);
 
         DisableArrows();
+        book.SetActive(false);
         
         StartCoroutine(NextTutorialPhase());
     }
@@ -70,6 +106,10 @@ public class TutorialManager : MonoBehaviour
         {
             message.text = _tutorialStepSentences[currentTutorialStep];
         }
+        
+        /*
+        if(currentTutorialStep + _bookStep == _tutorialStepSentences.Length + _bookStepSentences.Length)
+        */
         
         switch (currentTutorialStep)
         {
@@ -201,6 +241,7 @@ public class TutorialManager : MonoBehaviour
                 
                 break;
         }
+        
     }
 
     private void SpawnTutorialEnemies(bool changeEnemies = false, int numberOfEnemiesToSpawn = 10)
