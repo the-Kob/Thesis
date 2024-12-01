@@ -3,22 +3,25 @@ using Enemy;
 using Player;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager Instance { get; private set; }
-    
+
     [SerializeField] private PlayerController p1;
     [SerializeField] private PlayerController p2;
-    
+
     [SerializeField] private GameObject[] p1Arrows;
     [SerializeField] private GameObject[] p2Arrows;
-    
+
     [SerializeField] private GameObject p1EnemyPrefab;
     [SerializeField] private GameObject p2EnemyPrefab;
-    
+
     [SerializeField] private TextMeshProUGUI message;
+
+    [SerializeField] private GameObject continueText;
 
     [SerializeField] private GameObject book;
     [SerializeField] private Image bookImage;
@@ -242,6 +245,7 @@ public class TutorialManager : MonoBehaviour
                 break;
         }
         
+        
     }
 
     private void SpawnTutorialEnemies(bool changeEnemies = false, int numberOfEnemiesToSpawn = 10)
@@ -331,13 +335,17 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         
         currentTutorialStep = _lastTutorialStep + 1;
-
-        /* Handle the last phase where the tutorial ends
+        
         if (currentTutorialStep > 6)
         {
             continueText.SetActive(true);
+
+            var p1Input = p1.gameObject.GetComponent<PlayerInput>();
+            p1Input.SwitchCurrentActionMap("UI");
+            
+            var p2Input = p2.gameObject.GetComponent<PlayerInput>();
+            p2Input.SwitchCurrentActionMap("UI");
         }
-        */
         
         _enemiesHaveBeenSpawned = false;
         

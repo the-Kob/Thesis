@@ -24,7 +24,7 @@ namespace Menu
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject settingsMenuFirstSelectedButton;
     
-    private bool _bothPlayersConnected = false;
+    private bool _bothPlayersConnected;
 
     private void Start()
     {
