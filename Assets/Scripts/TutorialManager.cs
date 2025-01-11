@@ -460,4 +460,27 @@ public class TutorialManager : MonoBehaviour
             }
         }
     }
+    
+    public void OnSubmit(InputAction.CallbackContext context)
+    {
+        var playerInput = context.control.device;
+
+        if (currentTutorialStep > 6)
+        {
+            Debug.Log($"Submit action detected from device: {playerInput.displayName}");
+
+            // Optionally: Check which player triggered the action
+            if (playerInput == p1.GetComponent<PlayerInput>().devices[0])
+            {
+                Debug.Log("Player 1 pressed Submit!");
+            }
+            else if (playerInput == p2.GetComponent<PlayerInput>().devices[0])
+            {
+                Debug.Log("Player 2 pressed Submit!");
+            }
+
+            // Proceed with tutorial logic
+        }
+    }
+
 }

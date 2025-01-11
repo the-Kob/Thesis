@@ -82,6 +82,11 @@ namespace Player
 
         private void Start()
         {
+            if (TutorialManager.Instance != null)
+            {
+                _playerInput.actions["Submit"].performed += TutorialManager.Instance.OnSubmit;
+            }
+            
             if (isPlayer1)
             {
                 ColorUtility.TryParseHtmlString("#FB8F13", out var p1Color);
