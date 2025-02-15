@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
     private int _bookStep;
     [SerializeField] private TextMeshProUGUI pageCounter;
     
-    [HideInInspector] public int currentTutorialStep = -1;
+    [HideInInspector] public int currentTutorialStep;
     private int _lastTutorialStep;
     
     private bool _enemiesHaveBeenSpawned;
@@ -107,6 +107,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (message.text == "" && currentTutorialStep < _tutorialStepSentences.Length)
         {
+            Debug.Log("Current Tutorial Step: " + currentTutorialStep);
             message.text = _tutorialStepSentences[currentTutorialStep];
         }
         
