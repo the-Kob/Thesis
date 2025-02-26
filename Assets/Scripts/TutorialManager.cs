@@ -32,7 +32,7 @@ public class TutorialManager : MonoBehaviour
     private int _bookStep;
     [SerializeField] private TextMeshProUGUI pageCounter;
     
-    [HideInInspector] public int currentTutorialStep;
+    [HideInInspector] public int currentTutorialStep = 0;
     private int _lastTutorialStep;
     
     private bool _enemiesHaveBeenSpawned;
@@ -439,23 +439,25 @@ public class TutorialManager : MonoBehaviour
 
     internal void GetEffectFromPlayer(bool isPlayer1, int effect)
     {
-        if(effect == 3 && currentTutorialStep == 4){
-            if (isPlayer1)
+        if (currentTutorialStep == 4) 
+        {
+            if (effect == 3 && isPlayer1)
             {
                 p1UsedDebuff = true;
             }
-            else
+            else if(effect == 1 && !isPlayer1)
             {
                 p2UsedDebuff = true;
             }
         }
         
-        if(effect == 0 && currentTutorialStep == 6){
-            if (isPlayer1)
+        if (currentTutorialStep == 6)
+        {
+            if (effect == 0 && isPlayer1)
             {
                 p1UsedBuff = true;
             }
-            else
+            else if(effect == 2 && !isPlayer1)
             {
                 p2UsedBuff = true;
             }

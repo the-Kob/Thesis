@@ -272,6 +272,7 @@ namespace Player
 
             isInEffectMenu = true;
             UIManager.Instance.OpenEffectMenu(isPlayer1);
+            Debug.Log("Open effect menu");
         }
 
         private void HandleEffectMenuNavigation()
@@ -304,7 +305,7 @@ namespace Player
             if (!_chooseEffectUpInput || !isInEffectMenu) return;
             
             isInEffectMenu = false;
-            _effectMenuCooldownTimer = 1f;
+            _effectMenuCooldownTimer = 0.1f;
             
             UIManager.Instance.CloseEffectMenu(isPlayer1, _chosenEffect);
             
@@ -321,6 +322,8 @@ namespace Player
                 TutorialManager.Instance.GetEffectFromPlayer(isPlayer1, _chosenEffect);
             }
             
+            Debug.Log(_chosenEffect);
+
             _chosenEffect = -1;
         }
         

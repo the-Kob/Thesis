@@ -6,8 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="d74ac6e3-eaac-4571-952f-9f64aa35fdcd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Thesis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Thesis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.plastic/plastic.changes" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.changes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.plastic/plastic.wktree" beforeDir="false" afterPath="$PROJECT_DIR$/.plastic/plastic.wktree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowFirst.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowFirst.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowFirst.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowFirst.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowFourth.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowFourth.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowFourth.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowFourth.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowSecond.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowSecond.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowSecond.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowSecond.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowThird.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowThird.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowThird.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Images/UI/Arrows/ArrowThird.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TutorialManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TutorialManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
@@ -159,6 +179,10 @@
       <workItem from="1737397223044" duration="1210000" />
       <workItem from="1738665535320" duration="551000" />
       <workItem from="1738666552706" duration="4526000" />
+      <workItem from="1739891612740" duration="676000" />
+      <workItem from="1739892473298" duration="5507000" />
+      <workItem from="1740499219190" duration="322000" />
+      <workItem from="1740499560867" duration="7906000" />
     </task>
     <servers />
   </component>
