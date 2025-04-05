@@ -64,6 +64,8 @@ namespace Player
         private bool _chooseEffectUpInput;
         private int _chosenEffect = -1;
         
+        public static event Action OnSubmitPressed;
+        
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
@@ -82,10 +84,7 @@ namespace Player
 
         private void Start()
         {
-            if (TutorialManager.Instance != null)
-            {
-                _playerInput.actions["Submit"].performed += TutorialManager.Instance.OnSubmit;
-            }
+            _playerInput.actions["Submit"].performed += OnSubmit;
             
             if (isPlayer1)
             {
@@ -366,6 +365,15 @@ namespace Player
         {
             _chooseEffectDownInput = context.started;
             _chooseEffectUpInput = context.canceled;
+        }
+        
+        private void OnSubmit(InputAction.CallbackContext context)
+        {
+            if (!context.performed) return;
+
+            Debug.Log($"Submit action detected from device: {context.control.device.displayName}");
+            
+            OnSubmitPressed?.Invoke();
         }
 
         public void ResetFlags()

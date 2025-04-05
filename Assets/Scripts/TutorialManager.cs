@@ -48,9 +48,9 @@ public class TutorialManager : MonoBehaviour
         "Use right joystick to aim",
         "Press R1 or R2 to shoot",
         "Kill these enemies",
-        "Use L1 to debuff your enemies",
+        "Use L1 to debuff YOUR enemies",
         "Press Square to use your secondary attack and kill these enemies",
-        "Use L1 to buff blue enemies and kill them",
+        "Use L1 to buff EACH-OTHERS enemies and kill them",
         "You can't kill them, right?",
         "Just as we expected...",
         "Ok, here. Read these instructions."
@@ -110,10 +110,6 @@ public class TutorialManager : MonoBehaviour
             Debug.Log("Current Tutorial Step: " + currentTutorialStep);
             message.text = _tutorialStepSentences[currentTutorialStep];
         }
-        
-        /*
-        if(currentTutorialStep + _bookStep == _tutorialStepSentences.Length + _bookStepSentences.Length)
-        */
         
         switch (currentTutorialStep)
         {
@@ -185,10 +181,7 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
             case 5:
-                p1.canFire = false;
                 p1Arrows[2].SetActive(true);
-                
-                p2.canFire = false;
                 p2Arrows[2].SetActive(true);
 
                 if (!_enemiesHaveBeenSpawned)
@@ -464,26 +457,64 @@ public class TutorialManager : MonoBehaviour
         }
     }
     
-    public void OnSubmit(InputAction.CallbackContext context)
+    private void HandleSubmit()
     {
-        var playerInput = context.control.device;
-
-        if (currentTutorialStep > 6)
+        if (currentTutorialStep + _bookStep == _tutorialStepSentences.Length + _bookStepSentences.Length)
         {
-            Debug.Log($"Submit action detected from device: {playerInput.displayName}");
-
-            // Optionally: Check which player triggered the action
-            if (playerInput == p1.GetComponent<PlayerInput>().devices[0])
-            {
-                Debug.Log("Player 1 pressed Submit!");
-            }
-            else if (playerInput == p2.GetComponent<PlayerInput>().devices[0])
-            {
-                Debug.Log("Player 2 pressed Submit!");
-            }
-
-            // Proceed with tutorial logic
+            EndTutorial();
         }
+        else if (_bookStep > 0)
+        {
+            ShowNextBookPage();
+        }
+        
+        if (currentTutorialStep > 6 && _bookStep < 1)
+        {
+            currentTutorialStep++;
+            message.text = "";
+        }
+
+        if (currentTutorialStep == _tutorialStepSentences.Length && _bookStep < 1)
+        {
+            ActivateBook();
+        }
+    }
+    
+    private void EndTutorial()
+    {
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+        GameManager.Instance.LoadScene("Menu");
+    }
+
+    private void ActivateBook()
+    {
+        book.SetActive(true);
+        bookSteps[_bookStep].sprite = progressBarFullSprite;
+        _bookStep = 1;
+        pageCounter.text = $"Page {_bookStep} of {_bookStepSentences.Length}";
+        Time.timeScale = 0f;
+        Time.fixedDeltaTime = 0f;
+
+    }
+    
+    private void ShowNextBookPage()
+    {
+        bookText.text = _bookStepSentences[_bookStep];
+        bookImage.sprite = bookImages[_bookStep];
+        bookSteps[_bookStep].sprite = progressBarFullSprite;
+        _bookStep++;
+        pageCounter.text = $"Page {_bookStep} of {_bookStepSentences.Length}";
+    }
+    
+    private void OnEnable()
+    {
+        PlayerController.OnSubmitPressed += HandleSubmit;
+    }
+
+    private void OnDisable()
+    {
+        PlayerController.OnSubmitPressed -= HandleSubmit;
     }
 
 }
