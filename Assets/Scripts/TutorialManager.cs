@@ -85,7 +85,6 @@ public class TutorialManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -105,7 +104,7 @@ public class TutorialManager : MonoBehaviour
     
     private void Update()
     {
-        if (message.text == "" && currentTutorialStep < _tutorialStepSentences.Length)
+        if (message.text == "" && currentTutorialStep < _tutorialStepSentences.Length && currentTutorialStep >= 0)
         {
             Debug.Log("Current Tutorial Step: " + currentTutorialStep);
             message.text = _tutorialStepSentences[currentTutorialStep];
@@ -484,6 +483,7 @@ public class TutorialManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f;
+        GameManager.Instance.tutorialDone = true;
         GameManager.Instance.LoadScene("Menu");
     }
 

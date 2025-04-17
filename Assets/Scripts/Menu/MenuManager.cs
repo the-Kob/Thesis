@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Menu
 {
@@ -21,6 +22,7 @@ namespace Menu
     [SerializeField] private GameObject mainMenuFirstSelectedButton;
     [SerializeField] private GameObject playMenu;
     [SerializeField] private GameObject playMenuFirstSelectedButton;
+    [SerializeField] private GameObject playGameButton;
     [SerializeField] private GameObject settingsMenu;
     [SerializeField] private GameObject settingsMenuFirstSelectedButton;
     
@@ -58,10 +60,11 @@ namespace Menu
             GameManager.Instance.SetPlayerDevice(1, gamepad);
         }
 
-        if (pistolP1.isPlayerConnected && pistolP2.isPlayerConnected && !_bothPlayersConnected)
+        if (GameManager.Instance.tutorialDone || (pistolP1.isPlayerConnected && pistolP2.isPlayerConnected && !_bothPlayersConnected))
         {
             _bothPlayersConnected = true;
             
+            playGameButton.GetComponent<Button>().interactable = GameManager.Instance.tutorialDone;
             OnBackButtonPressed();
             
             _uiActionMap.Enable(); // ensure the UI action map is active

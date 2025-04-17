@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public GameState CurrentState { get; private set; }
     public InputDevice P1Device { get; private set; }
     public InputDevice P2Device { get; private set; }
+
+    public bool tutorialDone;
     
     private void Awake()
     {
