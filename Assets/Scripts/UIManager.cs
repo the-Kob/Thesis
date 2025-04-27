@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Data_Storage;
 using Menu;
 using TMPro;
 using Unity.VisualScripting;
@@ -305,9 +306,11 @@ public class UIManager : MonoBehaviour
             _p2AoeCooldown = cooldown;
             p2AoeCooldownMask.localScale = Vector3.one;
         }
+        
+        DataStorageManager.Instance.SavePlayerSecondaryAttackUsed(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier);
     }
 
-    public void TriggerChooseEffect(bool isPlayer1, float cooldown)
+    public void TriggerChooseEffect(bool isPlayer1, float cooldown, int chosenEffect)
     {
         if (isPlayer1)
         {
@@ -321,6 +324,23 @@ public class UIManager : MonoBehaviour
             p2ChooseEffectCooldownMask.localScale = Vector3.one;
             _isP2EffectActive = true;
         }
+        
+        DataStorageManager.Instance.SavePlayerEffectUsed(isPlayer1, _elapsedTime, chosenEffect, _scoreValue, _comboMultiplier);
+    }
+
+    public void TriggerEnemyHit(bool isPlayer1)
+    {
+        DataStorageManager.Instance.SaveEnemyHit(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier);
+    }
+    
+    public void TriggerEnemyKilled(bool isPlayer1)
+    {
+        DataStorageManager.Instance.SaveEnemyKilled(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier);
+    }
+
+    public void TriggerBulletMiss(bool isPlayer1)
+    {
+        DataStorageManager.Instance.SaveBulletMiss(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier);
     }
 
     #region Choose Effect Logic
@@ -464,9 +484,10 @@ public class UIManager : MonoBehaviour
         disableScore.text = _canGainScore ? "" : "X";
 
         if (isPlayer1 == null) return;
-        
-        // TODO storage
+
+        DataStorageManager.Instance.SavePlayerGettingHit(isPlayer1.Value, _elapsedTime, _scoreValue, _comboMultiplier);
     }
+
 
     public void ChangeCombo(bool positive)
     {
@@ -539,5 +560,11 @@ public class UIManager : MonoBehaviour
         _timeScale = 0f;
         Time.timeScale = 0f;
         Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    }
+
+    public void ReturnToMenu()
+    {
+        DataStorageManager.Instance.SaveEntry(_scoreValue, _comboMultiplier);
+        GameManager.Instance.LoadScene("Menu");
     }
 }

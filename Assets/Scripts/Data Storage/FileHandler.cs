@@ -9,14 +9,14 @@ namespace Data_Storage {
     public static class FileHandler
     {
         public static void SaveToJson<T> (List<T> toSave, string filename) {
-            Debug.Log (GetPath (filename));
+            Debug.Log (GetPath(filename));
             var content = JsonConvert.SerializeObject(toSave.ToArray());
-            WriteFile (GetPath (filename), content);
+            WriteFile(GetPath(filename), content);
         }
 
         public static void SaveToJson<T> (T toSave, string filename) {
             var content = JsonUtility.ToJson (toSave);
-            WriteFile (GetPath (filename), content);
+            WriteFile(GetPath(filename), content);
         }
 
         public static List<T> ReadListFromJson<T> (string filename) {

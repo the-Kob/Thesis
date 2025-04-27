@@ -25,7 +25,7 @@ namespace Data_Storage.Events
     
     public static class EventFactory
     {
-        public static EventEntry CreateEffectEvent(bool isP1, int elapsedTime, int effect, int studyId, int score, int combo)
+        public static EventEntry CreateEffectEvent(bool isPlayer1, int elapsedTime, int effect, int studyId, int score, int combo)
         {
             return new EventEntry
             {
@@ -33,13 +33,13 @@ namespace Data_Storage.Events
                 Score = score,
                 Combo = combo,
                 EventType = effect % 2 == 0 ? EventType.Buff : EventType.Nerf,
-                Actuator = isP1 ? Agent.P1 : Agent.P2,
+                Actuator = isPlayer1 ? Agent.P1 : Agent.P2,
                 Receiver = effect < 2 ? Agent.P2Enemy : Agent.P1Enemy,
                 ElapsedTime = elapsedTime
             };
         }
 
-        public static EventEntry CreateGettingHitEvent(bool isP1, int elapsedTime, int studyId, int score, int combo)
+        public static EventEntry CreateGettingHitEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo)
         {
             return new EventEntry
             {
@@ -47,13 +47,13 @@ namespace Data_Storage.Events
                 Score = score,
                 Combo = combo,
                 EventType = EventType.GettingHit,
-                Actuator = isP1 ? Agent.P1Enemy : Agent.P2Enemy,
-                Receiver = isP1 ? Agent.P1 : Agent.P2,
+                Actuator = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
+                Receiver = isPlayer1 ? Agent.P1 : Agent.P2,
                 ElapsedTime = elapsedTime
             };
         }
 
-        public static EventEntry CreateSecondaryAttackEvent(bool isP1, int elapsedTime, int studyId, int score, int combo)
+        public static EventEntry CreateSecondaryAttackEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo)
         {
             return new EventEntry
             {
@@ -61,13 +61,13 @@ namespace Data_Storage.Events
                 Score = score,
                 Combo = combo,
                 EventType = EventType.SecondaryAttack,
-                Actuator = isP1 ? Agent.P1 : Agent.P2,
-                Receiver = isP1 ? Agent.P1Enemy : Agent.P2Enemy,
+                Actuator = isPlayer1 ? Agent.P1 : Agent.P2,
+                Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime
             };
         }
         
-        public static EventEntry CreateBulletMissEvent(bool isP1, int elapsedTime, int studyId, int score, int combo)
+        public static EventEntry CreateBulletMissEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo)
         {
             return new EventEntry
             {
@@ -75,8 +75,8 @@ namespace Data_Storage.Events
                 Score = score,
                 Combo = combo,
                 EventType = EventType.BulletMiss,
-                Actuator = isP1 ? Agent.P1 : Agent.P2,
-                Receiver = isP1 ? Agent.P1Enemy : Agent.P2Enemy,
+                Actuator = isPlayer1 ? Agent.P1 : Agent.P2,
+                Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime
             };
         }
@@ -95,7 +95,7 @@ namespace Data_Storage.Events
             };
         }
         
-        public static EventEntry CreateEnemyHitEvent(bool isP1, int elapsedTime, int studyId, int score, int combo)
+        public static EventEntry CreateEnemyHitEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo)
         {
             return new EventEntry
             {
@@ -103,13 +103,13 @@ namespace Data_Storage.Events
                 Score = score,
                 Combo = combo,
                 EventType = EventType.EnemyHit,
-                Actuator = isP1 ? Agent.P1 : Agent.P2,
-                Receiver = isP1 ? Agent.P1Enemy : Agent.P2Enemy,
+                Actuator = isPlayer1 ? Agent.P1 : Agent.P2,
+                Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime
             };
         }
 
-        public static EventEntry CreateEnemyKillEvent(bool isP1, int elapsedTime, int studyId, int score, int combo)
+        public static EventEntry CreateEnemyKillEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo)
         {
             return new EventEntry
             {
@@ -117,8 +117,8 @@ namespace Data_Storage.Events
                 Score = score,
                 Combo = combo,
                 EventType = EventType.EnemyKill,
-                Actuator = isP1 ? Agent.P1 : Agent.P2,
-                Receiver = isP1 ? Agent.P1Enemy : Agent.P2Enemy,
+                Actuator = isPlayer1 ? Agent.P1 : Agent.P2,
+                Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime
             };
         }

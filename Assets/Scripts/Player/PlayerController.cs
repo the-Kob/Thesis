@@ -314,7 +314,7 @@ namespace Player
             effectInstance.GetComponent<EffectBehaviour>().SetEffect(_chosenEffect);
             _isEffectActive = true;
             _chooseEffectCooldownTimer = chooseEffectCooldown;
-            UIManager.Instance.TriggerChooseEffect(isPlayer1, chooseEffectCooldown);
+            UIManager.Instance.TriggerChooseEffect(isPlayer1, chooseEffectCooldown, _chosenEffect);
 
             if (TutorialManager.Instance != null)
             {

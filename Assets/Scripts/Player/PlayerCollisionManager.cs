@@ -8,9 +8,9 @@ namespace Player
         [SerializeField] private PlayerController playerController;
         
         private bool _updated;
-        private bool _hitEnemy = false;
+        private bool _hitEnemy;
         [SerializeField] private float hitEffectTime = 3f;
-        private float _hitTimer = 0f;
+        private float _hitTimer;
 
         private void FixedUpdate()
         {
@@ -46,7 +46,7 @@ namespace Player
             
             playerController.GetHitByEnemy(enemyPosition, hitEffectTime);
             UIManager.Instance.ChangeCombo(false);
-            UIManager.Instance.SetScoreGainAvailability(false, isPlayer1);
+            UIManager.Instance.SetScoreGainAvailability(false);
             playerController.actCooldownTimer = hitEffectTime;
             // bulletManager.setDeadTimer(hitTime);  // Also inform BulletManager about the hit state
         }

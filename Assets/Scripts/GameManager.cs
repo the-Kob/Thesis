@@ -1,3 +1,4 @@
+using Data_Storage;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 ChangeState(GameState.Game);
+                DataStorageManager.Instance.CreateNewEntry();
             }
             
             AudioManager.Instance.PlayGameMusic();
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }

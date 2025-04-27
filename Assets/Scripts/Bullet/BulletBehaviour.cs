@@ -50,13 +50,7 @@ namespace Bullet
     private void HandleLifespan()
     {
         if (lifespan < 0f){
-            if (isPlayer1){
-                // interfaceManager.saveMissPlayer();
-            } 
-            else 
-            {
-                // interfaceManager.saveMissNPC();
-            }
+            UIManager.Instance.TriggerBulletMiss(isPlayer1);
             
             Destroy(gameObject);
         } else 

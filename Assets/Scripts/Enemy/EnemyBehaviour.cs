@@ -163,6 +163,8 @@ namespace Enemy
                     TutorialManager.Instance.DecreaseEnemyCount();
                 }
                 
+                UIManager.Instance.TriggerEnemyKilled(isPlayer1);
+                
                 for (var i = 0; i < healthLayers.Length; i++)
                 {
                     if (i <= _currentHealthLayer)
@@ -181,6 +183,8 @@ namespace Enemy
             }
             else
             {
+                UIManager.Instance.TriggerEnemyHit(isPlayer1);
+                
                 _hitByObject = true;
                 _impactCooldownTimer = impactCooldown;
                 _impactPoint = impactPoint;
