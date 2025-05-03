@@ -11,6 +11,9 @@ namespace Data_Storage.Events {
         public Agent Actuator { get; set; }
         public Agent Receiver { get; set; }
         public int ElapsedTime { get; set; }
+        public float DistanceBetweenPlayers { get; set; }
+        public DistanceTrend DistanceTrend { get; set; }
+        public MovementTrend MovementTrend { get; set; }
 
         public Dictionary<string, string> ToDictionary()
         {
@@ -20,9 +23,12 @@ namespace Data_Storage.Events {
                 {"score", Score.ToString()},
                 {"combo", Combo.ToString()},
                 {"event_type", EventType.ToString()},
-                {"event_actuator", Actuator == Agent.None ? "-" : Actuator.ToString()},
-                {"event_receiver", Receiver == Agent.None ? "-" : Receiver.ToString()},
-                {"elapse_time", ElapsedTime.ToString()}
+                {"event_actuator", Actuator.ToString()},
+                {"event_receiver", Receiver.ToString()},
+                {"elapse_time", ElapsedTime.ToString()},
+                {"distance_between_players", DistanceBetweenPlayers.ToString("F2")},
+                {"distance_trend", DistanceTrend.ToString()},
+                {"movement_trend", MovementTrend.ToString()},
             };
         }
     }

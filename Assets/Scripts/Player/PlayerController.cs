@@ -1,6 +1,7 @@
 using System;
 using Abilities;
 using Bullet;
+using Data_Storage.Events;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -68,12 +69,19 @@ namespace Player
         [SerializeField] private float closeRange = 2.5f;
         [SerializeField] private float mediumRange = 5f;
         [SerializeField] private float farRange = 7.5f;
-        private enum RangeCategory { None, Close, Medium, Far }
-        private enum MovementTrendCategory { None, Toward, Away, Sideways }
+        private enum RangeCategory
+        {
+            None, 
+            Close, 
+            Medium, 
+            Far
+        }
 
-        private float _lastKnownDistance;
-        private RangeCategory _lastKnownRangeCategory = RangeCategory.None;
-        private MovementTrendCategory _lastKnownMovementTrendCategory = MovementTrendCategory.None;
+        public float Distance {get; private set;}
+        private float _lastKnownDistanceBetweenPlayers;
+        private RangeCategory _rangeCategory = RangeCategory.None;
+        private DistanceTrend _distanceTrend = DistanceTrend.None;
+        private MovementTrend _movementTrend = MovementTrend.None;
         
         public static event Action OnSubmitPressed;
         
@@ -136,17 +144,27 @@ namespace Player
         
         private void DetectPlayerInRange()
         {
-            var distance = Vector2.Distance(transform.position, _otherPlayer.transform.position);
-
-            var distanceTrend = distance < _lastKnownDistance ? "Closer" : distance > _lastKnownDistance ? "Farther" : "Same";
             
-            var newRangeCategory = GetRangeCategory(distance);
-
-            if (_lastKnownRangeCategory == newRangeCategory) return;
-
-            _lastKnownRangeCategory = newRangeCategory;
             
-            UIManager.Instance?.PlayerRangeChanged(isPlayer1, newRangeCategory.ToString(), distanceTrend, _lastKnownMovementTrendCategory.ToString());
+            _distanceTrend = Distance < _lastKnownDistanceBetweenPlayers ? DistanceTrend.Closer : Distance > _lastKnownDistanceBetweenPlayers ? DistanceTrend.Farther : DistanceTrend.Same;
+            
+            var newRangeCategory = GetRangeCategory(Distance);
+
+            if (_rangeCategory == newRangeCategory) return;
+
+            _rangeCategory = newRangeCategory;
+            _lastKnownDistanceBetweenPlayers = Distance;
+            
+            /*
+            * Why are both trends important?
+            *
+            * The Movement trend represents the player's intention to move toward, away from, or alongside the other player.
+            * It tells us what the player *wants* to do, but this may not always align with the actual outcome.
+            *
+            * Distance trend represents reality: Is the player actually getting farther away? Closer? Or is the distance unaffected?
+            * This trend provides an additional dimension that the movement trend doesn't capture.
+            */
+            UIManager.Instance?.TriggerPlayerRangeChange(isPlayer1, Distance, _distanceTrend, _movementTrend);
         }
         
         private RangeCategory GetRangeCategory(float distance)
@@ -232,21 +250,23 @@ namespace Player
         {
             if (_otherPlayer == null)
             {
-                _lastKnownMovementTrendCategory = MovementTrendCategory.None; 
+                _movementTrend = MovementTrend.None; 
                 return;
             }
+            
+            Distance = Vector2.Distance(transform.position, _otherPlayer.transform.position);
 
             var directionToOtherPlayer = (_otherPlayer.transform.position - transform.position).normalized;
             var dot = Vector2.Dot(MoveInput.normalized, directionToOtherPlayer);
-
+            
             var movementTrendCategory = dot switch
             {
-                > 0.5f => MovementTrendCategory.Toward,
-                < -0.5f => MovementTrendCategory.Away,
-                _ => MovementTrendCategory.Sideways
+                > 0.5f => MovementTrend.Toward,
+                < -0.5f => MovementTrend.Away,
+                _ => MovementTrend.Sideways
             };
 
-            _lastKnownMovementTrendCategory = movementTrendCategory;
+            _movementTrend = movementTrendCategory;
         }
 
         public void GetHitByEnemy(Vector3 enemyPosition, float cooldown)
@@ -331,7 +351,7 @@ namespace Player
             _aoeCooldownTimer = aoeCooldown;
             var aoeInstance = Instantiate(aoe, transform.position, Quaternion.identity);
             aoeInstance.GetComponent<AoEBehaviour>().isPlayer1 = isPlayer1;
-            UIManager.Instance?.TriggerAoE(isPlayer1, aoeCooldown);
+            UIManager.Instance?.TriggerAoE(isPlayer1, aoeCooldown, Distance);
         }
 
         private void HandleChooseEffect()
@@ -390,7 +410,7 @@ namespace Player
             effectInstance.GetComponent<EffectBehaviour>().SetEffect(_chosenEffect);
             _isEffectActive = true;
             _chooseEffectCooldownTimer = chooseEffectCooldown;
-            UIManager.Instance?.TriggerChooseEffect(isPlayer1, chooseEffectCooldown, _chosenEffect);
+            UIManager.Instance?.TriggerChooseEffect(isPlayer1, chooseEffectCooldown, _chosenEffect, Distance);
 
             if (TutorialManager.Instance != null)
             {

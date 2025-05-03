@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Data_Storage;
+using Data_Storage.Events;
 using Menu;
 using TMPro;
 using Unity.VisualScripting;
@@ -294,7 +295,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void TriggerAoE(bool isPlayer1, float cooldown)
+    public void TriggerAoE(bool isPlayer1, float cooldown, float distance)
     {
         if (isPlayer1)
         {
@@ -307,10 +308,10 @@ public class UIManager : MonoBehaviour
             p2AoeCooldownMask.localScale = Vector3.one;
         }
         
-        DataStorageManager.Instance.SavePlayerSecondaryAttackUsed(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier);
+        DataStorageManager.Instance.SavePlayerSecondaryAttackUsed(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier, distance);
     }
 
-    public void TriggerChooseEffect(bool isPlayer1, float cooldown, int chosenEffect)
+    public void TriggerChooseEffect(bool isPlayer1, float cooldown, int chosenEffect, float distance)
     {
         if (isPlayer1)
         {
@@ -325,22 +326,27 @@ public class UIManager : MonoBehaviour
             _isP2EffectActive = true;
         }
         
-        DataStorageManager.Instance.SavePlayerEffectUsed(isPlayer1, _elapsedTime, chosenEffect, _scoreValue, _comboMultiplier);
+        DataStorageManager.Instance.SavePlayerEffectUsed(isPlayer1, _elapsedTime, chosenEffect, _scoreValue, _comboMultiplier, distance);
     }
 
-    public void TriggerEnemyHit(bool isPlayer1)
+    public void TriggerEnemyHit(bool isPlayer1, float distance)
     {
-        DataStorageManager.Instance.SaveEnemyHit(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier);
+        DataStorageManager.Instance.SaveEnemyHit(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier, distance);
     }
     
-    public void TriggerEnemyKilled(bool isPlayer1)
+    public void TriggerEnemyKilled(bool isPlayer1, float distance)
     {
-        DataStorageManager.Instance.SaveEnemyKilled(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier);
+        DataStorageManager.Instance.SaveEnemyKilled(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier, distance);
     }
 
-    public void TriggerBulletMiss(bool isPlayer1)
+    public void TriggerBulletMiss(bool isPlayer1, float distance)
     {
-        DataStorageManager.Instance.SaveBulletMiss(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier);
+        DataStorageManager.Instance.SaveBulletMiss(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier, distance);
+    }
+
+    public void TriggerPlayerRangeChange(bool isPlayer1, float distance, DistanceTrend distanceTrend, MovementTrend movementTrend)
+    {
+        
     }
 
     #region Choose Effect Logic
@@ -477,15 +483,15 @@ public class UIManager : MonoBehaviour
         }
     }
     
-    public void SetScoreGainAvailability(bool canGainScore, bool? isPlayer1 = null)
+    public void SetScoreGainAvailability(bool canGainScore,  bool? isPlayer1 = null, float? distance = null)
     {
         _canGainScore = canGainScore;
 
         disableScore.text = _canGainScore ? "" : "X";
 
-        if (isPlayer1 == null) return;
+        if (isPlayer1 == null || distance == null) return;
 
-        DataStorageManager.Instance.SavePlayerGettingHit(isPlayer1.Value, _elapsedTime, _scoreValue, _comboMultiplier);
+        DataStorageManager.Instance.SavePlayerGettingHit(isPlayer1.Value, _elapsedTime, _scoreValue, _comboMultiplier, distance.Value);
     }
 
 

@@ -75,7 +75,7 @@ namespace Data_Storage
             });
         }
 
-        public void SavePlayerEffectUsed(bool isPlayer1, int elapsedTime, int effect, float score, int combo)
+        public void SavePlayerEffectUsed(bool isPlayer1, int elapsedTime, int effect, float score, int combo, float distance)
         {
             ExecuteIfTutorialIsDone(() =>
             {
@@ -83,10 +83,10 @@ namespace Data_Storage
                 
                 _currentEntry.AddEffect(isPlayer1, elapsedTime, effect);
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateEffectEvent(isPlayer1, elapsedTime, effect, _studyId, (int) score, combo).ToDictionary()));
+                    EventFactory.CreateEffectEvent(isPlayer1, elapsedTime, effect, _studyId, (int) score, combo, distance).ToDictionary()));
             });
         }
-        public void SavePlayerSecondaryAttackUsed(bool isPlayer1, int elapsedTime, float score, int combo)
+        public void SavePlayerSecondaryAttackUsed(bool isPlayer1, int elapsedTime, float score, int combo, float distance)
         {
             ExecuteIfTutorialIsDone(() =>
             {
@@ -94,11 +94,11 @@ namespace Data_Storage
                 
                 _currentEntry.AddSecondaryAttack(isPlayer1, elapsedTime);
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateSecondaryAttackEvent(isPlayer1, elapsedTime, _studyId, (int) score, combo).ToDictionary()));
+                    EventFactory.CreateSecondaryAttackEvent(isPlayer1, elapsedTime, _studyId, (int) score, combo, distance).ToDictionary()));
             });
         }
 
-        public void SavePlayerGettingHit(bool isPlayer1, int elapsedTime, float score, int combo)
+        public void SavePlayerGettingHit(bool isPlayer1, int elapsedTime, float score, int combo, float distance)
         {
             ExecuteIfTutorialIsDone(() =>
             {
@@ -106,34 +106,43 @@ namespace Data_Storage
                 
                 _currentEntry.AddHit(isPlayer1, elapsedTime);
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateGettingHitEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo).ToDictionary()));
+                    EventFactory.CreateGettingHitEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance).ToDictionary()));
             });
         }
         
-        public void SaveEnemyKilled(bool isPlayer1, int elapsedTime, float score, int combo)
+        public void SaveEnemyKilled(bool isPlayer1, int elapsedTime, float score, int combo, float distance)
         {
             ExecuteIfTutorialIsDone(() =>
             {
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateEnemyKillEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo).ToDictionary()));
+                    EventFactory.CreateEnemyKillEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance).ToDictionary()));
             });
         }
 
-        public void SaveEnemyHit(bool isPlayer1, int elapsedTime, float score, int combo)
+        public void SaveEnemyHit(bool isPlayer1, int elapsedTime, float score, int combo, float distance)
         {
             ExecuteIfTutorialIsDone(() =>
             {
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateEnemyHitEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo).ToDictionary()));
+                    EventFactory.CreateEnemyHitEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance).ToDictionary()));
             });
         }
 
-        public void SaveBulletMiss(bool isPlayer1, int elapsedTime, float score, int combo)
+        public void SaveBulletMiss(bool isPlayer1, int elapsedTime, float score, int combo, float distance)
         {
             ExecuteIfTutorialIsDone(() =>
             {
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateBulletMissEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo).ToDictionary()));
+                    EventFactory.CreateBulletMissEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance).ToDictionary()));
+            });
+        }
+
+        public void SavePlayerRangeChange(bool isPlayer1, int elapsedTime, float score, int combo, float distance, DistanceTrend distanceTrend, MovementTrend movementTrend)
+        {
+            ExecuteIfTutorialIsDone(() =>
+            {
+                StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
+                    EventFactory.CreatePlayerRangeChangeEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance, distanceTrend, movementTrend).ToDictionary()));
             });
         }
     }

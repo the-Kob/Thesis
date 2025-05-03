@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Numerics;
+using Player;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -13,7 +14,7 @@ namespace Enemy
         
         private SpriteRenderer _sprite;
         
-        private GameObject _player;
+        private PlayerController _player;
         public bool isPlayer1;
 
         [SerializeField] private GameObject[] healthLayers;
@@ -50,7 +51,7 @@ namespace Enemy
 
         private void Awake()
         {
-            _player = isPlayer1 ? GameObject.FindGameObjectWithTag("P1") : GameObject.FindGameObjectWithTag("P2");
+            _player = isPlayer1 ? GameObject.FindGameObjectWithTag("P1").GetComponent<PlayerController>() : GameObject.FindGameObjectWithTag("P2").GetComponent<PlayerController>();
             gameObject.tag = isPlayer1 ? "P1 Enemy" : "P2 Enemy";
             _sprite = GetComponent<SpriteRenderer>();
         }
@@ -163,7 +164,7 @@ namespace Enemy
                     TutorialManager.Instance.DecreaseEnemyCount();
                 }
                 
-                UIManager.Instance.TriggerEnemyKilled(isPlayer1);
+                UIManager.Instance.TriggerEnemyKilled(isPlayer1, _player.Distance);
                 
                 for (var i = 0; i < healthLayers.Length; i++)
                 {
@@ -183,7 +184,7 @@ namespace Enemy
             }
             else
             {
-                UIManager.Instance.TriggerEnemyHit(isPlayer1);
+                UIManager.Instance.TriggerEnemyHit(isPlayer1, _player.Distance);
                 
                 _hitByObject = true;
                 _impactCooldownTimer = impactCooldown;

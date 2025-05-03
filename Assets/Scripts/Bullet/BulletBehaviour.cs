@@ -1,6 +1,7 @@
  using System;
 using System.Net.Mail;
 using Enemy;
+using Player;
 using UnityEngine;
 
 namespace Bullet
@@ -17,12 +18,14 @@ namespace Bullet
     [SerializeField] private float impactForce = 5f;
 
     [HideInInspector] public bool isPlayer1;
+    private PlayerController _player;
     
     private SpriteRenderer _sprite;
 
     private void Awake()
     {
         _sprite = GetComponent<SpriteRenderer>();
+        _player = isPlayer1 ? GameObject.FindGameObjectWithTag("P1").GetComponent<PlayerController>() : GameObject.FindGameObjectWithTag("P2").GetComponent<PlayerController>();
     }
 
     private void Start()
@@ -50,7 +53,7 @@ namespace Bullet
     private void HandleLifespan()
     {
         if (lifespan < 0f){
-            UIManager.Instance.TriggerBulletMiss(isPlayer1);
+            UIManager.Instance.TriggerBulletMiss(isPlayer1, _player.Distance);
             
             Destroy(gameObject);
         } else 
