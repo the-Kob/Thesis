@@ -13,6 +13,7 @@ namespace Player
     {
         private PlayerInput _playerInput;
         public bool isPlayer1 = true;
+        private PlayerController _otherPlayer;
         
         public bool HasMoved { get; private set; }
         public bool HasAimed { get; private set; }
@@ -64,6 +65,16 @@ namespace Player
         private bool _chooseEffectUpInput;
         private int _chosenEffect = -1;
         
+        [SerializeField] private float closeRange = 2.5f;
+        [SerializeField] private float mediumRange = 5f;
+        [SerializeField] private float farRange = 7.5f;
+        private enum RangeCategory { None, Close, Medium, Far }
+        private enum MovementTrendCategory { None, Toward, Away, Sideways }
+
+        private float _lastKnownDistance;
+        private RangeCategory _lastKnownRangeCategory = RangeCategory.None;
+        private MovementTrendCategory _lastKnownMovementTrendCategory = MovementTrendCategory.None;
+        
         public static event Action OnSubmitPressed;
         
         private void Awake()
@@ -92,12 +103,14 @@ namespace Player
                 _weaponSprite.color = p1Color;
                 
                 _playerInput.SwitchCurrentControlScheme(GameManager.Instance.P1Device);
+                _otherPlayer = GameObject.FindWithTag("P2").GetComponent<PlayerController>();
             } else
             {
                 ColorUtility.TryParseHtmlString("#315D9A", out var p2Color);
                 _weaponSprite.color = p2Color;
                 
                 _playerInput.SwitchCurrentControlScheme(GameManager.Instance.P2Device);
+                _otherPlayer = GameObject.FindWithTag("P1").GetComponent<PlayerController>();
             }
         }
     
@@ -113,6 +126,48 @@ namespace Player
         {
             UpdateCooldowns();
             HandleMove();
+            AnalyzeRelativeMovement();
+        }
+
+        private void LateUpdate()
+        {
+            DetectPlayerInRange();
+        }
+        
+        private void DetectPlayerInRange()
+        {
+            var distance = Vector2.Distance(transform.position, _otherPlayer.transform.position);
+
+            var distanceTrend = distance < _lastKnownDistance ? "Closer" : distance > _lastKnownDistance ? "Farther" : "Same";
+            
+            var newRangeCategory = GetRangeCategory(distance);
+
+            if (_lastKnownRangeCategory == newRangeCategory) return;
+
+            _lastKnownRangeCategory = newRangeCategory;
+            
+            UIManager.Instance?.PlayerRangeChanged(isPlayer1, newRangeCategory.ToString(), distanceTrend, _lastKnownMovementTrendCategory.ToString());
+        }
+        
+        private RangeCategory GetRangeCategory(float distance)
+        {
+            if (distance < closeRange) return RangeCategory.Close;
+            if (distance < mediumRange) return RangeCategory.Medium;
+            if (distance < farRange) return RangeCategory.Far;
+            
+            return RangeCategory.None;
+        }
+        
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = new Color(1f, 0f, 0f, 0.3f); // Red for close
+            Gizmos.DrawWireSphere(transform.position, closeRange);
+
+            Gizmos.color = new Color(1f, 1f, 0f, 0.3f); // Yellow for medium
+            Gizmos.DrawWireSphere(transform.position, mediumRange);
+
+            Gizmos.color = new Color(0f, 0f, 1f, 0.3f); // Blue for far
+            Gizmos.DrawWireSphere(transform.position, farRange);
         }
 
         private void UpdateCooldowns()
@@ -171,6 +226,27 @@ namespace Player
                 _hitByEnemy = false;
 
             transform.position += movement;
+        }
+
+        private void AnalyzeRelativeMovement()
+        {
+            if (_otherPlayer == null)
+            {
+                _lastKnownMovementTrendCategory = MovementTrendCategory.None; 
+                return;
+            }
+
+            var directionToOtherPlayer = (_otherPlayer.transform.position - transform.position).normalized;
+            var dot = Vector2.Dot(MoveInput.normalized, directionToOtherPlayer);
+
+            var movementTrendCategory = dot switch
+            {
+                > 0.5f => MovementTrendCategory.Toward,
+                < -0.5f => MovementTrendCategory.Away,
+                _ => MovementTrendCategory.Sideways
+            };
+
+            _lastKnownMovementTrendCategory = movementTrendCategory;
         }
 
         public void GetHitByEnemy(Vector3 enemyPosition, float cooldown)
@@ -255,7 +331,7 @@ namespace Player
             _aoeCooldownTimer = aoeCooldown;
             var aoeInstance = Instantiate(aoe, transform.position, Quaternion.identity);
             aoeInstance.GetComponent<AoEBehaviour>().isPlayer1 = isPlayer1;
-            UIManager.Instance.TriggerAoE(isPlayer1, aoeCooldown);
+            UIManager.Instance?.TriggerAoE(isPlayer1, aoeCooldown);
         }
 
         private void HandleChooseEffect()
@@ -270,7 +346,7 @@ namespace Player
             if (!_chooseEffectDownInput || _isEffectActive || _effectMenuCooldownTimer > 0f) return;
 
             isInEffectMenu = true;
-            UIManager.Instance.OpenEffectMenu(isPlayer1);
+            UIManager.Instance?.OpenEffectMenu(isPlayer1);
             Debug.Log("Open effect menu");
         }
 
@@ -292,11 +368,11 @@ namespace Player
                     _ => _chosenEffect
                 };
             
-                UIManager.Instance.ClearEffectChoice(isPlayer1);
-                UIManager.Instance.ChooseEffect(isPlayer1, _chosenEffect);
+                UIManager.Instance?.ClearEffectChoice(isPlayer1);
+                UIManager.Instance?.ChooseEffect(isPlayer1, _chosenEffect);
             }
             
-            UIManager.Instance.ScaleEffectButtons(isPlayer1, _chosenEffect);
+            UIManager.Instance?.ScaleEffectButtons(isPlayer1, _chosenEffect);
         }
 
         private void HandleChooseEffectUp()
@@ -306,7 +382,7 @@ namespace Player
             isInEffectMenu = false;
             _effectMenuCooldownTimer = 0.1f;
             
-            UIManager.Instance.CloseEffectMenu(isPlayer1, _chosenEffect);
+            UIManager.Instance?.CloseEffectMenu(isPlayer1, _chosenEffect);
             
             if (_chosenEffect == -1) return;
             
@@ -314,7 +390,7 @@ namespace Player
             effectInstance.GetComponent<EffectBehaviour>().SetEffect(_chosenEffect);
             _isEffectActive = true;
             _chooseEffectCooldownTimer = chooseEffectCooldown;
-            UIManager.Instance.TriggerChooseEffect(isPlayer1, chooseEffectCooldown, _chosenEffect);
+            UIManager.Instance?.TriggerChooseEffect(isPlayer1, chooseEffectCooldown, _chosenEffect);
 
             if (TutorialManager.Instance != null)
             {

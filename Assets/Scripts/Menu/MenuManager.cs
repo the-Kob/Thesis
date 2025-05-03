@@ -60,11 +60,11 @@ namespace Menu
                 GameManager.Instance.SetPlayerDevice(1, gamepad);
             }
 
-            if (GameManager.Instance.tutorialDone || (pistolP1.isPlayerConnected && pistolP2.isPlayerConnected && !_bothPlayersConnected))
+            if (GameManager.Instance.TutorialDone || (pistolP1.isPlayerConnected && pistolP2.isPlayerConnected && !_bothPlayersConnected))
             {
                 _bothPlayersConnected = true;
                 
-                playGameButton.GetComponent<Button>().interactable = GameManager.Instance.tutorialDone;
+                playGameButton.GetComponent<Button>().interactable = GameManager.Instance.TutorialDone;
                 OnBackButtonPressed();
                 
                 _uiActionMap.Enable(); // ensure the UI action map is active

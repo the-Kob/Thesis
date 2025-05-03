@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public InputDevice P1Device { get; private set; }
     public InputDevice P2Device { get; private set; }
 
-    public bool tutorialDone;
+    public bool TutorialDone { get; private set; }
     
     private void Awake()
     {
@@ -49,6 +49,8 @@ public class GameManager : MonoBehaviour
     
     public void LoadScene(string sceneName)
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        
         SceneManager.LoadScene(sceneName);
         
         if (sceneName == "Menu")
@@ -70,8 +72,11 @@ public class GameManager : MonoBehaviour
             
             AudioManager.Instance.PlayGameMusic();
         }
-        
-        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+    
+    public void MarkTutorialDone()
+    {
+        TutorialDone = true;
     }
     
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)

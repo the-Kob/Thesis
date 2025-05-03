@@ -48,7 +48,7 @@ namespace Data_Storage
         
         private static void ExecuteIfTutorialIsDone(Action action)
         {
-            if (!GameManager.Instance.tutorialDone) return;
+            if (!GameManager.Instance.TutorialDone) return;
             action.Invoke();
         }
 

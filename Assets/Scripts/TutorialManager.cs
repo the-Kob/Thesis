@@ -237,8 +237,6 @@ public class TutorialManager : MonoBehaviour
                 
                 break;
         }
-        
-        
     }
 
     private void SpawnTutorialEnemies(bool changeEnemies = false, int numberOfEnemiesToSpawn = 10)
@@ -483,7 +481,7 @@ public class TutorialManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f;
-        GameManager.Instance.tutorialDone = true;
+        GameManager.Instance.MarkTutorialDone();
         GameManager.Instance.LoadScene("Menu");
     }
 

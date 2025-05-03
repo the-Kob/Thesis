@@ -70,8 +70,8 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private float timeRemaining = 180f;
     private int _elapsedTime;
-    private int _lastWaveSpawnTime = 0;
-    private int _lastTimeScaleUpdate = 0;
+    private int _lastWaveSpawnTime;
+    private int _lastTimeScaleUpdate;
     
     [SerializeField] private Color initialTimerColor;
     [SerializeField] private Color endTimerColor;
