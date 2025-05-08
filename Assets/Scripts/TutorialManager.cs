@@ -31,8 +31,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Sprite progressBarFullSprite;
     private int _bookStep;
     [SerializeField] private TextMeshProUGUI pageCounter;
-    
-    [HideInInspector] public int currentTutorialStep = 0;
+
+    [HideInInspector] public int currentTutorialStep;
     private int _lastTutorialStep;
     
     private bool _enemiesHaveBeenSpawned;
@@ -44,41 +44,49 @@ public class TutorialManager : MonoBehaviour
     [HideInInspector] public bool p2UsedDebuff;
     
     private readonly string[] _tutorialStepSentences = {
-        "Use left joystick to move",
-        "Use right joystick to aim",
+        "Use the left joystick to move",
+        "Use the right joystick to aim",
         "Press R1 or R2 to shoot",
-        "Kill these enemies",
-        "Use L1 to debuff YOUR enemies",
+        "Kill these enemies — pay attention to the colors",
+        "Press L1 to debuff YOUR enemies",
         "Press Square to use your secondary attack and kill these enemies",
-        "Use L1 to buff EACH-OTHERS enemies and kill them",
-        "You can't kill them, right?",
+        "Use L1 to buff EACH OTHER’S enemies and then kill them",
+        "You noticed how you can't kill the enemies of the other color, right?",
         "Just as we expected...",
-        "Ok, here. Read these instructions."
+        "Okay, here—read these instructions."
     };
     
     private readonly string[] _bookStepSentences = {
-        "This book was made on the go, we do not have much time. Hopefully this explanation is enough. Handle with care. -Rufus",
-        "Our team of researchers were doing significant progress on understanding parallel universes. Doing so would bring a big new boom to science as a whole.",
-        "But, like everything in the world, people moved by greed (the rebels) were trying to get their hands onto our research. They tried so much that eventually...",
+        "This book was made on the go—we don’t have much time. Hopefully, this explanation is enough. Handle with care. —Rufus",
+        "Our team of researchers was making significant progress in understanding parallel universes. Doing so would bring a major breakthrough to science as a whole.",
+        "But, like everything in the world, people driven by greed (the rebels) were trying to get their hands on our research. They tried so hard that eventually...",
         "They succeeded.",
-        "And like the smart people they are (were), decided to activate the prototype. Our team was the only shielded from such disaster. And, somehow, you.",
+        "And, being as clever as they were, they decided to activate the prototype. Our team was the only one shielded from the disaster. And, somehow, so were you.",
         "And just like that, what was once one universe...",
         "Became two.",
         "We are here.",
-        "This is creating what we call the 'Splitters', holographic creatures who are visible in both universes",
-        "But we can only destroy the Splitters of our universe, which will not be enough",
-        "Luckily we found we can have influence on the other universe in the form of pulse forces, making those Splitters easier or harder to kill.",
-        "We were able to establish a connection with the other universe's researchers, who claim one of these 4 people might be your other universe self.",
-        "We only got you. Your job is to first understand which companion from the other universe is, indeed, yourself, and slay some Splitters together.",
-        "From what we observe, making splitters harder to kill will make them tougher, get less impact from shots, and slightly increase their movement speed.",
-        "Why would we make them harder to kill? To Sync, of course.",
-        "The more score you and your companion do, the bigger the odds of syncing both universes.",
-        "You, or your companion, can also make them easier to kill, and try to sync by combo-ing, as we like to call it",
-        "Killing multiple Splitters in a small period of time will create a combo, meaning each consequent kill will give more sync energy.",
-        "But be careful, getting hit while the combo is high is really damaging to the connection between both universes and you wont be able to gather energy for a while",
-        "This is just a hunch, but we do think your connection with your companion can be even more important than the sync energy we gather. Don't forget he is in another whole universe, light-years from us. If you can sync between yourselves, the universes might be able to sync as well",
-        "Wish you the best of lucks. Choose wisely."
+        "This split created what we call 'Splitters' — holographic creatures visible in both universes.",
+        "But we can only destroy the Splitters from our own universe, which alone won't be enough.",
+        "Luckily, we discovered we can influence the other universe using pulse forces, making those Splitters either easier or harder to kill.",
+        "We managed to establish a connection with the other universe’s researchers and they sent your counterpart here. Hence you are two.",
+        "We only have you guys. Your task is to slay some Splitters together.",
+        "From what we’ve observed, making Splitters harder to kill makes them tougher, less affected by shots, and slightly faster.",
+        "Why make them harder to kill? To sync, of course.",
+        "The more points you and your other self score, the higher the odds of syncing both universes.",
+        "You—or your other self—can also make them easier to kill, and attempt to sync by 'combo-ing', as we call it.",
+        "Killing multiple Splitters in a short time creates a combo. Each consecutive kill generates more sync energy.",
+        "But be careful—getting hit while the combo is high severely harms the connection between both universes. You won’t be able to gather energy for a while.",
+        "Just a hunch—but we believe your connection with your other self might be even more important than the sync energy itself. Don’t forget, you are in separate universes, light-years away. If you two can sync, maybe the universes can too.",
+        "Wishing you the best of luck."
     };
+
+
+    private enum TutorialEnemySpawnMode
+    {
+        Both,
+        OnlyP1,
+        OnlyP2
+    }
     
     private void Awake()
     {
@@ -185,6 +193,8 @@ public class TutorialManager : MonoBehaviour
 
                 if (!_enemiesHaveBeenSpawned)
                 {
+                    p1.canFire = false;
+                    p2.canFire = false;
                     SpawnTutorialEnemies();
                 }
                 else
@@ -239,22 +249,45 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void SpawnTutorialEnemies(bool changeEnemies = false, int numberOfEnemiesToSpawn = 10)
-    {
-        // The number of enemies to spawn should be even so the number of enemies is equal for both players
-        _nEnemies = numberOfEnemiesToSpawn;
-        
-        for(var i = 0; i < _nEnemies; i++)
+    private void SpawnTutorialEnemies(bool changeEnemies = false, int numberOfEnemiesToSpawn = 10, TutorialEnemySpawnMode spawnMode = TutorialEnemySpawnMode.Both)
+	{
+        if (spawnMode == TutorialEnemySpawnMode.Both)
         {
-            var firstHalf = i < _nEnemies / 2;
-            var player = firstHalf ? p1 : p2;
+            // Ensure even number of enemies
+            _nEnemies = numberOfEnemiesToSpawn % 2 == 0 ? numberOfEnemiesToSpawn : numberOfEnemiesToSpawn + 1;
+        }
+        else
+        {
+            _nEnemies = numberOfEnemiesToSpawn;
+        }
+
+        for (var i = 0; i < _nEnemies; i++)
+        {
+            PlayerController player = null;
+            GameObject enemyPrefab = null;
+
+            var spawnForP1 = spawnMode == TutorialEnemySpawnMode.OnlyP1 || (spawnMode == TutorialEnemySpawnMode.Both && i < _nEnemies / 2);
+            var spawnForP2 = spawnMode == TutorialEnemySpawnMode.OnlyP2 || (spawnMode == TutorialEnemySpawnMode.Both && i >= _nEnemies / 2);
+
+            if (spawnForP1)
+            {
+                player = p1;
+                enemyPrefab = p1EnemyPrefab;
+            }
+            else if (spawnForP2)
+            {
+                player = p2;
+                enemyPrefab = p2EnemyPrefab;
+            }
+
+            if (player == null || enemyPrefab == null) continue;
+
             var playerDirection = new Vector3(player.MoveInput.x, player.MoveInput.y, 0).normalized * 10;
-            var enemyPrefab = firstHalf ? p1EnemyPrefab : p2EnemyPrefab;
 
             var enemyOffset = playerDirection.magnitude > 1f
                 ? Quaternion.Euler(0, 0, Random.Range(-45, 45)) * playerDirection
                 : Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(Random.Range(10f, 15f), Random.Range(10f, 15f), 0);
-            
+
             var enemy = Instantiate(
                 enemyPrefab,
                 player.transform.position + enemyOffset,
@@ -262,9 +295,10 @@ public class TutorialManager : MonoBehaviour
 
             var enemyBehavior = enemy.GetComponent<EnemyBehaviour>();
             enemyBehavior.isTutorial = true;
-            
+
             if (changeEnemies) ChangeEnemyOnSpawn(enemyBehavior, i);
         }
+
         _enemiesHaveBeenSpawned = true;
     }
 
