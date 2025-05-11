@@ -48,7 +48,7 @@ public class TutorialManager : MonoBehaviour
         "Use the right joystick to aim",
         "Press R1 or R2 to shoot",
         "Kill these enemies — pay attention to the colors",
-        "Press L1 to debuff YOUR enemies",
+        "Hold L1 or L2 to debuff YOUR enemies",
         "Press Square to use your secondary attack and kill these enemies",
         "Use L1 to buff EACH OTHER’S enemies and then kill them",
         "You noticed how you can't kill the enemies of the other color, right?",

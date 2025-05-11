@@ -6,6 +6,7 @@ using Menu;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using ColorUtility = UnityEngine.ColorUtility;
 using Random = UnityEngine.Random;
@@ -16,6 +17,7 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI score;
     [SerializeField] private GameObject finalScoreBox;
+    [SerializeField] private GameObject returnToMenuButton;
     [SerializeField] private TextMeshProUGUI finalScore;
     [SerializeField] private TextMeshProUGUI disableScore;
     private bool _canGainScore;
@@ -187,6 +189,16 @@ public class UIManager : MonoBehaviour
             (initialTimerColor.b - endTimerColor.b)/timeRemaining);
     }
 
+    private void Start()
+    {
+        _timeScale = 1f;
+        Time.timeScale = _timeScale;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        
+        if (GameManager.Instance.TutorialDone) WaveManager.Instance.StartNewWave();
+        _lastWaveSpawnTime = 0;
+    }
+    
     private void FixedUpdate()
     {
         score.fontSize = _scoreInitialFontSize;
@@ -209,9 +221,9 @@ public class UIManager : MonoBehaviour
                 timeMask.sizeDelta = new Vector2(_timeMaskMaxWidth * (timeRemaining / 180f), timeMask.sizeDelta.y);
 
                 var currentColor = timeMaskColor.GetComponent<Image>().color;
-                currentColor.r -= _colorDelta.x;
-                currentColor.g -= _colorDelta.y;
-                currentColor.b -= _colorDelta.z;
+                currentColor.r = Mathf.Max(0f, currentColor.r - _colorDelta.x * Time.fixedDeltaTime);
+                currentColor.g = Mathf.Max(0f, currentColor.g - _colorDelta.y * Time.fixedDeltaTime);
+                currentColor.b = Mathf.Max(0f, currentColor.b - _colorDelta.z * Time.fixedDeltaTime);
                 timeMaskColor.GetComponent<Image>().color = currentColor;
 
                 // Spawn wave every 30 seconds only if this is a new interval
@@ -346,7 +358,7 @@ public class UIManager : MonoBehaviour
 
     public void TriggerPlayerRangeChange(bool isPlayer1, float distance, DistanceTrend distanceTrend, MovementTrend movementTrend)
     {
-        
+        DataStorageManager.Instance.SavePlayerRangeChange(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier, distance, distanceTrend, movementTrend);
     }
 
     #region Choose Effect Logic
@@ -562,6 +574,7 @@ public class UIManager : MonoBehaviour
     private void EndTimer()
     {
         finalScoreBox.gameObject.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(returnToMenuButton);
         finalScore.text = "Score: " + score.text;
         _timeScale = 0f;
         Time.timeScale = 0f;

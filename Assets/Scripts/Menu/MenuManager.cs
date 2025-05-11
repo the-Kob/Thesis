@@ -21,7 +21,7 @@ namespace Menu
         [SerializeField] private GameObject mainMenu;
         [SerializeField] private GameObject mainMenuFirstSelectedButton;
         [SerializeField] private GameObject playMenu;
-        [SerializeField] private GameObject playMenuFirstSelectedButton;
+        [SerializeField] private GameObject playTutorialButton;
         [SerializeField] private GameObject playGameButton;
         [SerializeField] private GameObject settingsMenu;
         [SerializeField] private GameObject settingsMenuFirstSelectedButton;
@@ -60,11 +60,12 @@ namespace Menu
                 GameManager.Instance.SetPlayerDevice(1, gamepad);
             }
 
-            if (GameManager.Instance.TutorialDone || (pistolP1.isPlayerConnected && pistolP2.isPlayerConnected && !_bothPlayersConnected))
+            if ((GameManager.Instance.TutorialDone || pistolP1.isPlayerConnected && pistolP2.isPlayerConnected) && !_bothPlayersConnected)
             {
                 _bothPlayersConnected = true;
-                
+                //GameManager.Instance.MarkTutorialDone();
                 playGameButton.GetComponent<Button>().interactable = GameManager.Instance.TutorialDone;
+                playTutorialButton.GetComponent<Button>().interactable = !GameManager.Instance.TutorialDone;
                 OnBackButtonPressed();
                 
                 _uiActionMap.Enable(); // ensure the UI action map is active
@@ -84,7 +85,7 @@ namespace Menu
             playMenu.SetActive(true);
             settingsMenu.SetActive(false);
             
-            EventSystem.current.SetSelectedGameObject(playMenuFirstSelectedButton);
+            EventSystem.current.SetSelectedGameObject(!GameManager.Instance.TutorialDone ? playTutorialButton : playGameButton);
         }
 
         public void OnSettingsButtonPressed()

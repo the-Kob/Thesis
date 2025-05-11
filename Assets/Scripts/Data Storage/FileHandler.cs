@@ -9,7 +9,6 @@ namespace Data_Storage {
     public static class FileHandler
     {
         public static void SaveToJson<T> (List<T> toSave, string filename) {
-            Debug.Log (GetPath(filename));
             var content = JsonConvert.SerializeObject(toSave.ToArray());
             WriteFile(GetPath(filename), content);
         }
@@ -46,10 +45,10 @@ namespace Data_Storage {
 
         private static string GetPath (string filename) {
             Directory.CreateDirectory(Application.streamingAssetsPath 
-                          + "/Results/"+"EventsData");
+                          + "/Results/"+"Events Data");
             
             return Application.streamingAssetsPath 
-                          + "/Results/"+"EventsData/" + filename;
+                          + "/Results/"+"Events Data/" + filename;
         }
 
         private static void WriteFile (string path, string content) {

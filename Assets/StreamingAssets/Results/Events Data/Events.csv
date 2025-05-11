@@ -1,0 +1,8 @@
+study_id,score,combo,event_type,event_actuator,event_receiver,elapse_time,distance_between_players,distance_trend,movement_trend
+0,0,0,EnemyKill,P2,P2Enemy,0,4,00,Farther,Sideways
+0,0,0,EnemyKill,P1,P1Enemy,0,4,00,Farther,Sideways
+0,0,0,Buff,P1,P1Enemy,2,4,24,None,None
+0,0,0,Nerf,P2,P2Enemy,6,3,72,None,None
+0,0,0,SecondaryAttack,P1,P1Enemy,7,3,79,None,None
+0,0,0,EnemyHit,P1,P1Enemy,9,2,84,None,None
+0,0,0,EnemyHit,P1,P1Enemy,10,3,31,None,None

@@ -367,7 +367,6 @@ namespace Player
 
             isInEffectMenu = true;
             UIManager.Instance?.OpenEffectMenu(isPlayer1);
-            Debug.Log("Open effect menu");
         }
 
         private void HandleEffectMenuNavigation()
@@ -416,8 +415,6 @@ namespace Player
             {
                 TutorialManager.Instance.GetEffectFromPlayer(isPlayer1, _chosenEffect);
             }
-            
-            Debug.Log(_chosenEffect);
 
             _chosenEffect = -1;
         }
@@ -466,8 +463,6 @@ namespace Player
         private void OnSubmit(InputAction.CallbackContext context)
         {
             if (!context.performed) return;
-
-            Debug.Log($"Submit action detected from device: {context.control.device.displayName}");
             
             OnSubmitPressed?.Invoke();
         }
