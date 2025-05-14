@@ -1,5 +1,7 @@
 # Player Modeling with Artificial Intelligence in a Cooperative Setting
 
+---
+
 ## Abstract
 
 This work explores the innovative application of Artificial Intelligence (AI) in player modeling within cooperative video game environments. 
