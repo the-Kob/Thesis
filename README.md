@@ -1,7 +1,5 @@
 # Player Modeling with Artificial Intelligence in a Cooperative Setting
 
----
-
 ## Abstract
 
 This work explores the innovative application of Artificial Intelligence (AI) in player modeling within cooperative video game environments. 
@@ -10,11 +8,7 @@ The study hinges on a social interaction model, classifying players into distinc
 It employs a **model-free**, **data-driven approach**, utilizing machine learning techniques such as **Support Vector Machines (SVM)** and **Deep Neural Networks (DNN)**, to analyze gameplay data and classify player interactions. 
 This research contributes to enhancingplayer engagement and the design of more immersive, personalized gaming experiences, thereby enriching the cooperative gaming landscape.
 
----
-
 **Keywords** — Player Modeling, Player Experience, Artificial Intelligence, Machine Learning, Cooperative Environments
-
----
 
 ## Machine Learning Component
 
