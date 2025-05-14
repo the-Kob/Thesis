@@ -22,7 +22,7 @@ The machine learning models and related code can be found in:
 For questions or collaboration opportunities, feel free to reach out:
 
 **Author:** [@the-Kob](https://github.com/the-Kob)  
-**Email:** guilhermecnpereira@gmail.com
+**Email:** guilhermecnpereira@gmail.com 
 **Institution:** Instituto Superior Técnico
 
 **Socials:**
