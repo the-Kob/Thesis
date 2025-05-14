@@ -10,6 +10,10 @@ This research contributes to enhancingplayer engagement and the design of more i
 
 ---
 
+**Keywords** — Player Modeling, Player Experience, Artificial Intelligence, Machine Learning, Cooperative Environments
+
+---
+
 ## Machine Learning Component
 
 The machine learning models and related code can be found in:
