@@ -88,9 +88,11 @@ __pycache__/
 *$py.class
 *.pyo
 
-# If your Python project is in a subfolder like /python_project/, you can scope it:
-# /ML/__pycache__/
-# /ML/*.py[cod]
+# Ignore Python cache files inside ML folder but keep .py files
+/ML/__pycache__/
+/ML/*.py[cod]
+/ML/*$py.class
+/ML/*.pyo
 
 ### PyCharm ###
 # These files are user-specific and shouldn't be committed
