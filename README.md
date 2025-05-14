@@ -22,8 +22,8 @@ The machine learning models and related code can be found in:
 For questions or collaboration opportunities, feel free to reach out:
 
 **Author:** [@the-Kob](https://github.com/the-Kob)  
-**Email:** guilhermecnpereira@gmail.com 
-**Institution:** Instituto Superior Técnico
+**Email:** [guilhermecnpereira@gmail.com] 
+**Institution:** [Instituto Superior Técnico](https://tecnico.ulisboa.pt/en/)
 
 **Socials:**
 - LinkedIn: [Guilherme Pereira](https://www.linkedin.com/in/gp-kob/)
