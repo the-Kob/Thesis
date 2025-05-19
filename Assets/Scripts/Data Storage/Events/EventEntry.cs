@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 namespace Data_Storage.Events {
@@ -26,7 +27,7 @@ namespace Data_Storage.Events {
                 {"event_actuator", Actuator.ToString()},
                 {"event_receiver", Receiver.ToString()},
                 {"elapse_time", ElapsedTime.ToString()},
-                {"distance_between_players", DistanceBetweenPlayers.ToString("F2")},
+                {"distance_between_players", DistanceBetweenPlayers.ToString("F2", CultureInfo.InvariantCulture)},
                 {"distance_trend", DistanceTrend.ToString()},
                 {"movement_trend", MovementTrend.ToString()},
             };
