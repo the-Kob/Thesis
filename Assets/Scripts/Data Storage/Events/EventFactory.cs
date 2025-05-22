@@ -5,6 +5,7 @@ namespace Data_Storage.Events
 {
     public enum EventType
     {
+        None,
         Buff,
         Nerf,
         SecondaryAttack,
@@ -12,7 +13,8 @@ namespace Data_Storage.Events
         End,
         EnemyHit,
         EnemyKill,
-        BulletMiss
+        BulletMiss,
+        Displacement
     }
 
     public enum Agent
@@ -54,8 +56,6 @@ namespace Data_Storage.Events
                 Receiver = effect < 2 ? Agent.P2Enemy : Agent.P1Enemy,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
-                DistanceTrend = DistanceTrend.None,
-                MovementTrend = MovementTrend.None
             };
         }
 
@@ -71,8 +71,6 @@ namespace Data_Storage.Events
                 Receiver = isPlayer1 ? Agent.P1 : Agent.P2,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
-                DistanceTrend = DistanceTrend.None,
-                MovementTrend = MovementTrend.None
             };
         }
 
@@ -88,8 +86,6 @@ namespace Data_Storage.Events
                 Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
-                DistanceTrend = DistanceTrend.None,
-                MovementTrend = MovementTrend.None
             };
         }
         
@@ -105,8 +101,6 @@ namespace Data_Storage.Events
                 Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
-                DistanceTrend = DistanceTrend.None,
-                MovementTrend = MovementTrend.None
             };
         }
 
@@ -118,12 +112,6 @@ namespace Data_Storage.Events
                 Score = score,
                 Combo = combo,
                 EventType = EventType.End,
-                Actuator = Agent.None,
-                Receiver = Agent.None,
-                ElapsedTime = 180,
-                DistanceBetweenPlayers = 0f,
-                DistanceTrend = DistanceTrend.None,
-                MovementTrend = MovementTrend.None
             };
         }
         
@@ -138,9 +126,7 @@ namespace Data_Storage.Events
                 Actuator = isPlayer1 ? Agent.P1 : Agent.P2,
                 Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime,
-                DistanceBetweenPlayers = distance,
-                DistanceTrend = DistanceTrend.None,
-                MovementTrend = MovementTrend.None
+                DistanceBetweenPlayers = distance
             };
         }
 
@@ -156,24 +142,23 @@ namespace Data_Storage.Events
                 Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
-                DistanceTrend = DistanceTrend.None,
-                MovementTrend = MovementTrend.None
             };
         }
 
-        public static EventEntry CreatePlayerRangeChangeEvent(bool isPlayer1, int elapsedTime, int studyId, int score,
-            int combo, float distance, DistanceTrend distanceTrend, MovementTrend movementTrend)
+        public static EventEntry CreatePlayerDisplacementEvent(bool isPlayer1, int elapsedTime, int studyId, int score,
+            int combo, float distance, float distanceSinceLastTrigger, DistanceTrend distanceTrend, MovementTrend movementTrend)
         {
             return new EventEntry
             {
                 StudyId = studyId,
                 Score = score,
                 Combo = combo,
-                EventType = EventType.EnemyKill,
+                EventType = EventType.Displacement,
                 Actuator = isPlayer1 ? Agent.P1 : Agent.P2,
-                Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
+                Receiver = isPlayer1 ? Agent.P2 : Agent.P1,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
+                DistanceSinceLastDisplacementTrigger = distanceSinceLastTrigger,
                 DistanceTrend = distanceTrend,
                 MovementTrend = movementTrend
             };

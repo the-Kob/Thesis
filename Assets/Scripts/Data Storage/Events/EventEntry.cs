@@ -8,13 +8,14 @@ namespace Data_Storage.Events {
         public int StudyId { get; set; }
         public int Score { get; set; }
         public int Combo { get; set; }
-        public EventType EventType { get; set; }
-        public Agent Actuator { get; set; }
-        public Agent Receiver { get; set; }
-        public int ElapsedTime { get; set; }
-        public float DistanceBetweenPlayers { get; set; }
-        public DistanceTrend DistanceTrend { get; set; }
-        public MovementTrend MovementTrend { get; set; }
+        public EventType EventType { get; set; } = EventType.None;
+        public Agent Actuator { get; set; } = Agent.None;
+        public Agent Receiver { get; set; } = Agent.None;
+        public int ElapsedTime { get; set; } = 180;
+        public float DistanceBetweenPlayers { get; set; } = -1f;
+        public float DistanceSinceLastDisplacementTrigger { get; set; } = -1f;
+        public DistanceTrend DistanceTrend { get; set; } = DistanceTrend.None;
+        public MovementTrend MovementTrend { get; set; } = MovementTrend.None;
 
         public Dictionary<string, string> ToDictionary()
         {
@@ -28,6 +29,7 @@ namespace Data_Storage.Events {
                 {"event_receiver", Receiver.ToString()},
                 {"elapse_time", ElapsedTime.ToString()},
                 {"distance_between_players", DistanceBetweenPlayers.ToString("F2", CultureInfo.InvariantCulture)},
+                {"distance_since_last_displacement_trigger", DistanceSinceLastDisplacementTrigger.ToString("F2", CultureInfo.InvariantCulture)},
                 {"distance_trend", DistanceTrend.ToString()},
                 {"movement_trend", MovementTrend.ToString()},
             };

@@ -5,14 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d74ac6e3-eaac-4571-952f-9f64aa35fdcd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/ML/Events Data Processing/analyze_metrics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/StreamingAssets/ML/Models/svm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Thesis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Thesis/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data Storage/DataStorageManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data Storage/DataStorageManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data Storage/Events/EventEntry.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data Storage/Events/EventEntry.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/ML/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/ML/main.py.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Results/Events Data/Events.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/Results/Events Data/Events.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data Storage/Events/EventFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data Storage/Events/EventFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/ML/Events Data Processing/analyze_metrics.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/ML/Events Data Processing/analyze_metrics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/ML/Events Data Processing/summary_output.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/ML/Events Data Processing/summary_output.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -208,6 +209,7 @@
       <workItem from="1746976254247" duration="6455000" />
       <workItem from="1747208233232" duration="1307000" />
       <workItem from="1747677179790" duration="3439000" />
+      <workItem from="1747736808134" duration="10415000" />
     </task>
     <servers />
   </component>

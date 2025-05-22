@@ -356,9 +356,9 @@ public class UIManager : MonoBehaviour
         DataStorageManager.Instance.SaveBulletMiss(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier, distance);
     }
 
-    public void TriggerPlayerRangeChange(bool isPlayer1, float distance, DistanceTrend distanceTrend, MovementTrend movementTrend)
+    public void TriggerPlayerDisplacement(bool isPlayer1, float distanceBetweenPlayers, float distanceSinceLastTrigger, DistanceTrend distanceTrend, MovementTrend movementTrend)
     {
-        DataStorageManager.Instance.SavePlayerRangeChange(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier, distance, distanceTrend, movementTrend);
+        DataStorageManager.Instance.SavePlayerDisplacement(isPlayer1, _elapsedTime, _scoreValue, _comboMultiplier,distanceBetweenPlayers, distanceSinceLastTrigger, distanceTrend, movementTrend);
     }
 
     #region Choose Effect Logic

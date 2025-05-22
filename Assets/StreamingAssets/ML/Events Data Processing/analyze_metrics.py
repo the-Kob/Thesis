@@ -17,9 +17,6 @@ def load_data(filepath):
     return pd.read_csv(filepath)
 
 def summarize_events(df):
-    print(df)
-
-    # Garante que study_id é string limpa
     df["study_id"] = df["study_id"].astype(str).str.strip()
 
     grouped = defaultdict(dict)
@@ -70,4 +67,5 @@ def print_summary(summary_dict):
 if __name__ == "__main__":
     df = load_data(input_file)
     summary_dict, summary_df = summarize_events(df)
+    print_summary(summary_dict)
     export_summary_to_csv(summary_df, output_file)

@@ -66,22 +66,15 @@ namespace Player
         private bool _chooseEffectUpInput;
         private int _chosenEffect = -1;
         
-        [SerializeField] private float closeRange = 2.5f;
-        [SerializeField] private float mediumRange = 5f;
-        [SerializeField] private float farRange = 7.5f;
-        private enum RangeCategory
-        {
-            None, 
-            Close, 
-            Medium, 
-            Far
-        }
-
         public float Distance {get; private set;}
         private float _lastKnownDistanceBetweenPlayers;
-        private RangeCategory _rangeCategory = RangeCategory.None;
         private DistanceTrend _distanceTrend = DistanceTrend.None;
         private MovementTrend _movementTrend = MovementTrend.None;
+        private Vector2 _lastTriggerPosition;
+        private Vector2 _lastDirection;
+        private float _distanceSinceLastTrigger;
+        [SerializeField] private float movementThreshold = 2f;
+        [SerializeField] private float directionChangeThreshold = 0.7f;
         
         public static event Action OnSubmitPressed;
         
@@ -120,6 +113,10 @@ namespace Player
                 _playerInput.SwitchCurrentControlScheme(GameManager.Instance.P2Device);
                 _otherPlayer = GameObject.FindWithTag("P1").GetComponent<PlayerController>();
             }
+            
+            _lastTriggerPosition = transform.position;
+            _lastDirection = Vector2.zero;
+            _lastKnownDistanceBetweenPlayers = Vector2.Distance(transform.position, _otherPlayer.transform.position);
         }
     
         private void Update()
@@ -134,58 +131,76 @@ namespace Player
         {
             UpdateCooldowns();
             HandleMove();
-            AnalyzeRelativeMovement();
-        }
-
-        private void LateUpdate()
-        {
-            DetectPlayerInRange();
+            CheckForDisplacementTrigger();
         }
         
-        private void DetectPlayerInRange()
+        private void CheckForDisplacementTrigger()
         {
-            
-            
-            _distanceTrend = Distance < _lastKnownDistanceBetweenPlayers ? DistanceTrend.Closer : Distance > _lastKnownDistanceBetweenPlayers ? DistanceTrend.Farther : DistanceTrend.Same;
-            
-            var newRangeCategory = GetRangeCategory(Distance);
+            if (_otherPlayer == null) return;
 
-            if (_rangeCategory == newRangeCategory) return;
+            var currentPosition = new Vector2(transform.position.x, transform.position.y);
+            var displacement = currentPosition - _lastTriggerPosition;
+            _distanceSinceLastTrigger = displacement.magnitude;
 
-            _rangeCategory = newRangeCategory;
+            if (_distanceSinceLastTrigger < movementThreshold) return;
+
+            var currentDirection = displacement.normalized;
+
+            // Only proceed if direction changed significantly
+            if (Vector2.Dot(currentDirection, _lastDirection) > directionChangeThreshold) return;
+            
+            AnalyzeRelativeMovement();
+            TriggerDisplacementEvent(currentPosition);
+
+            // Update tracking state
+            _lastDirection = currentDirection;
+            _lastTriggerPosition = currentPosition;
+            _distanceSinceLastTrigger = 0f;
+        }
+        
+        private void AnalyzeRelativeMovement()
+        {
+            Vector2 directionToOtherPlayer = (_otherPlayer.transform.position - transform.position).normalized;
+            var dot = Vector2.Dot(MoveInput.normalized, directionToOtherPlayer);
+
+            _movementTrend = dot switch
+            {
+                > 0.5f => MovementTrend.Toward,
+                < -0.5f => MovementTrend.Away,
+                _ => MovementTrend.Sideways
+            };
+        }
+        
+        private void TriggerDisplacementEvent(Vector2 currentPosition)
+        {
+            if (_otherPlayer == null) return;
+
+            Distance = Vector2.Distance(currentPosition, _otherPlayer.transform.position);
+
+            _distanceTrend = Distance < _lastKnownDistanceBetweenPlayers
+                ? DistanceTrend.Closer
+                : Distance > _lastKnownDistanceBetweenPlayers
+                    ? DistanceTrend.Farther
+                    : DistanceTrend.Same;
+
             _lastKnownDistanceBetweenPlayers = Distance;
             
             /*
-            * Why are both trends important?
-            *
-            * The Movement trend represents the player's intention to move toward, away from, or alongside the other player.
-            * It tells us what the player *wants* to do, but this may not always align with the actual outcome.
-            *
-            * Distance trend represents reality: Is the player actually getting farther away? Closer? Or is the distance unaffected?
-            * This trend provides an additional dimension that the movement trend doesn't capture.
-            */
-            UIManager.Instance?.TriggerPlayerRangeChange(isPlayer1, Distance, _distanceTrend, _movementTrend);
-        }
-        
-        private RangeCategory GetRangeCategory(float distance)
-        {
-            if (distance < closeRange) return RangeCategory.Close;
-            if (distance < mediumRange) return RangeCategory.Medium;
-            if (distance < farRange) return RangeCategory.Far;
-            
-            return RangeCategory.None;
-        }
-        
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = new Color(1f, 0f, 0f, 0.3f); // Red for close
-            Gizmos.DrawWireSphere(transform.position, closeRange);
-
-            Gizmos.color = new Color(1f, 1f, 0f, 0.3f); // Yellow for medium
-            Gizmos.DrawWireSphere(transform.position, mediumRange);
-
-            Gizmos.color = new Color(0f, 0f, 1f, 0.3f); // Blue for far
-            Gizmos.DrawWireSphere(transform.position, farRange);
+             * Why are both trends important?
+             *
+             * The Movement trend represents the player's intention to move toward, away from, or alongside the other player.
+             * It tells us what the player *wants* to do, but this may not always align with the actual outcome.
+             *
+             * Distance trend represents reality: Is the player actually getting farther away? Closer? Or is the distance unaffected?
+             * This trend provides an additional dimension that the movement trend doesn't capture.
+             */
+            UIManager.Instance?.TriggerPlayerDisplacement(
+                isPlayer1,
+                _lastKnownDistanceBetweenPlayers,
+                _distanceSinceLastTrigger,
+                _distanceTrend,
+                _movementTrend
+            );
         }
 
         private void UpdateCooldowns()
@@ -244,29 +259,6 @@ namespace Player
                 _hitByEnemy = false;
 
             transform.position += movement;
-        }
-
-        private void AnalyzeRelativeMovement()
-        {
-            if (_otherPlayer == null)
-            {
-                _movementTrend = MovementTrend.None; 
-                return;
-            }
-            
-            Distance = Vector2.Distance(transform.position, _otherPlayer.transform.position);
-
-            var directionToOtherPlayer = (_otherPlayer.transform.position - transform.position).normalized;
-            var dot = Vector2.Dot(MoveInput.normalized, directionToOtherPlayer);
-            
-            var movementTrendCategory = dot switch
-            {
-                > 0.5f => MovementTrend.Toward,
-                < -0.5f => MovementTrend.Away,
-                _ => MovementTrend.Sideways
-            };
-
-            _movementTrend = movementTrendCategory;
         }
 
         public void GetHitByEnemy(Vector3 enemyPosition, float cooldown)

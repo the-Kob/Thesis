@@ -137,12 +137,12 @@ namespace Data_Storage
             });
         }
 
-        public void SavePlayerRangeChange(bool isPlayer1, int elapsedTime, float score, int combo, float distance, DistanceTrend distanceTrend, MovementTrend movementTrend)
+        public void SavePlayerDisplacement(bool isPlayer1, int elapsedTime, float score, int combo, float distanceBetweenPlayers, float distanceSinceLastTrigger, DistanceTrend distanceTrend, MovementTrend movementTrend)
         {
             ExecuteIfTutorialIsDone(() =>
             {
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreatePlayerRangeChangeEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance, distanceTrend, movementTrend).ToDictionary()));
+                    EventFactory.CreatePlayerDisplacementEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distanceBetweenPlayers, distanceSinceLastTrigger, distanceTrend, movementTrend).ToDictionary()));
             });
         }
     }
