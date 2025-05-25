@@ -6,7 +6,7 @@ namespace Data_Storage {
     [Serializable]
     public class InputEntry
     {
-        public int studyId;
+        public string studyId;
         private int _score;
         private List<(int, int)> _p1EffectsUsed;
         private List<(int, int)> _p2EffectsUsed;
@@ -15,7 +15,7 @@ namespace Data_Storage {
         private List<int> _p1SecondaryAttacksUsed;
         private List<int> _p2SecondaryAttacksUsed;
         
-        public InputEntry (int id) {
+        public InputEntry (string id) {
             studyId = id;
             _p1EffectsUsed = new List<(int,int)>();
             _p2EffectsUsed = new List<(int,int)>();

@@ -44,7 +44,7 @@ namespace Data_Storage.Events
     
     public static class EventFactory
     {
-        public static EventEntry CreateEffectEvent(bool isPlayer1, int elapsedTime, int effect, int studyId, int score, int combo, float distance)
+        public static EventEntry CreateEffectEvent(bool isPlayer1, int elapsedTime, int effect, string studyId, int score, int combo, float distance)
         {
             return new EventEntry
             {
@@ -59,7 +59,7 @@ namespace Data_Storage.Events
             };
         }
 
-        public static EventEntry CreateGettingHitEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo, float distance)
+        public static EventEntry CreateGettingHitEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
         {
             return new EventEntry
             {
@@ -74,7 +74,7 @@ namespace Data_Storage.Events
             };
         }
 
-        public static EventEntry CreateSecondaryAttackEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo, float distance)
+        public static EventEntry CreateSecondaryAttackEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
         {
             return new EventEntry
             {
@@ -89,7 +89,7 @@ namespace Data_Storage.Events
             };
         }
         
-        public static EventEntry CreateBulletMissEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo, float distance)
+        public static EventEntry CreateBulletMissEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
         {
             return new EventEntry
             {
@@ -104,7 +104,7 @@ namespace Data_Storage.Events
             };
         }
 
-        public static EventEntry CreateEndEvent(int score, int studyId, int combo)
+        public static EventEntry CreateEndEvent(int score, string studyId, int combo)
         {
             return new EventEntry
             {
@@ -115,7 +115,7 @@ namespace Data_Storage.Events
             };
         }
         
-        public static EventEntry CreateEnemyHitEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo, float distance)
+        public static EventEntry CreateEnemyHitEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
         {
             return new EventEntry
             {
@@ -130,7 +130,7 @@ namespace Data_Storage.Events
             };
         }
 
-        public static EventEntry CreateEnemyKillEvent(bool isPlayer1, int elapsedTime, int studyId, int score, int combo, float distance)
+        public static EventEntry CreateEnemyKillEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
         {
             return new EventEntry
             {
@@ -145,7 +145,7 @@ namespace Data_Storage.Events
             };
         }
 
-        public static EventEntry CreatePlayerDisplacementEvent(bool isPlayer1, int elapsedTime, int studyId, int score,
+        public static EventEntry CreatePlayerDisplacementEvent(bool isPlayer1, int elapsedTime, string studyId, int score,
             int combo, float distance, float distanceSinceLastTrigger, DistanceTrend distanceTrend, MovementTrend movementTrend)
         {
             return new EventEntry

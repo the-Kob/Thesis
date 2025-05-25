@@ -4,78 +4,96 @@ using Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class WaveManager : MonoBehaviour
+namespace Enemy
 {
-    public static WaveManager Instance { get; private set; }
-    
-    [SerializeField] private PlayerController p1;
-    [SerializeField] private PlayerController p2;
-
-    [SerializeField] private GameObject p1EnemyPrefab;
-    [SerializeField] private GameObject p2EnemyPrefab;
-
-    private Vector3 _p1EnemyOffset = Vector3.zero;
-    private Vector3 _p2EnemyOffset = Vector3.zero;
-
-    private int _waveNumber;
-
-    private void Awake()
+    public class WaveManager : MonoBehaviour
     {
-        if (Instance == null)
+        public static WaveManager Instance { get; private set; }
+
+        [SerializeField] private PlayerController p1;
+        [SerializeField] private PlayerController p2;
+
+        [SerializeField] private GameObject p1EnemyPrefab;
+        [SerializeField] private GameObject p2EnemyPrefab;
+
+        [SerializeField] private Camera mainCamera;
+
+        private int _waveNumber;
+        private const float Extra = 2f;
+
+        private void Awake()
         {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void Start()
-    {
-        Random.InitState(42);
-    }
-
-    public void StartNewWave()
-    {
-        _waveNumber++;
-        StartCoroutine(TriggerWave());
-    }
-
-    private IEnumerator TriggerWave()
-    {
-        var numberOfEnemies = _waveNumber * 3 + 7;
-
-        for (var i = 0; i < numberOfEnemies; i++)
-        {
-            var p1Direction = new Vector3(p1.MoveInput.x, p1.MoveInput.y, 0).normalized * 10;
-
-            if (p1Direction.magnitude > 1f)
+            if (Instance == null)
             {
-                _p1EnemyOffset = Quaternion.Euler(0, 0, Random.Range(-45, 45)) * p1Direction;
+                Instance = this;
             }
             else
             {
-                _p1EnemyOffset = Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(Random.Range(10f, 15f), Random.Range(10f, 15f), 0);
+                Destroy(gameObject);
             }
-            
-            var p2Direction = new Vector3(p1.MoveInput.x, p1.MoveInput.y, 0).normalized * 10;
-            
-            if (p2Direction.magnitude > 1f)
+        }
+
+        private void Start()
+        {
+            Random.InitState(42);
+        }
+
+        public void StartNewWave()
+        {
+            _waveNumber++;
+            StartCoroutine(TriggerWave());
+        }
+
+        private IEnumerator TriggerWave()
+        {
+            var numberOfEnemies = _waveNumber * 3 + 7;
+
+            for (var i = 0; i < numberOfEnemies; i++)
             {
-                _p2EnemyOffset = Quaternion.Euler(0, 0, Random.Range(-45, 45)) * p2Direction;
+                var p1EnemySpawnPos = GetSpawnPositionOutsideCamera();
+                var p2EnemySpawnPos = GetSpawnPositionOutsideCamera();
+
+                Instantiate(p1EnemyPrefab, p1EnemySpawnPos, Quaternion.identity);
+                Instantiate(p2EnemyPrefab, p2EnemySpawnPos, Quaternion.identity);
+
+                yield return new WaitForSeconds(25f / numberOfEnemies);
             }
-            else
-            {
-                _p2EnemyOffset = Quaternion.Euler(0, 0, Random.Range(0, 360)) * new Vector3(Random.Range(10f, 15f), Random.Range(10f, 15f), 0);
-            }
-            
-            Instantiate(p1EnemyPrefab, p1.transform.position + _p1EnemyOffset, Quaternion.Euler(0, 0, 0));
-            Instantiate(p2EnemyPrefab, p2.transform.position + _p2EnemyOffset, Quaternion.Euler(0, 0, 0));
-            
-            yield return new WaitForSeconds(25f / numberOfEnemies);
+
+            yield return null;
         }
         
-        yield return null;
+        private Vector3 GetSpawnPositionOutsideCamera()
+        {
+            var camHeight = mainCamera.orthographicSize * 2f;
+            var camWidth = camHeight * mainCamera.aspect;
+
+            Vector2 camCenter = mainCamera.transform.position;
+            var halfWidth = camWidth / 2f;
+            var halfHeight = camHeight / 2f;
+
+            var side = Random.Range(0, 4);
+            
+            return side switch
+            {
+                0 => new Vector2(
+                    Random.Range(camCenter.x - halfWidth, camCenter.x + halfWidth),
+                    camCenter.y + halfHeight + Extra
+                ),
+                1 => new Vector2(
+                    Random.Range(camCenter.x - halfWidth, camCenter.x + halfWidth),
+                    camCenter.y - halfHeight - Extra
+                ),
+                2 => new Vector2(
+                    camCenter.x - halfWidth - Extra,
+                    Random.Range(camCenter.y - halfHeight, camCenter.y + halfHeight)
+                ),
+                3 => new Vector2(
+                    camCenter.x + halfWidth + Extra,
+                    Random.Range(camCenter.y - halfHeight, camCenter.y + halfHeight)
+                ),
+                _ => camCenter
+            };
+
+        }
     }
 }

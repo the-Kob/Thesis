@@ -5025,6 +5025,7 @@ MonoBehaviour:
   p2: {fileID: 802517685}
   p1EnemyPrefab: {fileID: 4809503519755870104, guid: feaaa23511bdfaf47b963b85b6751ed0, type: 3}
   p2EnemyPrefab: {fileID: 4809503519755870104, guid: 4a02fd9833d2d494584b5f8f554c79eb, type: 3}
+  mainCamera: {fileID: 582558562}
 --- !u!4 &1296023328
 Transform:
   m_ObjectHideFlags: 0

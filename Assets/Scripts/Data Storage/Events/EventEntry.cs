@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Data_Storage.Events {
     public class EventEntry
     {
-        public int StudyId { get; set; }
+        public string StudyId { get; set; }
         public int Score { get; set; }
         public int Combo { get; set; }
         public EventType EventType { get; set; } = EventType.None;
@@ -21,7 +21,7 @@ namespace Data_Storage.Events {
         {
             return new Dictionary<string, string>
             {
-                {"study_id", StudyId.ToString()},
+                {"study_id", StudyId},
                 {"score", Score.ToString()},
                 {"combo", Combo.ToString()},
                 {"event_type", EventType.ToString()},

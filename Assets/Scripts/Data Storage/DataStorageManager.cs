@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Data_Storage.Events;
 using Data_Storage.Logging;
 using UnityEditor;
@@ -16,7 +17,7 @@ namespace Data_Storage
 
         private List<InputEntry> _entriesList = new ();
         private InputEntry _currentEntry;
-        private int _studyId;
+        private string _studyId;
         private readonly FileLogManager fileLogManager = new ();
         
         private void Awake()
@@ -36,14 +37,28 @@ namespace Data_Storage
 
         private void Start()
         {
-            if (_entriesList.Count == 0)
+            _studyId = GenerateUniqueStudyId();
+        }
+        
+        private string GenerateUniqueStudyId()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            System.Random random = new();
+            HashSet<string> existingIds = new();
+    
+            foreach (var entry in _entriesList)
             {
-                _studyId = 0;
+                existingIds.Add(entry.studyId);
             }
-            else
+
+            string newId;
+            do
             {
-                _studyId = _entriesList[^1].studyId + 1; // [^1] is the last element in the list
-            }
+                newId = new string(Enumerable.Repeat(chars, 12)
+                    .Select(s => s[random.Next(s.Length)]).ToArray());
+            } while (existingIds.Contains(newId));
+
+            return newId;
         }
         
         private static void ExecuteIfTutorialIsDone(Action action)
