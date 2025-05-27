@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="d74ac6e3-eaac-4571-952f-9f64aa35fdcd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Thesis/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Thesis/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu.unity" afterDir="false" />
@@ -17,6 +18,9 @@
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-6000.dwlt" afterDir="false" />
     </list>
+=======
+    <list default="true" id="d74ac6e3-eaac-4571-952f-9f64aa35fdcd" name="Changes" comment="" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,9 +38,14 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Storage/Events/EventEntry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Storage/Events/EventFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Data Storage/FileHandler.cs" root0="FORCE_HIGHLIGHTING" />
+<<<<<<< Updated upstream
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy/EnemyBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TutorialManager.cs" root0="FORCE_HIGHLIGHTING" />
+=======
+    <setting file="mock://C:/Users/guilh/Desktop/Unity/Thesis/Assets/Scripts/Enemy/EnemyBehaviour.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+>>>>>>> Stashed changes
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -203,6 +212,7 @@
       <workItem from="1746204680132" duration="207000" />
       <workItem from="1746207200108" duration="5305000" />
       <workItem from="1746305728463" duration="218000" />
+<<<<<<< Updated upstream
       <workItem from="1746485112291" duration="398000" />
       <workItem from="1746485537436" duration="13036000" />
       <workItem from="1746959981505" duration="1279000" />
@@ -213,6 +223,9 @@
       <workItem from="1747736808134" duration="11610000" />
       <workItem from="1747987604522" duration="5703000" />
       <workItem from="1748168901030" duration="6951000" />
+=======
+      <workItem from="1746306533516" duration="7616000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
