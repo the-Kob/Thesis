@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public InputDevice P2Device { get; private set; }
 
     public bool TutorialDone { get; private set; }
+    public bool BothPlayersHaveConnectedOnce { get; private set; }
     
     private void Awake()
     {
@@ -77,6 +78,11 @@ public class GameManager : MonoBehaviour
     public void MarkTutorialDone()
     {
         TutorialDone = true;
+    }
+    
+    public void MarkBothPlayersConnected()
+    {
+        BothPlayersHaveConnectedOnce = true;
     }
     
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)

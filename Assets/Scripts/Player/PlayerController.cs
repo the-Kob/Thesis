@@ -74,7 +74,7 @@ namespace Player
         private Vector2 _lastDirection;
         private float _distanceSinceLastTrigger;
         [SerializeField] private float movementThreshold = 2f;
-        [SerializeField] private float directionChangeThreshold = 0.7f;
+        [SerializeField] private float directionChangeThreshold = 0.5f;
         
         public static event Action OnSubmitPressed;
         

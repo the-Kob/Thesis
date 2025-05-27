@@ -60,15 +60,17 @@ namespace Menu
                 GameManager.Instance.SetPlayerDevice(1, gamepad);
             }
 
-            if ((GameManager.Instance.TutorialDone || pistolP1.isPlayerConnected && pistolP2.isPlayerConnected) && !_bothPlayersConnected)
+            if ((pistolP1.isPlayerConnected && pistolP2.isPlayerConnected || GameManager.Instance.BothPlayersHaveConnectedOnce) && !_bothPlayersConnected)
             {
                 _bothPlayersConnected = true;
-                //GameManager.Instance.MarkTutorialDone();
-                playGameButton.GetComponent<Button>().interactable = GameManager.Instance.TutorialDone;
-                playTutorialButton.GetComponent<Button>().interactable = !GameManager.Instance.TutorialDone;
+
+                if (pistolP1.isPlayerConnected && pistolP2.isPlayerConnected)
+                {
+                    GameManager.Instance.MarkBothPlayersConnected();
+                }
+
                 OnBackButtonPressed();
-                
-                _uiActionMap.Enable(); // ensure the UI action map is active
+                _uiActionMap.Enable();
             }
         }
 

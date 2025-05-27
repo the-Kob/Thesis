@@ -198,6 +198,8 @@ public class UIManager : MonoBehaviour
         
         if (GameManager.Instance.TutorialDone) WaveManager.Instance.StartNewWave();
         _lastWaveSpawnTime = 0;
+
+        SetScoreGainAvailability(true);
     }
     
     private void FixedUpdate()

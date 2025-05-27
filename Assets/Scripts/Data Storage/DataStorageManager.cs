@@ -42,7 +42,7 @@ namespace Data_Storage
         
         private string GenerateUniqueStudyId()
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             System.Random random = new();
             HashSet<string> existingIds = new();
     
