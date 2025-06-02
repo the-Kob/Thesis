@@ -45,15 +45,15 @@ public class TutorialManager : MonoBehaviour
     
     private readonly string[] _tutorialStepSentences = {
         "Use the left joystick to move",
-        "Use the right joystick to aim",
-        "Press R1 or R2 to shoot",
+        "Use the right joystick to aim your weapon",
+        "Press R1 or R2 to shoot your weapon",
         "Kill these enemies — pay attention to the colors",
-        "Hold L1 or L2 to debuff YOUR enemies",
+        "Hold L1 or L2, choose the debuff from the effect menu, release to apply it to your OWN enemies — then defeat them",
         "Press Square to use your secondary attack and kill these enemies",
-        "Use L1 to buff EACH OTHER’S enemies and then kill them",
-        "You noticed how you can't kill the enemies of the other color, right?",
-        "Just as we expected...",
-        "Okay, here—read these instructions."
+        "Hold L1 or L2, choose the buff from the effect menu, release to apply it to EACH OTHER'S enemies — then defeat them",
+        "Noticed how you can't kill the enemies of the other color?",
+        "Exactly as expected...",
+        "Almost done — read these final instructions carefully."
     };
     
     private readonly string[] _bookStepSentences = {
@@ -98,6 +98,8 @@ public class TutorialManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        GameManager.Instance.SetTutorialDone(false);
     }
     
     private void Start()
@@ -114,7 +116,6 @@ public class TutorialManager : MonoBehaviour
     {
         if (message.text == "" && currentTutorialStep < _tutorialStepSentences.Length && currentTutorialStep >= 0)
         {
-            Debug.Log("Current Tutorial Step: " + currentTutorialStep);
             message.text = _tutorialStepSentences[currentTutorialStep];
         }
         
@@ -515,7 +516,7 @@ public class TutorialManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f;
-        GameManager.Instance.MarkTutorialDone();
+        GameManager.Instance.SetTutorialDone(true);
         GameManager.Instance.LoadScene("Menu");
     }
 

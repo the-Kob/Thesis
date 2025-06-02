@@ -1,3 +1,4 @@
+using System;
 using Data_Storage;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     public bool TutorialDone { get; private set; }
     public bool BothPlayersHaveConnectedOnce { get; private set; }
+
+    private bool _isFirstPlaythrough;
     
     private void Awake()
     {
@@ -35,7 +38,15 @@ public class GameManager : MonoBehaviour
         
         ChangeState(GameState.Menu);
     }
-    
+
+    public void Update()
+    {
+        if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            _isFirstPlaythrough = true;
+        }
+    }
+
     public void SetPlayerDevice(int playerIndex, InputDevice device)
     {
         if (playerIndex == 0)
@@ -68,26 +79,28 @@ public class GameManager : MonoBehaviour
             else
             {
                 ChangeState(GameState.Game);
-                DataStorageManager.Instance.CreateNewEntry();
+                DataStorageManager.Instance.CreateNewEntry(_isFirstPlaythrough);
             }
             
             AudioManager.Instance.PlayGameMusic();
         }
     }
     
-    public void MarkTutorialDone()
+    public void SetTutorialDone(bool result)
     {
-        TutorialDone = true;
+        TutorialDone = result;
     }
     
-    public void MarkBothPlayersConnected()
+    public void SetBothPlayersConnected(bool result)
     {
-        BothPlayersHaveConnectedOnce = true;
+        BothPlayersHaveConnectedOnce = result;
     }
     
     private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        
+        Instance._isFirstPlaythrough = false;
     }
     
     private void ChangeState(GameState newState)

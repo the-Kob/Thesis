@@ -44,7 +44,7 @@ namespace Data_Storage.Events
     
     public static class EventFactory
     {
-        public static EventEntry CreateEffectEvent(bool isPlayer1, int elapsedTime, int effect, string studyId, int score, int combo, float distance)
+        public static EventEntry CreateEffectEvent(bool isPlayer1, int elapsedTime, int effect, string studyId, int score, int combo, float distance, bool isFirstPlaythrough)
         {
             return new EventEntry
             {
@@ -56,10 +56,11 @@ namespace Data_Storage.Events
                 Receiver = effect < 2 ? Agent.P2Enemy : Agent.P1Enemy,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
+                IsFirstPlaythrough = isFirstPlaythrough,
             };
         }
 
-        public static EventEntry CreateGettingHitEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
+        public static EventEntry CreateGettingHitEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance, bool isFirstPlaythrough)
         {
             return new EventEntry
             {
@@ -71,10 +72,11 @@ namespace Data_Storage.Events
                 Receiver = isPlayer1 ? Agent.P1 : Agent.P2,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
+                IsFirstPlaythrough = isFirstPlaythrough,
             };
         }
 
-        public static EventEntry CreateSecondaryAttackEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
+        public static EventEntry CreateSecondaryAttackEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance, bool isFirstPlaythrough)
         {
             return new EventEntry
             {
@@ -86,10 +88,11 @@ namespace Data_Storage.Events
                 Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
+                IsFirstPlaythrough = isFirstPlaythrough,
             };
         }
         
-        public static EventEntry CreateBulletMissEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
+        public static EventEntry CreateBulletMissEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance, bool isFirstPlaythrough)
         {
             return new EventEntry
             {
@@ -101,10 +104,11 @@ namespace Data_Storage.Events
                 Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
+                IsFirstPlaythrough = isFirstPlaythrough,
             };
         }
 
-        public static EventEntry CreateEndEvent(int score, string studyId, int combo)
+        public static EventEntry CreateEndEvent(int score, string studyId, int combo, bool isFirstPlaythrough)
         {
             return new EventEntry
             {
@@ -112,10 +116,11 @@ namespace Data_Storage.Events
                 Score = score,
                 Combo = combo,
                 EventType = EventType.End,
+                IsFirstPlaythrough = isFirstPlaythrough,
             };
         }
         
-        public static EventEntry CreateEnemyHitEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
+        public static EventEntry CreateEnemyHitEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance, bool isFirstPlaythrough)
         {
             return new EventEntry
             {
@@ -126,11 +131,12 @@ namespace Data_Storage.Events
                 Actuator = isPlayer1 ? Agent.P1 : Agent.P2,
                 Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime,
-                DistanceBetweenPlayers = distance
+                DistanceBetweenPlayers = distance,
+                IsFirstPlaythrough = isFirstPlaythrough,
             };
         }
 
-        public static EventEntry CreateEnemyKillEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance)
+        public static EventEntry CreateEnemyKillEvent(bool isPlayer1, int elapsedTime, string studyId, int score, int combo, float distance, bool isFirstPlaythrough)
         {
             return new EventEntry
             {
@@ -142,11 +148,12 @@ namespace Data_Storage.Events
                 Receiver = isPlayer1 ? Agent.P1Enemy : Agent.P2Enemy,
                 ElapsedTime = elapsedTime,
                 DistanceBetweenPlayers = distance,
+                IsFirstPlaythrough = isFirstPlaythrough,
             };
         }
 
         public static EventEntry CreatePlayerDisplacementEvent(bool isPlayer1, int elapsedTime, string studyId, int score,
-            int combo, float distance, float distanceSinceLastTrigger, DistanceTrend distanceTrend, MovementTrend movementTrend)
+            int combo, float distance, float distanceSinceLastTrigger, DistanceTrend distanceTrend, MovementTrend movementTrend, bool isFirstPlaythrough)
         {
             return new EventEntry
             {
@@ -160,7 +167,8 @@ namespace Data_Storage.Events
                 DistanceBetweenPlayers = distance,
                 DistanceSinceLastDisplacementTrigger = distanceSinceLastTrigger,
                 DistanceTrend = distanceTrend,
-                MovementTrend = movementTrend
+                MovementTrend = movementTrend,
+                IsFirstPlaythrough = isFirstPlaythrough,
             };
         }
     }

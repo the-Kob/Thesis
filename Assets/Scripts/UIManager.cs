@@ -446,15 +446,15 @@ public class UIManager : MonoBehaviour
             {
                 if (_p1EffectButtons[i].GetComponent<RectTransform>().localScale.x > 1f && chosenEffect != i)
                 {
-                    _p1EffectButtons[i].GetComponent<RectTransform>().localScale -= new Vector3(0.01f, 0.01f, 0f);
+                    _p1EffectButtons[i].GetComponent<RectTransform>().localScale -= new Vector3(0.02f, 0.02f, 0f);
                 }
             }
             
             if (chosenEffect == -1) return;
             
-            if (_p1EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale.x < 1.1f)
+            if (_p1EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale.x < 1.2f)
             {
-                _p1EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
+                _p1EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale += new Vector3(0.02f, 0.02f, 0f);
             }
         }
         else
@@ -463,15 +463,15 @@ public class UIManager : MonoBehaviour
             {
                 if (_p2EffectButtons[i].GetComponent<RectTransform>().localScale.x > 1f && chosenEffect != i)
                 {
-                    _p2EffectButtons[i].GetComponent<RectTransform>().localScale -= new Vector3(0.01f, 0.01f, 0f);
+                    _p2EffectButtons[i].GetComponent<RectTransform>().localScale -= new Vector3(0.02f, 0.02f, 0f);
                 }
             }
             
             if (chosenEffect == -1) return;
             
-            if (_p2EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale.x < 1.1f)
+            if (_p2EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale.x < 1.2f)
             {
-                _p2EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale += new Vector3(0.01f, 0.01f, 0f);
+                _p2EffectButtons[chosenEffect].GetComponent<RectTransform>().localScale += new Vector3(0.02f, 0.02f, 0f);
             }
         }
     }

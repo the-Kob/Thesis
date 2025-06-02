@@ -22,6 +22,16 @@ namespace Abilities
         private void Start()
         {
             _enemyTag = isPlayer1 ? "P1 Enemy" : "P2 Enemy";
+            
+            if (isPlayer1)
+            {
+                ColorUtility.TryParseHtmlString("#FB8F13", out var p1Color);
+                _sprite.color = p1Color;
+            } else
+            {
+                ColorUtility.TryParseHtmlString("#315D9A", out var p2Color);
+                _sprite.color = p2Color;
+            }
         }
 
         private void FixedUpdate()

@@ -362,11 +362,33 @@
                 },
                 {
                     "name": "",
+                    "id": "e533f08f-2c85-491e-b119-24c4a90a2d9b",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "37121a96-e126-4791-af85-8dd5cf9ef341",
                     "path": "<XInputController>/rightShoulder",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9055527c-3d2b-45ab-9168-2f38f0e88782",
+                    "path": "<XInputController>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad;Joystick",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false

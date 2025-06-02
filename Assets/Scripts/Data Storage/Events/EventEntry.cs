@@ -16,6 +16,7 @@ namespace Data_Storage.Events {
         public float DistanceSinceLastDisplacementTrigger { get; set; } = -1f;
         public DistanceTrend DistanceTrend { get; set; } = DistanceTrend.None;
         public MovementTrend MovementTrend { get; set; } = MovementTrend.None;
+        public bool IsFirstPlaythrough { get; set; } = false;
 
         public Dictionary<string, string> ToDictionary()
         {
@@ -32,6 +33,7 @@ namespace Data_Storage.Events {
                 {"distance_since_last_displacement_trigger", DistanceSinceLastDisplacementTrigger.ToString("F2", CultureInfo.InvariantCulture)},
                 {"distance_trend", DistanceTrend.ToString()},
                 {"movement_trend", MovementTrend.ToString()},
+                {"is_first_playthrough", IsFirstPlaythrough.ToString()}
             };
         }
     }

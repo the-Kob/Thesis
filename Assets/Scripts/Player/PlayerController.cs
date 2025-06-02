@@ -56,8 +56,6 @@ namespace Player
         private float _aoeCooldownTimer;
 
         [SerializeField] private GameObject effect;
-        private float effectMenuCooldown;
-        private float _effectMenuCooldownTimer;
         [HideInInspector] public bool isInEffectMenu;
         [SerializeField] private float chooseEffectCooldown = 10f;
         private float _chooseEffectCooldownTimer;
@@ -65,6 +63,8 @@ namespace Player
         private bool _chooseEffectDownInput;
         private bool _chooseEffectUpInput;
         private int _chosenEffect = -1;
+        private float _effectMenuDebounceTimer;
+        private const float DebounceDuration = 0.05f;
         
         public float Distance {get; private set;}
         private float _lastKnownDistanceBetweenPlayers;
@@ -121,6 +121,7 @@ namespace Player
     
         private void Update()
         {
+            UpdateCooldowns();
             HandleLook();
             HandleFire();
             HandleAoE();
@@ -129,7 +130,6 @@ namespace Player
 
         private void FixedUpdate()
         {
-            UpdateCooldowns();
             HandleMove();
             CheckForDisplacementTrigger();
         }
@@ -207,7 +207,7 @@ namespace Player
         {
             if (actCooldownTimer > 0f)
             {
-                actCooldownTimer -= Time.fixedDeltaTime;
+                actCooldownTimer -= Time.deltaTime;
             }
             else if(!canAct)
             {
@@ -216,7 +216,7 @@ namespace Player
 
             if (_fireCooldownTimer > 0f)
             {
-                _fireCooldownTimer -= Time.fixedDeltaTime;
+                _fireCooldownTimer -= Time.deltaTime;
             }
             else
             {
@@ -225,7 +225,7 @@ namespace Player
 
             if (_aoeCooldownTimer > 0f)
             {
-                _aoeCooldownTimer -= Time.fixedDeltaTime;
+                _aoeCooldownTimer -= Time.deltaTime;
             }
             
             if (_aoeCooldownTimer < 0f)
@@ -235,18 +235,17 @@ namespace Player
 
             if (_chooseEffectCooldownTimer > 0f)
             {
-                _chooseEffectCooldownTimer -= Time.fixedDeltaTime;
+                _chooseEffectCooldownTimer -= Time.deltaTime;
             } 
             
             if(_chooseEffectCooldownTimer < 0f) 
             {
                 _isEffectActive = false;
             }
-            
 
-            if (_effectMenuCooldownTimer > 0f)
+            if (_effectMenuDebounceTimer > 0f)
             {
-                _effectMenuCooldownTimer -= Time.fixedDeltaTime;
+                _effectMenuDebounceTimer -= Time.deltaTime;
             }
         }
 
@@ -355,8 +354,11 @@ namespace Player
 
         private void HandleChooseEffectDown()
         {   
-            if (!_chooseEffectDownInput || _isEffectActive || _effectMenuCooldownTimer > 0f) return;
-
+            if (!_chooseEffectDownInput || _isEffectActive || _effectMenuDebounceTimer > 0f) return;
+            
+            _chooseEffectDownInput = false;
+            _effectMenuDebounceTimer = DebounceDuration;
+            
             isInEffectMenu = true;
             UIManager.Instance?.OpenEffectMenu(isPlayer1);
         }
@@ -390,8 +392,9 @@ namespace Player
         {
             if (!_chooseEffectUpInput || !isInEffectMenu) return;
             
+            _chooseEffectUpInput = false;
+            
             isInEffectMenu = false;
-            _effectMenuCooldownTimer = 0.1f;
             
             UIManager.Instance?.CloseEffectMenu(isPlayer1, _chosenEffect);
             
@@ -448,8 +451,15 @@ namespace Player
 
         public void OnChooseEffect(InputAction.CallbackContext context)
         {
-            _chooseEffectDownInput = context.started;
-            _chooseEffectUpInput = context.canceled;
+            if (context.performed)
+            {
+                _chooseEffectDownInput = true;
+            }
+
+            if (context.canceled)
+            {
+                _chooseEffectUpInput = true;
+            }
         }
         
         private void OnSubmit(InputAction.CallbackContext context)

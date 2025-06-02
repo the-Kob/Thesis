@@ -66,7 +66,7 @@ namespace Menu
 
                 if (pistolP1.isPlayerConnected && pistolP2.isPlayerConnected)
                 {
-                    GameManager.Instance.MarkBothPlayersConnected();
+                    GameManager.Instance.SetBothPlayersConnected(true);
                 }
 
                 OnBackButtonPressed();
