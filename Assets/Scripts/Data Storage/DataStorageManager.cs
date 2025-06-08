@@ -89,6 +89,7 @@ namespace Data_Storage
                 _entriesList.Add(_currentEntry);
                 FileHandler.SaveToJson(_entriesList, filename);
                 _currentEntry = null;
+                _studyId = GenerateUniqueStudyId();
             });
         }
 

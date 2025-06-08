@@ -128,18 +128,21 @@ public class TutorialManager : MonoBehaviour
                 {
                     StartCoroutine(NextTutorialPhase());
                 }
+                
                 break;
             case 1:
                 if (p1.HasAimed && p2.HasAimed)
                 {
                     StartCoroutine(NextTutorialPhase());
                 }
+                
                 break;
             case 2:
                 if (p1.HasFired && p2.HasFired)
                 {
                     StartCoroutine(NextTutorialPhase());
                 }
+                
                 break;
             case 3:
                 if (!_enemiesHaveBeenSpawned)
@@ -153,6 +156,7 @@ public class TutorialManager : MonoBehaviour
                         StartCoroutine(NextTutorialPhase());
                     }
                 }
+                
                 break;
             case 4:
                 if (!_enemiesHaveBeenSpawned)
@@ -187,28 +191,45 @@ public class TutorialManager : MonoBehaviour
                         StartCoroutine(ChangeSecondArrowVisibility(p2.isInEffectMenu, false));
                     }
                 }
+                
                 break;
             case 5:
-                p1Arrows[2].SetActive(true);
-                p2Arrows[2].SetActive(true);
-
                 if (!_enemiesHaveBeenSpawned)
                 {
+                    p1Arrows[2].SetActive(true);
+                    p2Arrows[2].SetActive(true);
                     p1.canFire = false;
                     p2.canFire = false;
                     SpawnTutorialEnemies();
                 }
                 else
                 {
-                    if (_nEnemies == 0)
+                    if (p1.HasAoEed)
                     {
-                        p1.canFire = true;
-                        p1Arrows[2].SetActive(false);
-                
-                        p2.canFire = true;
-                        p2Arrows[2].SetActive(false);
+                        DisableArrows(true);
+                    }
+
+                    if (p2.HasAoEed)
+                    {
+                        DisableArrows(false);
+                    }
+
+                    if (p1.HasAoEed && p2.HasAoEed)
+                    {
+                        message.color = new Color(0f, 204f / 255f, 0f, 1f);
                         
-                        StartCoroutine(NextTutorialPhase());
+                        if (_nEnemies == 0)
+                        {
+                            p1.canFire = true;
+                            p2.canFire = true;
+                        
+                            StartCoroutine(NextTutorialPhase());
+                        }
+                    }
+                    else
+                    {
+                        if (_nEnemies == 0) _enemiesHaveBeenSpawned = false;
+                        
                     }
                 }
                 

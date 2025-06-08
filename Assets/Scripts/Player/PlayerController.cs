@@ -19,6 +19,7 @@ namespace Player
         public bool HasMoved { get; private set; }
         public bool HasAimed { get; private set; }
         public bool HasFired { get; private set; }
+        public bool HasAoEed { get; private set; }
         
         [SerializeField] private GameObject body;
     
@@ -447,6 +448,11 @@ namespace Player
         public void OnAoE(InputAction.CallbackContext context)
         {
             _aoeInput = context.performed;
+            
+            if (TutorialManager.Instance != null && TutorialManager.Instance.currentTutorialStep == 5 && _aoeInput)
+            {
+                HasAoEed = true;
+            }
         }
 
         public void OnChooseEffect(InputAction.CallbackContext context)
@@ -474,6 +480,7 @@ namespace Player
             HasMoved = false;
             HasAimed = false;
             HasFired = false;
+            HasAoEed = false;
         }
     }
 }
