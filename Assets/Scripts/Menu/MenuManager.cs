@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using Data_Storage;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
@@ -26,6 +28,8 @@ namespace Menu
         [SerializeField] private GameObject settingsMenu;
         [SerializeField] private GameObject settingsMenuFirstSelectedButton;
         
+        [SerializeField] private TextMeshProUGUI studyIdText;
+        
         private bool _bothPlayersConnected;
 
         private void Start()
@@ -36,6 +40,8 @@ namespace Menu
         
         private void Update()
         {
+            studyIdText.text = DataStorageManager.Instance.StudyId;
+            
             if (!pistolP1.isPlayerConnected && Gamepad.all.Count > 0 && Gamepad.all[0].startButton.isPressed)
             {
                 pistolP1.isPlayerConnected = true;

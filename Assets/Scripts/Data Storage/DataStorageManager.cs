@@ -14,10 +14,10 @@ namespace Data_Storage
         public static DataStorageManager Instance { get; private set; }
         
         [SerializeField] private string filename = "data.json";
-
+        
         private List<InputEntry> _entriesList = new ();
         private InputEntry _currentEntry;
-        private string _studyId;
+        public string StudyId { get; private set; }
         private readonly FileLogManager fileLogManager = new ();
         private bool _isFirstPlaythrough;
         
@@ -38,7 +38,7 @@ namespace Data_Storage
 
         private void Start()
         {
-            _studyId = GenerateUniqueStudyId();
+            StudyId = GenerateUniqueStudyId();
         }
         
         private string GenerateUniqueStudyId()
@@ -70,7 +70,7 @@ namespace Data_Storage
 
         public void CreateNewEntry(bool isFirstPlaythrough)
         {
-            _currentEntry = new InputEntry(_studyId);
+            _currentEntry = new InputEntry(StudyId);
             _isFirstPlaythrough = isFirstPlaythrough;
         }
 
@@ -83,13 +83,13 @@ namespace Data_Storage
                     _currentEntry.SetScore((int) score);
                     
                     StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                        EventFactory.CreateEndEvent((int) score, _studyId, combo, _isFirstPlaythrough).ToDictionary()));
+                        EventFactory.CreateEndEvent((int) score, StudyId, combo, _isFirstPlaythrough).ToDictionary()));
                 }
                 
                 _entriesList.Add(_currentEntry);
                 FileHandler.SaveToJson(_entriesList, filename);
                 _currentEntry = null;
-                _studyId = GenerateUniqueStudyId();
+                StudyId = GenerateUniqueStudyId();
             });
         }
 
@@ -101,7 +101,7 @@ namespace Data_Storage
                 
                 _currentEntry.AddEffect(isPlayer1, elapsedTime, effect);
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateEffectEvent(isPlayer1, elapsedTime, effect, _studyId, (int) score, combo, distance, _isFirstPlaythrough).ToDictionary()));
+                    EventFactory.CreateEffectEvent(isPlayer1, elapsedTime, effect, StudyId, (int) score, combo, distance, _isFirstPlaythrough).ToDictionary()));
             });
         }
         public void SavePlayerSecondaryAttackUsed(bool isPlayer1, int elapsedTime, float score, int combo, float distance)
@@ -112,7 +112,7 @@ namespace Data_Storage
                 
                 _currentEntry.AddSecondaryAttack(isPlayer1, elapsedTime);
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateSecondaryAttackEvent(isPlayer1, elapsedTime, _studyId, (int) score, combo, distance, _isFirstPlaythrough).ToDictionary()));
+                    EventFactory.CreateSecondaryAttackEvent(isPlayer1, elapsedTime, StudyId, (int) score, combo, distance, _isFirstPlaythrough).ToDictionary()));
             });
         }
 
@@ -124,7 +124,7 @@ namespace Data_Storage
                 
                 _currentEntry.AddHit(isPlayer1, elapsedTime);
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateGettingHitEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance, _isFirstPlaythrough).ToDictionary()));
+                    EventFactory.CreateGettingHitEvent(isPlayer1, elapsedTime, StudyId, (int)score, combo, distance, _isFirstPlaythrough).ToDictionary()));
             });
         }
         
@@ -133,7 +133,7 @@ namespace Data_Storage
             ExecuteIfTutorialIsDone(() =>
             {
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateEnemyKillEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance, _isFirstPlaythrough).ToDictionary()));
+                    EventFactory.CreateEnemyKillEvent(isPlayer1, elapsedTime, StudyId, (int)score, combo, distance, _isFirstPlaythrough).ToDictionary()));
             });
         }
 
@@ -142,7 +142,7 @@ namespace Data_Storage
             ExecuteIfTutorialIsDone(() =>
             {
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateEnemyHitEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance, _isFirstPlaythrough).ToDictionary()));
+                    EventFactory.CreateEnemyHitEvent(isPlayer1, elapsedTime, StudyId, (int)score, combo, distance, _isFirstPlaythrough).ToDictionary()));
             });
         }
 
@@ -151,7 +151,7 @@ namespace Data_Storage
             ExecuteIfTutorialIsDone(() =>
             {
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreateBulletMissEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distance, _isFirstPlaythrough).ToDictionary()));
+                    EventFactory.CreateBulletMissEvent(isPlayer1, elapsedTime, StudyId, (int)score, combo, distance, _isFirstPlaythrough).ToDictionary()));
             });
         }
 
@@ -160,7 +160,7 @@ namespace Data_Storage
             ExecuteIfTutorialIsDone(() =>
             {
                 StartCoroutine(fileLogManager.WriteToLog("Events Data", "Events",
-                    EventFactory.CreatePlayerDisplacementEvent(isPlayer1, elapsedTime, _studyId, (int)score, combo, distanceBetweenPlayers, distanceSinceLastTrigger, distanceTrend, movementTrend, _isFirstPlaythrough).ToDictionary()));
+                    EventFactory.CreatePlayerDisplacementEvent(isPlayer1, elapsedTime, StudyId, (int)score, combo, distanceBetweenPlayers, distanceSinceLastTrigger, distanceTrend, movementTrend, _isFirstPlaythrough).ToDictionary()));
             });
         }
     }
