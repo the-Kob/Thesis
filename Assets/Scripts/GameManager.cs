@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
         {
             _isFirstPlaythrough = true;
         }
+        
+        if (Keyboard.current.pKey.wasPressedThisFrame)
+        {
+            DataStorageManager.Instance.GenerateNewStudyID();
+        }
     }
 
     public void SetPlayerDevice(int playerIndex, InputDevice device)

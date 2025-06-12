@@ -18,6 +18,8 @@ namespace Data_Storage
         private List<InputEntry> _entriesList = new ();
         private InputEntry _currentEntry;
         public string StudyId { get; private set; }
+        private string _studyIDPrefix;
+        private string _studyIDSuffix;
         private readonly FileLogManager fileLogManager = new ();
         private bool _isFirstPlaythrough;
         
@@ -38,28 +40,27 @@ namespace Data_Storage
 
         private void Start()
         {
-            StudyId = GenerateUniqueStudyId();
+            GenerateNewStudyID();
         }
         
-        private string GenerateUniqueStudyId()
+        private static string GenerateRandomId(int length)
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             System.Random random = new();
-            HashSet<string> existingIds = new();
-    
-            foreach (var entry in _entriesList)
-            {
-                existingIds.Add(entry.studyId);
-            }
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
 
-            string newId;
-            do
-            {
-                newId = new string(Enumerable.Repeat(chars, 12)
-                    .Select(s => s[random.Next(s.Length)]).ToArray());
-            } while (existingIds.Contains(newId));
-
-            return newId;
+        private string GenerateFullStudyId()
+        {
+            _studyIDSuffix = GenerateRandomId(6);
+            return _studyIDPrefix + _studyIDSuffix;
+        }
+        
+        public void GenerateNewStudyID()
+        {
+            _studyIDPrefix = GenerateRandomId(6);
+            StudyId = GenerateFullStudyId();
         }
         
         private static void ExecuteIfTutorialIsDone(Action action)
@@ -70,6 +71,7 @@ namespace Data_Storage
 
         public void CreateNewEntry(bool isFirstPlaythrough)
         {
+            
             _currentEntry = new InputEntry(StudyId);
             _isFirstPlaythrough = isFirstPlaythrough;
         }
@@ -89,7 +91,7 @@ namespace Data_Storage
                 _entriesList.Add(_currentEntry);
                 FileHandler.SaveToJson(_entriesList, filename);
                 _currentEntry = null;
-                StudyId = GenerateUniqueStudyId();
+                StudyId = GenerateFullStudyId();
             });
         }
 
