@@ -48,7 +48,6 @@ namespace Player
             UIManager.Instance.ChangeCombo(false);
             UIManager.Instance.SetScoreGainAvailability(false, isPlayer1, distance);
             playerController.actCooldownTimer = hitEffectTime;
-            // bulletManager.setDeadTimer(hitTime);  // Also inform BulletManager about the hit state
         }
     }
 }

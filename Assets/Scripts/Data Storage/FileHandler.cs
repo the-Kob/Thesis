@@ -44,10 +44,10 @@ namespace Data_Storage {
         }
 
         private static string GetPath (string filename) {
-            Directory.CreateDirectory(Application.streamingAssetsPath 
+            Directory.CreateDirectory(Application.persistentDataPath
                           + "/Results/"+"Events Data");
             
-            return Application.streamingAssetsPath 
+            return Application.persistentDataPath 
                           + "/Results/"+"Events Data/" + filename;
         }
 

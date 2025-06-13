@@ -13,39 +13,38 @@ namespace Data_Storage.Logging
             Debug.Log("Log initialized.");
         }
 
+        // FileLogManager.cs
         public override IEnumerator WriteToLog(string database, string table, Dictionary<string, string> dictionary, bool justHeaders = false)
         {
-            var directoryPath = Path.Combine(Application.streamingAssetsPath, "Results", database);
-            var filePath = Path.Combine(directoryPath, $"{table}.csv");
-
-            Directory.CreateDirectory(directoryPath);
-
-            var writeHeader = !File.Exists(filePath);
-
-            using (var sw = new StreamWriter(filePath, append: true))
-            {
-                try
-                {
-                    if (writeHeader)
-                    {
-                        sw.WriteLine(StringifyDictionaryForCsvLogs(dictionary, true));
-                    }
-
-                    if (!justHeaders)
-                    {
-                        sw.WriteLine(StringifyDictionaryForCsvLogs(dictionary));
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Debug.LogError($"Failed to write log file: {ex.Message}");
-                }
-            }
-
-
-            yield return null;
+            WriteToLogInternal(database, table, dictionary, justHeaders);
+            yield return null; // still satisfies coroutine
         }
 
+        public void WriteToLogSync(string database, string table, Dictionary<string, string> dictionary, bool justHeaders = false)
+        {
+            WriteToLogInternal(database, table, dictionary, justHeaders);
+        }
+
+        private void WriteToLogInternal(string database, string table, Dictionary<string, string> dict, bool justHeaders)
+        {
+            var dir = Path.Combine(Application.persistentDataPath, "Results", database);
+            Directory.CreateDirectory(dir);
+            var path = Path.Combine(dir, $"{table}.csv");
+            var writeHeader = !File.Exists(path);
+
+            try
+            {
+                using var sw = new StreamWriter(path, append: true);
+                if (writeHeader)
+                    sw.WriteLine(StringifyDictionaryForCsvLogs(dict, true));
+                if (!justHeaders)
+                    sw.WriteLine(StringifyDictionaryForCsvLogs(dict));
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[Log Write Error] {ex}");
+            }
+        }
 
         public override IEnumerator GetFromLog(string database, string table, string query, Func<string, int> yieldedReactionToGet)
         {
