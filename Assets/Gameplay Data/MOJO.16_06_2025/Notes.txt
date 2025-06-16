@@ -1,0 +1,8 @@
+Game:
+- Effects should have quick access buttons instead of just the menu (i.e D-Pad).
+- L1 & L2 started to get stuck after a lot of people used the controllers, making it so a random effect would trigger automatically off cooldown.
+- Difficult to notice when someone took damage (collision with an enemy).
+
+Form:
+- Confusion around the FOCUS rating scale where 1 was Self and 5 Others. People would intuitively respond as if this was rating how good they were able to accomplish the task that was asked of them from a scale from 1 to 5. Although these cases were quickly caught and the linear scale in use was promptly explained, another more intuitive rating system could be used to avoid confusion.
+
