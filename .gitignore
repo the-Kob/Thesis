@@ -1,61 +1,16 @@
-# Unity + Rider + PyCharm GitIgnore
-# Updated to support a Python project (e.g., in /python_project) inside a Unity repo.
+#############################
+# Unity
+#############################
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+MemoryCaptures/
+UserSettings/
+Logs/
 
-### Rider ###
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
-.idea/**/aws.xml
-.idea/**/contentModel.xml
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
-.idea/**/gradle.xml
-.idea/**/libraries
-# .idea/artifacts
-# .idea/compiler.xml
-# .idea/jarRepositories.xml
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-# *.iml
-# *.ipr
-cmake-build-*/
-.idea/**/mongoSettings.xml
-*.iws
-out/
-.idea_modules/
-atlassian-ide-plugin.xml
-.idea/replstate.xml
-.idea/sonarlint/
-com_crashlytics_export_strings.xml
-crashlytics.properties
-crashlytics-build.properties
-fabric.properties
-.idea/httpRequests
-.idea/caches/build_file_checksums.ser
-
-### Unity ###
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Uu]ser[Ss]ettings/
-/[Mm]emoryCaptures/
-/[Rr]ecordings/
-/[Aa]ssets/Plugins/Editor/JetBrains*
-.vs/
-.gradle/
-ExportedObj/
-.consulo/
+# Auto-generated VS/JetBrains files
 *.csproj
 *.unityproj
 *.sln
@@ -67,77 +22,59 @@ ExportedObj/
 *.booproj
 *.svd
 *.pdb
-*.mdb
 *.opendb
 *.VC.db
-*.pidb.meta
-*.pdb.meta
-*.mdb.meta
-sysinfo.txt
-*.apk
-*.aab
-*.unitypackage
-*.app
-/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
-/[Aa]ssets/[Ss]treamingAssets/aa.meta
-/[Aa]ssets/[Ss]treamingAssets/aa/*
 
-### Python (Generic) ###
+# Crash and debug logs
+sysinfo.txt
+
+# Ignore asset meta files (optional)
+#*.meta
+
+# Unity addressables (optional)
+#Assets/AddressableAssetsData/*
+
+# Rider & VS Code
+.idea/
+.vscode/
+*.sln.iml
+
+#############################
+# Python / PyCharm / ML
+#############################
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-*.pyo
 
-# Ignore Python cache files inside ML folder but keep .py files
-/ML/__pycache__/
-/ML/*.py[cod]
-/ML/*$py.class
-/ML/*.pyo
-
-### PyCharm ###
-# These files are user-specific and shouldn't be committed
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/shelf
-.idea/**/dictionaries
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
+# C extensions
+*.so
 
 # Virtual environments
-venv/
-env/
-ENV/
+.env/
 .venv/
-.python-version
+env/
+venv/
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
 
-# PyCharm project files (if you created a separate one for Python inside Unity)
-# You might want to keep .idea/ if it's for both Unity and Python. Otherwise:
-# /python_project/.idea/
-
-# mypy, coverage, test output
-.mypy_cache/
-.coverage
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
+# PyCharm project settings
+*.iml
 .pytest_cache/
+.dmypy.json
+.mypy_cache/
+coverage.xml
+htmlcov/
 
-# Other common Python tools
-.tox/
-noxfile_config.json
-pip-log.txt
-pip-delete-this-directory.txt
+# Uncomment this to keep certain data
+#!Data/important_subset.csv
 
-# End of updated gitignore
-
-UserSettings/Layouts/default-6000.dwlt
+#############################
+# Logs and OS-specific files
+#############################
+*.log
+*.DS_Store
+Thumbs.db
