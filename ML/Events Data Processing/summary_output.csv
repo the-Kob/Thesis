@@ -1,2 +1,0 @@
-study_id,event_type_EnemyHit,event_type_EnemyKill,event_type_BulletMiss,event_type_SecondaryAttack,event_type_GettingHit,event_type_Buff,event_type_Nerf,event_type_End,actuator_P1,actuator_P2,receiver_P1Enemy,receiver_P2Enemy,avg_distance,total_time,distance_trend_Farther,distance_trend_Closer,movement_trend_Away,movement_trend_Sideways,movement_trend_Toward
-0,1057,189,107,40,16,7,6,1,731,675,729,677,34.90994378074491,180,12,6,8,5,5
