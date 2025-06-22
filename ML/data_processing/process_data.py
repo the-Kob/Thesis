@@ -128,7 +128,7 @@ def process_form(data):
 
     label_mappings = []
 
-    for i in range(1, 5):  # Adjust the range if there are more than 9 study IDs
+    for i in range(1, 5):
         study_id_col = f"Study ID {i}"
         label_col = f"{i}. How will you play (indicated by the researcher)?"
 
@@ -158,12 +158,10 @@ def get_merged_dataframe():
 
     final_df = pd.merge(events_df, label_df, how="left", on=["study_id", "player"])
 
-    # Construct path to data_processing directory
     current_dir = os.path.dirname(os.path.abspath(__file__))
     data_processing_dir = os.path.join(current_dir, '..', 'data_processing')
-    os.makedirs(data_processing_dir, exist_ok=True)  # Ensure directory exists
+    os.makedirs(data_processing_dir, exist_ok=True)
 
-    # Save to CSV
     temp_csv_path = os.path.join(data_processing_dir, 'last_merged_data.csv')
     final_df.to_csv(temp_csv_path, index=False)
 
