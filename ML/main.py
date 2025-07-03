@@ -1,3 +1,5 @@
-from models.svm import run_model
+import models.svm as svm
+import models.dnn as dnn
 
-run_model()
+svm.run_model()
+#dnn.run_model()

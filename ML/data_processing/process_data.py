@@ -81,22 +81,30 @@ def process_events(data):
         # Displacement Metrics
         displacement_data = study_data[study_data["event_type"] == "Displacement"]
 
-        summary["avg_distance_since_last_displacement"] = displacement_data["distance_since_last_displacement_trigger"].mean()
-        summary["max_distance_since_last_displacement"] = displacement_data["distance_since_last_displacement_trigger"].max()
+        if not displacement_data.empty:
+            summary["avg_distance_since_last_displacement"] = displacement_data[
+                "distance_since_last_displacement_trigger"].mean()
+            summary["max_distance_since_last_displacement"] = displacement_data[
+                "distance_since_last_displacement_trigger"].max()
 
-        closer_count = (displacement_data["distance_trend"] == "Closer").sum()
-        summary["closer_distance_trend_count"] = closer_count
-        same_count = (displacement_data["distance_trend"] == "Same").sum()
-        summary["same_distance_trend_count"] = same_count
-        farther_count = (displacement_data["distance_trend"] == "Farther").sum()
-        summary["farther_distance_trend_count"] = farther_count
+            summary["closer_distance_trend_count"] = (displacement_data["distance_trend"] == "Closer").sum()
+            summary["same_distance_trend_count"] = (displacement_data["distance_trend"] == "Same").sum()
+            summary["farther_distance_trend_count"] = (displacement_data["distance_trend"] == "Farther").sum()
 
-        toward_count = (displacement_data["movement_trend"] == "Toward").sum()
-        summary["toward_movement_trend_count"] = toward_count
-        away_count = (displacement_data["movement_trend"] == "Away").sum()
-        summary["away_movement_trend_count"] = away_count
-        sideways_count = (displacement_data["movement_trend"] == "Sideways").sum()
-        summary["sideways_movement_trend_count"] = sideways_count
+            summary["toward_movement_trend_count"] = (displacement_data["movement_trend"] == "Toward").sum()
+            summary["away_movement_trend_count"] = (displacement_data["movement_trend"] == "Away").sum()
+            summary["sideways_movement_trend_count"] = (displacement_data["movement_trend"] == "Sideways").sum()
+        else:
+            summary["avg_distance_since_last_displacement"] = 0
+            summary["max_distance_since_last_displacement"] = 0
+
+            summary["closer_distance_trend_count"] = 0
+            summary["same_distance_trend_count"] = 0
+            summary["farther_distance_trend_count"] = 0
+
+            summary["toward_movement_trend_count"] = 0
+            summary["away_movement_trend_count"] = 0
+            summary["sideways_movement_trend_count"] = 0
 
         # Buff & Nerf Metrics
         summary["buff_count"] = (study_data["event_type"] == "Buff").sum()
@@ -121,6 +129,46 @@ def process_events(data):
 
     return pd.DataFrame(flat_summary)
 
+def exclude_row(row):
+    if ("You consent with all of the information above?" in row and
+            row["You consent with all of the information above?"] != "Continue"):
+        return True
+
+    return False
+
+def exclude_study_id(row, i):
+    expected_behavior = f"{i}. How will you play (indicated by the researcher)?"
+    focus_question = f"{i}. How would you rate your FOCUS?"
+    challenge_question = f"{i}. How would you rate your CHALLENGE?"
+
+    # Check if columns exist first
+    if expected_behavior not in row or focus_question not in row or challenge_question not in row:
+        return False  # or True if you want to exclude rows missing these columns
+
+    # Use safe access now that columns are confirmed
+    try:
+        eb = row[expected_behavior]
+        fq_value = int(row[focus_question])
+        cq_value = int(row[challenge_question])
+    except (ValueError, TypeError):
+        # If conversion to int fails or value is None, be safe and exclude or include
+        return False
+
+    if eb == "FOCUS - yourself" and fq_value > 3:
+        return True
+
+    if eb == "FOCUS - partner" and fq_value < 3:
+        return True
+
+    if eb == "CHALLENGE - facilitate" and cq_value > 3:
+        return True
+
+    if eb == "CHALLENGE - complicate" and cq_value < 3:
+        return True
+
+    return False
+
+
 def process_form(data):
     print("Processing form...")
 
@@ -136,6 +184,13 @@ def process_form(data):
             subset = data[[study_id_col, "player", label_col]].dropna()
 
             for _, row in subset.iterrows():
+                # Check if the row or the study calls for exclusion
+                if exclude_row(row):
+                    break
+
+                if exclude_study_id(row, i):
+                    continue
+
                 study_id = str(row[study_id_col]).strip()
                 player = row["player"]
                 label = row[label_col]
@@ -157,6 +212,7 @@ def get_merged_dataframe():
     label_df = process_form(fd)
 
     final_df = pd.merge(events_df, label_df, how="left", on=["study_id", "player"])
+    final_df = final_df.dropna(subset=["label"])
 
     current_dir = os.path.dirname(os.path.abspath(__file__))
     data_processing_dir = os.path.join(current_dir, '..', 'data_processing')
@@ -168,3 +224,6 @@ def get_merged_dataframe():
     print(f"Saved merged data to {temp_csv_path}")
 
     return final_df
+
+if __name__ == "__main__":
+    get_merged_dataframe()
