@@ -42,7 +42,7 @@ def select_files():
     return gd_file_path, fd_file_path
 
 def load_data(filepath):
-    return pd.read_csv(filepath)
+    return pd.read_csv(filepath, low_memory=False)
 
 def get_player(row):
     field = event_player_map.get(row["event_type"])

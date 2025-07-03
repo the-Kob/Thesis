@@ -1,0 +1,130 @@
+Classification Report (Baseline):
+              precision    recall  f1-score   support
+
+           0       0.47      0.42      0.44        19
+           1       0.48      0.53      0.50        19
+
+    accuracy                           0.47        38
+   macro avg       0.47      0.47      0.47        38
+weighted avg       0.47      0.47      0.47        38
+
+
+Classification Report (Baseline + PCA):
+              precision    recall  f1-score   support
+
+           0       0.60      0.63      0.62        19
+           1       0.61      0.58      0.59        19
+
+    accuracy                           0.61        38
+   macro avg       0.61      0.61      0.60        38
+weighted avg       0.61      0.61      0.60        38
+
+
+Classification Report (Baseline + SelectKBest):
+              precision    recall  f1-score   support
+
+           0       0.55      0.58      0.56        19
+           1       0.56      0.53      0.54        19
+
+    accuracy                           0.55        38
+   macro avg       0.55      0.55      0.55        38
+weighted avg       0.55      0.55      0.55        38
+
+
+Classification Report (Baseline + PCA + SelectKBest):
+              precision    recall  f1-score   support
+
+           0       0.55      0.58      0.56        19
+           1       0.56      0.53      0.54        19
+
+    accuracy                           0.55        38
+   macro avg       0.55      0.55      0.55        38
+weighted avg       0.55      0.55      0.55        38
+
+
+Classification Report (Random Forest Baseline):
+              precision    recall  f1-score   support
+
+           0       0.68      0.68      0.68        19
+           1       0.68      0.68      0.68        19
+
+    accuracy                           0.68        38
+   macro avg       0.68      0.68      0.68        38
+weighted avg       0.68      0.68      0.68        38
+
+
+Classification Report (Random Forest Baseline + PCA):
+              precision    recall  f1-score   support
+
+           0       0.52      0.63      0.57        19
+           1       0.53      0.42      0.47        19
+
+    accuracy                           0.53        38
+   macro avg       0.53      0.53      0.52        38
+weighted avg       0.53      0.53      0.52        38
+
+
+Classification Report (Random Forest Baseline + SelectKBest):
+              precision    recall  f1-score   support
+
+           0       0.67      0.53      0.59        19
+           1       0.61      0.74      0.67        19
+
+    accuracy                           0.63        38
+   macro avg       0.64      0.63      0.63        38
+weighted avg       0.64      0.63      0.63        38
+
+
+Classification Report (Random Forest Baseline + PCA + SelectKBest):
+              precision    recall  f1-score   support
+
+           0       0.50      0.47      0.49        19
+           1       0.50      0.53      0.51        19
+
+    accuracy                           0.50        38
+   macro avg       0.50      0.50      0.50        38
+weighted avg       0.50      0.50      0.50        38
+
+
+Classification Report (Grid Search):
+              precision    recall  f1-score   support
+
+           0       0.47      0.42      0.44        19
+           1       0.48      0.53      0.50        19
+
+    accuracy                           0.47        38
+   macro avg       0.47      0.47      0.47        38
+weighted avg       0.47      0.47      0.47        38
+
+
+Classification Report (Grid Search + PCA):
+              precision    recall  f1-score   support
+
+           0       0.53      0.53      0.53        19
+           1       0.53      0.53      0.53        19
+
+    accuracy                           0.53        38
+   macro avg       0.53      0.53      0.53        38
+weighted avg       0.53      0.53      0.53        38
+
+
+Classification Report (Grid Search + SelectKBest):
+              precision    recall  f1-score   support
+
+           0       0.55      0.58      0.56        19
+           1       0.56      0.53      0.54        19
+
+    accuracy                           0.55        38
+   macro avg       0.55      0.55      0.55        38
+weighted avg       0.55      0.55      0.55        38
+
+
+Classification Report (Grid Search + PCA + SelectKBest):
+              precision    recall  f1-score   support
+
+           0       0.55      0.58      0.56        19
+           1       0.56      0.53      0.54        19
+
+    accuracy                           0.55        38
+   macro avg       0.55      0.55      0.55        38
+weighted avg       0.55      0.55      0.55        38
