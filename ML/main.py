@@ -1,5 +1,5 @@
-import models.svm as svm
+import models.models as _m
 import models.dnn as dnn
 
-svm.run_model()
+_m.run_models(remove_outliers=False, use_cv=False)
 #dnn.run_model()

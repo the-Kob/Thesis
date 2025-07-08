@@ -141,29 +141,26 @@ def exclude_study_id(row, i):
     focus_question = f"{i}. How would you rate your FOCUS?"
     challenge_question = f"{i}. How would you rate your CHALLENGE?"
 
-    # Check if columns exist first
     if expected_behavior not in row or focus_question not in row or challenge_question not in row:
-        return False  # or True if you want to exclude rows missing these columns
+        return False
 
-    # Use safe access now that columns are confirmed
     try:
         eb = row[expected_behavior]
         fq_value = int(row[focus_question])
         cq_value = int(row[challenge_question])
     except (ValueError, TypeError):
-        # If conversion to int fails or value is None, be safe and exclude or include
         return False
 
-    if eb == "FOCUS - yourself" and fq_value > 3:
+    if eb == "FOCUS - yourself" and fq_value >= 3:
         return True
 
-    if eb == "FOCUS - partner" and fq_value < 3:
+    if eb == "FOCUS - partner" and fq_value <= 3:
         return True
 
-    if eb == "CHALLENGE - facilitate" and cq_value > 3:
+    if eb == "CHALLENGE - facilitate" and cq_value >= 3:
         return True
 
-    if eb == "CHALLENGE - complicate" and cq_value < 3:
+    if eb == "CHALLENGE - complicate" and cq_value <= 3:
         return True
 
     return False
